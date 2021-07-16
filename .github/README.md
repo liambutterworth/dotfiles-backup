@@ -9,5 +9,5 @@
 Install dependencies, then run:
 
 ```
-$ bash -c "bash <(curl https://raw.githubusercontent.com/liambutterworth/dotfiles/master/.local/bin/dotfiles-init)"
+$ curl https://raw.githubusercontent.com/liambutterworth/dotfiles/master/.local/share/dotfiles/install.sh | bash
 ```

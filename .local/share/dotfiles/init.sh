@@ -11,14 +11,9 @@ git clone --mirror https://github.com/liambutterworth/dotfiles .dotfiles
 dotfiles switch -f master
 dotfiles config --local status.showUntrackedFiles no
 
-echo "\nInstalling fisher and vim-plug\n"
-
-curl -sL https://git.io/fisher | source && \
-  fisher install jorgebucaran/fisher
+echo "\nInstalling vim-plug\n"
 
 curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-echo "\nInstalling fish and neovim packages\n"
-
-fish -c "fisher update && nvim --headless +PlugInstall +qall"
+nvim --headless +PlugInstall +qall
