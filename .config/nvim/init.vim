@@ -103,7 +103,6 @@ if filereadable(expand("$XDG_DATA_HOME/nvim/site/autoload/plug.vim"))
 
     Plug 'airblade/vim-gitgutter'
     Plug 'hrsh7th/nvim-compe'
-    Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/limelight.vim'
