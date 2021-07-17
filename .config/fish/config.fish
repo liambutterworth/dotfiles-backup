@@ -82,7 +82,7 @@ set -gx XDG_DATA_HOME "$HOME/.local/share"
 set -gx XDG_STATE_HOME "$HOME/.local/state"
 set -gx DOCKER_CONFIG "$XDG_CONFIG_HOME/docker"
 set -gx LESSHISTFILE "$XDG_CACHE_HOME/less"
-set -gx NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
+set -gx NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npm/npmrc"
 set -gx CARGO_HOME "$XDG_DATA_HOME/cargo"
 set -gx RUSTUP_HOME "$XDG_DATA_HOME/rustup"
 set -gx PYENV_ROOT "$XDG_DATA_HOME/pyenv"
