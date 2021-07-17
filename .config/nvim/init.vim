@@ -36,6 +36,8 @@ set tags=./git/tags
 set undofile
 set wildignorecase wildmode=full
 
+let g:polyglot_disabled = ['autoindent']
+
 "
 " Commands
 "
