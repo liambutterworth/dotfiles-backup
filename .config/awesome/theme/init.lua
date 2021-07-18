@@ -45,4 +45,20 @@ return {
     border_marked = colors.bright.red,
     menu_height = dpi(15),
     menu_width = dpi(100),
+
+    -- calendar_month_padding = 20,
+
+    -- calendar_style = {
+    --     month = {
+    --         padding = 20,
+    --     },
+    -- },
+
+    -- calendar_style_month = {
+    --     padding = 20,
+    -- }
+
+    -- calendar_style = {
+    --     padding = 20,
+    -- }
 }

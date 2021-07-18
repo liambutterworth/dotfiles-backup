@@ -15,3 +15,5 @@
     email = liambutterworth@protonmail.com
 [init]
 	defaultBranch = master
+[pull]
+	ff = only
