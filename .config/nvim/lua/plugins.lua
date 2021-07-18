@@ -1,8 +1,7 @@
-local has_lspconfig, lspconfig = pcall(require, 'lspconfig')
+local has_lsp, lsp = pcall(require, 'lspconfig')
+local has_treesitter, treesitter = pcall(require, 'nvim-treesitter.configs')
 
-if has_lspconfig then
-    local compe = require('compe')
-
+if has_lsp then
     local on_attach = function(client, bufnr)
         local function buf_set_keymap(...)
             vim.api.nvim_buf_set_keymap(bufnr, ...)
@@ -25,15 +24,15 @@ if has_lspconfig then
         buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
     end
 
-    lspconfig.intelephense.setup{
+    lsp.intelephense.setup{
         on_attach = on_attach
     }
 
-    lspconfig.vuels.setup{
+    lsp.vuels.setup{
         on_attach = on_attach
     }
 
-    compe.setup {
+    require('compe').setup {
         enabled = true;
         autocomplete = true;
         debug = false;
@@ -57,5 +56,23 @@ if has_lspconfig then
             vsnip = true;
             ultisnips = true;
         };
+    }
+end
+
+if has_treesitter then
+    require('nvim-autopairs').setup({
+        check_ts = true,
+    })
+
+    require('nvim-autopairs.completion.compe').setup({
+        map_cr = true,
+        map_complete = true,
+    })
+
+    treesitter.setup {
+        autopairs = { enable = true },
+        autotag = { enable = true },
+        highlight = { enable = true },
+        indent = { enable = true },
     }
 end

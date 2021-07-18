@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+send() {
+    dbus-send \
+        --print-reply \
+        --dest=org.mpris.MediaPlayer2.spotify \
+        /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.$1
+}
+
+case $1 in
+    play) send PlayPause ;;
+    next) send Next ;;
+    prev) send Previous ;;
+esac

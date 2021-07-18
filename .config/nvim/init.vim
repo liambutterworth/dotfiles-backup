@@ -12,7 +12,7 @@
 
 set completeopt=menuone,noselect
 set dictionary=/usr/share/dict/words
-set expandtab shiftwidth=4 softtabstop=4
+set expandtab shiftwidth=4 tabstop=4
 set fillchars+=vert:\ 
 set foldenable foldmethod=indent foldlevelstart=10
 set hidden
@@ -35,8 +35,6 @@ set splitbelow splitright
 set tags=./git/tags
 set undofile
 set wildignorecase wildmode=full
-
-let g:polyglot_disabled = ['autoindent']
 
 "
 " Commands
@@ -111,6 +109,7 @@ if filereadable(expand("$XDG_DATA_HOME/nvim/site/autoload/plug.vim"))
     Plug 'junegunn/vim-easy-align',
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'neovim/nvim-lspconfig'
+    Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'preservim/nerdtree'
     Plug 'ryanoasis/vim-devicons'
     Plug 'sheerun/vim-polyglot'
@@ -121,6 +120,8 @@ if filereadable(expand("$XDG_DATA_HOME/nvim/site/autoload/plug.vim"))
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-unimpaired'
+    Plug 'windwp/nvim-autopairs'
+    Plug 'windwp/nvim-ts-autotag'
 
     call plug#end()
 end
@@ -166,7 +167,7 @@ if exists('g:plugs') && has_key(g:plugs, 'goyo.vim')
 end
 
 if exists('g:plugs') && has_key(g:plugs, 'nvim-lspconfig')
-    lua require 'lsp'
+    lua require 'plugins'
 end
 
 if exists('g:plugs') && has_key(g:plugs, 'nerdtree')
