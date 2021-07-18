@@ -3,6 +3,7 @@ pcall(require, 'luarocks.loader')
 local awful = require('awful')
 local beautiful = require('beautiful')
 local naughty = require('naughty')
+local gears = require('gears')
 
 awful.util.shell = 'fish'
 terminal = 'alacritty'
@@ -14,6 +15,6 @@ root.keys(require('keys'))
 require('errors')
 require('interface')
 
-awful.spawn.with_shell('~/.config/awesome/scripts/autorun.sh')
+awful.spawn.with_shell('~/.config/awesome/scripts/autorun')
 
 require('awful.autofocus') -- TODO remove in v5

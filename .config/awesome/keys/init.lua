@@ -1,9 +1,22 @@
 local gears = require('gears')
 local awful = require('awful')
+local gears = require('gears')
 
 modkey = 'Mod4'
 
 globalkeys = gears.table.join(
+    awful.key({}, "XF86AudioPlay", function()
+        awful.util.spawn_with_shell('~/.config/awesome/scripts/media play')
+    end),
+
+    awful.key({}, "XF86AudioNext", function()
+        awful.util.spawn_with_shell('~/.config/awesome/scripts/media next')
+    end),
+
+    awful.key({}, "XF86AudioPrev", function()
+        awful.util.spawn_with_shell('~/.config/awesome/scripts/media prev')
+    end),
+
     awful.key({ modkey }, 'q', function() client.focus:kill() end),
     awful.key({ modkey }, 'h', function() awful.client.focus.global_bydirection('left') end),
     awful.key({ modkey }, 'j', function() awful.client.focus.global_bydirection('down') end),
