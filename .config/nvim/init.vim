@@ -82,7 +82,6 @@ if filereadable(expand("$XDG_DATA_HOME/nvim/site/autoload/plug.vim"))
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-treesitter/nvim-treesitter'
-    Plug 'sheerun/vim-polyglot'
     Plug 'sirver/ultisnips'
     Plug 'tomtom/tcomment_vim'
     Plug 'tpope/vim-eunuch'
@@ -93,8 +92,8 @@ if filereadable(expand("$XDG_DATA_HOME/nvim/site/autoload/plug.vim"))
     Plug 'windwp/nvim-autopairs'
     Plug 'windwp/nvim-ts-autotag'
 
-    " Plug 'ryanoasis/vim-devicons'
-    " Plug 'preservim/nerdtree'
+    " TODO remove after treesitter fixes vue indentation
+    Plug 'posva/vim-vue'
 
     call plug#end()
 end
@@ -150,22 +149,6 @@ end
 if exists('g:plugs') && has_key(g:plugs, 'nvim-lspconfig')
     lua require 'plugins'
 end
-
-" if exists('g:plugs') && has_key(g:plugs, 'nerdtree')
-"     let g:NERDTreeBookmarksFile = $XDG_CACHE_HOME . '/nvim/NERDTreeBookmarks'
-"
-"     nnoremap <silent> <cr><cr> :NERDTreeToggle<cr>
-"     nnoremap <silent> <cr>c :NERDTreeClose<cr>
-"     nnoremap <silent> <cr>r :NERDTreeRefreshRoot<cr>
-"
-"     nnoremap <expr> <cr>w exists('b:NERDTree')
-"         \ ? '<c-w><c-p>'
-"         \ : ':NERDTreeFocus'
-"
-"     nnoremap <expr> <cr>f exists('b:NERDTree')
-"         \ ? '<c-w><c-p>:NERDTreeFind<cr>'
-"         \ : ':NERDTreeFind<cr>'
-" endif
 
 if exists('g:plugs') && has_key(g:plugs, 'ultisnips')
     let g:UltiSnipsSnippetDirectories = [ $XDG_CONFIG_HOME . '/nvim/ultisnips' ]
