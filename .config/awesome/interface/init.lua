@@ -6,6 +6,7 @@ local bar = require('interface.bar')
 local tasklist = require('interface.widgets.tasklist')
 local taglist = require('interface.widgets.taglist')
 local clock = require('interface.widgets.clock')
+local power = require('interface.widgets.power')
 
 awful.layout.layouts = require('interface.layouts')
 awful.rules.rules = require('interface.rules')
@@ -19,6 +20,7 @@ awful.screen.connect_for_each_screen(function(screen)
         expand = 'none',
 
         {
+            power.create(screen),
             layout = wibox.layout.fixed.horizontal,
             taglist.create(screen),
         },

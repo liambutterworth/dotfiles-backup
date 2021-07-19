@@ -1,7 +1,8 @@
-local theme_assets = require('beautiful.theme_assets')
 local xresources = require('beautiful.xresources')
+local theme_assets = require('beautiful.theme_assets')
+local gears = require('gears')
 local dpi = xresources.apply_dpi
-local taglist_square_size = dpi(4)
+local icons = gears.filesystem.get_xdg_config_home() .. 'awesome/theme/icons/'
 
 local colors = {
     normal = {
@@ -28,6 +29,7 @@ local colors = {
 }
 
 return {
+    icon = icon,
     font = 'Source Sans 14',
     bg_normal = colors.normal.black,
     bg_focus = colors.bright.black,
@@ -46,19 +48,7 @@ return {
     menu_height = dpi(15),
     menu_width = dpi(100),
 
-    -- calendar_month_padding = 20,
-
-    -- calendar_style = {
-    --     month = {
-    --         padding = 20,
-    --     },
-    -- },
-
-    -- calendar_style_month = {
-    --     padding = 20,
-    -- }
-
-    -- calendar_style = {
-    --     padding = 20,
-    -- }
+    icon = function(name, color)
+        return gears.color.recolor_image(icons..name..'.svg', color)
+    end
 }

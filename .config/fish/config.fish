@@ -87,10 +87,13 @@ set -gx CARGO_HOME "$XDG_DATA_HOME/cargo"
 set -gx RUSTUP_HOME "$XDG_DATA_HOME/rustup"
 set -gx PYENV_ROOT "$XDG_DATA_HOME/pyenv"
 set -gx PYTHON3_HOST_PROG (command -v python)
-set -gx FZF_DEFAULT_COMMAND "rg --files --hidden"
-set -gx FZF_CTRL_T_COMMAND "rg --files --hidden"
+set -gx NNN_BMS 'h:~;c:~/.config'
+set -gx NNN_COLORS '4444'
+set -gx NNN_FCOLORS '020304020705060701030501'
+set -gx FZF_DEFAULT_COMMAND "fd --type file --follow"
+set -gx FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
+set -gx FZF_ALT_C_COMMAND "fd --type directory"
 set -gx FZF_DEFAULT_OPTS "--color $FZF_COLORS --no-preview"
-set -gx FZF_FIND_FILE_COMMAND $FZF_DEFAULT_COMMAND
 
 if test -e $XDG_CONFIG_HOME/fish/profile.fish
     source $XDG_CONFIG_HOME/fish/profile.fish

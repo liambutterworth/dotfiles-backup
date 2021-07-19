@@ -1,40 +1,11 @@
 "
 " Vim
 "
-" :: Settings
 " :: Commands
 " :: Mappings
 " :: Plugins
 
-"
-" Settings
-"
-
-set completeopt=menuone,noselect
-set dictionary=/usr/share/dict/words
-set expandtab shiftwidth=4 tabstop=4
-set fillchars+=vert:\ 
-set foldenable foldmethod=indent foldlevelstart=10
-set hidden
-set ignorecase smartcase
-set laststatus=0 showtabline=0
-set list listchars=tab:│\ ,trail:·
-set mouse=n
-set nobackup noswapfile nowritebackup
-set nohlsearch
-set nojoinspaces
-set nowrap
-set noshowmode
-set number relativenumber
-set omnifunc=syntaxcomplete#Complete
-set runtimepath+=$XDG_CONFIG_HOME/nvim/lua
-set signcolumn=yes:1
-set shortmess+=c
-set smartindent
-set splitbelow splitright
-set tags=./git/tags
-set undofile
-set wildignorecase wildmode=full
+lua require 'settings'
 
 "
 " Commands
@@ -107,11 +78,10 @@ if filereadable(expand("$XDG_DATA_HOME/nvim/site/autoload/plug.vim"))
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/limelight.vim'
     Plug 'junegunn/vim-easy-align',
+    Plug 'mcchrish/nnn.vim'
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-treesitter/nvim-treesitter'
-    Plug 'preservim/nerdtree'
-    Plug 'ryanoasis/vim-devicons'
     Plug 'sheerun/vim-polyglot'
     Plug 'sirver/ultisnips'
     Plug 'tomtom/tcomment_vim'
@@ -122,6 +92,9 @@ if filereadable(expand("$XDG_DATA_HOME/nvim/site/autoload/plug.vim"))
     Plug 'tpope/vim-unimpaired'
     Plug 'windwp/nvim-autopairs'
     Plug 'windwp/nvim-ts-autotag'
+
+    " Plug 'ryanoasis/vim-devicons'
+    " Plug 'preservim/nerdtree'
 
     call plug#end()
 end
@@ -166,25 +139,33 @@ if exists('g:plugs') && has_key(g:plugs, 'goyo.vim')
     autocmd User GoyoLeave Limelight! | colorscheme custom
 end
 
+if exists('g:plugs') && has_key(g:plugs, 'nnn.vim')
+    let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
+    let g:nnn#replace_netrw = 1
+    let g:nnn#session = 'local'
+
+    nnoremap <silent> <cr> :NnnPicker %:p:h<cr>
+end
+
 if exists('g:plugs') && has_key(g:plugs, 'nvim-lspconfig')
     lua require 'plugins'
 end
 
-if exists('g:plugs') && has_key(g:plugs, 'nerdtree')
-    let g:NERDTreeBookmarksFile = $XDG_CACHE_HOME . '/nvim/NERDTreeBookmarks'
-
-    nnoremap <silent> <cr><cr> :NERDTreeToggle<cr>
-    nnoremap <silent> <cr>c :NERDTreeClose<cr>
-    nnoremap <silent> <cr>r :NERDTreeRefreshRoot<cr>
-
-    nnoremap <expr> <cr>w exists('b:NERDTree')
-        \ ? '<c-w><c-p>'
-        \ : ':NERDTreeFocus'
-
-    nnoremap <expr> <cr>f exists('b:NERDTree')
-        \ ? '<c-w><c-p>:NERDTreeFind<cr>'
-        \ : ':NERDTreeFind<cr>'
-endif
+" if exists('g:plugs') && has_key(g:plugs, 'nerdtree')
+"     let g:NERDTreeBookmarksFile = $XDG_CACHE_HOME . '/nvim/NERDTreeBookmarks'
+"
+"     nnoremap <silent> <cr><cr> :NERDTreeToggle<cr>
+"     nnoremap <silent> <cr>c :NERDTreeClose<cr>
+"     nnoremap <silent> <cr>r :NERDTreeRefreshRoot<cr>
+"
+"     nnoremap <expr> <cr>w exists('b:NERDTree')
+"         \ ? '<c-w><c-p>'
+"         \ : ':NERDTreeFocus'
+"
+"     nnoremap <expr> <cr>f exists('b:NERDTree')
+"         \ ? '<c-w><c-p>:NERDTreeFind<cr>'
+"         \ : ':NERDTreeFind<cr>'
+" endif
 
 if exists('g:plugs') && has_key(g:plugs, 'ultisnips')
     let g:UltiSnipsSnippetDirectories = [ $XDG_CONFIG_HOME . '/nvim/ultisnips' ]
