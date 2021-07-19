@@ -60,6 +60,7 @@ nnoremap <leader>e :close<cr>
 nnoremap <leader>E :close!<cr>
 nnoremap <silent> <leader>r :so $MYVIMRC<cr>
 nnoremap <silent> <leader>g :Goyo<cr>
+nnoremap <leader>t :TSHighlightCapturesUnderCursor<cr>
 nnoremap <leader>H :so $VIMRUNTIME/syntax/hitest.vim<cr>
 map <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
     \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
@@ -74,6 +75,7 @@ if filereadable(expand("$XDG_DATA_HOME/nvim/site/autoload/plug.vim"))
 
     Plug 'airblade/vim-gitgutter'
     Plug 'hrsh7th/nvim-compe'
+    Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/limelight.vim'
@@ -82,6 +84,7 @@ if filereadable(expand("$XDG_DATA_HOME/nvim/site/autoload/plug.vim"))
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'nvim-treesitter/playground'
     Plug 'sirver/ultisnips'
     Plug 'tomtom/tcomment_vim'
     Plug 'tpope/vim-eunuch'

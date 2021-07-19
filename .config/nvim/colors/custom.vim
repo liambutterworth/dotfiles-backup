@@ -170,9 +170,11 @@ highlight link vueSurroundingTag htmlTag
 " PHP
 "
 
-highlight link phpFunction phpFunctions
-highlight link phpIdentifier Type
-highlight link phpMethod phpMethods
-highlight link phpParent Type
-highlight link phpStaticClasses Title
-highlight link phpType Keyword
+" highlight link phpTSConstructor Visual
+
+" highlight link phpFunction phpFunctions
+" highlight link phpIdentifier Type
+" highlight link phpMethod phpMethods
+" highlight link phpParent Type
+" highlight link phpStaticClasses Title
+" highlight link phpType Keyword
