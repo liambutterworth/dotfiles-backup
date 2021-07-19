@@ -10,7 +10,7 @@
 # Aliases
 #
 
-alias dotfiles="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
+alias dot="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 alias ls="ls -F --color=always --group-directories-first"
 alias la="ls -A"
 alias ll="ls -Ahl"
