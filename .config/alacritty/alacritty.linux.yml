@@ -24,7 +24,6 @@ draw_bold_text_with_bright_colors: true
 key_bindings:
   - { key: L, mods: Control, chars: "\x0c" }
   - { key: L, mods: Control|Shift, action: ClearHistory }
-  - { key: F, mods: Command|Control, action: ToggleSimpleFullScreen }
 
 
 #
@@ -104,7 +103,7 @@ debug:
 #
 
 font:
-  size: 21
+  size: 16
   normal:
     family: Source Code Pro
     style: Light
