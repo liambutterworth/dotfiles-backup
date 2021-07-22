@@ -88,6 +88,7 @@ set -gx RUSTUP_HOME "$XDG_DATA_HOME/rustup"
 set -gx PYENV_ROOT "$XDG_DATA_HOME/pyenv"
 set -gx PYTHON3_HOST_PROG (command -v python)
 set -gx NNN_BMS 'h:~;c:~/.config;d:~/Development'
+set -gx NNN_PLUG 'f:fzcd;o:fzopen'
 set -gx NNN_COLORS '4444'
 set -gx NNN_FCOLORS '020304020705060701030501'
 set -gx FZF_DEFAULT_COMMAND "fd --type file --follow"

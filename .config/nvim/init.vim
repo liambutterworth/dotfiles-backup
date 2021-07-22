@@ -11,7 +11,6 @@ lua require 'settings'
 " Commands
 "
 
-autocmd FileType * setlocal formatoptions-=o
 autocmd TermOpen * setlocal nonumber norelativenumber | startinsert
 autocmd BufEnter * if &buftype == 'terminal' | :startinsert | endif
 
@@ -29,6 +28,7 @@ nnoremap d* *``dgn
 nnoremap d# #``dgN
 nnoremap g= mmgg=G`m
 nnoremap gQ mmgggq`
+
 nnoremap <bs> <c-^>
 nnoremap <c-s> :write<cr>
 nnoremap <c-h> <c-w>h
@@ -43,23 +43,23 @@ nnoremap <c-w>h 10<c-w><
 nnoremap <c-w>j 5<c-w>+
 nnoremap <c-w>k 5<c-w>-
 nnoremap <c-w>l 10<c-w>>
+
+nnoremap [<space> m`O<esc>``
+nnoremap ]<space> m`o<esc>``
+nnoremap [e :m .-2<CR>==
+nnoremap ]e :m .+1<CR>==
+vnoremap [e :m '<-2<CR>gv=gv
+vnoremap ]e :m '>+1<CR>gv=gv
+
 nnoremap \\ :term<cr>
 nnoremap \s :split<cr>:term<cr>
 nnoremap \v :vsplit<cr>:term<cr>
 tnoremap <c-\> <c-\><c-n>
 
+
 " TODO remove
 let mapleader = ' '
-nnoremap <leader>w :write<cr>
-nnoremap <leader>W :writeall<cr>
-nnoremap <leader>q :quit<cr>
-nnoremap <leader>Q :quit!<cr>
-nnoremap <leader>d :bwipe<cr>
-nnoremap <leader>D :bwipe!<cr>
-nnoremap <leader>e :close<cr>
-nnoremap <leader>E :close!<cr>
 nnoremap <silent> <leader>r :so $MYVIMRC<cr>
-nnoremap <silent> <leader>g :Goyo<cr>
 nnoremap <leader>t :TSHighlightCapturesUnderCursor<cr>
 nnoremap <leader>H :so $VIMRUNTIME/syntax/hitest.vim<cr>
 map <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
@@ -74,29 +74,41 @@ if filereadable(expand("$XDG_DATA_HOME/nvim/site/autoload/plug.vim"))
     call plug#begin()
 
     Plug 'airblade/vim-gitgutter'
-    Plug 'hrsh7th/nvim-compe'
     Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/limelight.vim'
     Plug 'junegunn/vim-easy-align',
     Plug 'mcchrish/nnn.vim'
-    Plug 'michaeljsmith/vim-indent-object'
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'nvim-treesitter/nvim-treesitter'
-    Plug 'nvim-treesitter/playground'
     Plug 'sirver/ultisnips'
     Plug 'tomtom/tcomment_vim'
-    Plug 'tpope/vim-eunuch'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-surround'
-    Plug 'tpope/vim-unimpaired'
-    Plug 'windwp/nvim-autopairs'
-    Plug 'windwp/nvim-ts-autotag'
 
-    " TODO remove after treesitter fixes vue indentation
+    " TODO troubleshoot and make faster
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'hrsh7th/nvim-compe'
+
+    " Plug 'michaeljsmith/vim-indent-object'
+    " Plug 'tpope/vim-eunuch'
+    " Plug 'tpope/vim-unimpaired'
+
+    " TODO figure out how to not use tmux
+    " Plug 'christoomey/vim-tmux-navigator'
+
+    " TODO remove after treesitter is working
     Plug 'posva/vim-vue'
+    Plug 'pangloss/vim-javascript'
+    Plug 'blankname/vim-fish'
+    Plug 'tbastos/vim-lua'
+    Plug 'StanAngeloff/php.vim'
+
+    " TODO get treesitter working
+    " Plug 'nvim-treesitter/nvim-treesitter'
+    " Plug 'nvim-treesitter/playground'
+    " Plug 'windwp/nvim-autopairs'
+    " Plug 'windwp/nvim-ts-autotag'
 
     call plug#end()
 end
@@ -142,11 +154,13 @@ if exists('g:plugs') && has_key(g:plugs, 'goyo.vim')
 end
 
 if exists('g:plugs') && has_key(g:plugs, 'nnn.vim')
-    let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
+    let g:nnn#action = { '<c-s>': 'split', '<c-v>': 'vsplit' }
+    let g:nnn#command = 'nnn -Q'
+    let g:nnn#layout = { 'window': { 'width': 0.8, 'height': 0.8, 'border': 'sharp' } }
     let g:nnn#replace_netrw = 1
     let g:nnn#session = 'local'
 
-    nnoremap <silent> <cr> :NnnPicker %:p:h<cr>
+    nnoremap <silent> <cr> :NnnPicker<cr>
 end
 
 if exists('g:plugs') && has_key(g:plugs, 'nvim-lspconfig')
