@@ -94,9 +94,6 @@ if filereadable(expand("$XDG_DATA_HOME/nvim/site/autoload/plug.vim"))
     " Plug 'tpope/vim-eunuch'
     " Plug 'tpope/vim-unimpaired'
 
-    " TODO figure out how to not use tmux
-    " Plug 'christoomey/vim-tmux-navigator'
-
     " TODO remove after treesitter is working
     Plug 'posva/vim-vue'
     Plug 'pangloss/vim-javascript'
@@ -154,13 +151,14 @@ if exists('g:plugs') && has_key(g:plugs, 'goyo.vim')
 end
 
 if exists('g:plugs') && has_key(g:plugs, 'nnn.vim')
-    let g:nnn#action = { '<c-s>': 'split', '<c-v>': 'vsplit' }
+    let g:nnn#action = { '<c-s>': 'split', '<c-v>': 'vsplit', '<c-v': 'tab' }
     let g:nnn#command = 'nnn -Q'
     let g:nnn#layout = { 'window': { 'width': 0.8, 'height': 0.8, 'border': 'sharp' } }
     let g:nnn#replace_netrw = 1
-    let g:nnn#session = 'local'
+    let g:nnn#session = 'global'
 
-    nnoremap <silent> <cr> :NnnPicker<cr>
+    nnoremap <silent> <cr>f :NnnPicker %:p:h<cr>
+    nnoremap <silent> <cr><cr> :NnnPicker<cr>
 end
 
 if exists('g:plugs') && has_key(g:plugs, 'nvim-lspconfig')

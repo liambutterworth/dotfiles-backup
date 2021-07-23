@@ -18,6 +18,7 @@ highlight DiffText cterm=bold ctermbg=red ctermfg=black
 highlight Error cterm=bold ctermbg=none ctermfg=red
 highlight Folded ctermbg=black ctermfg=white
 highlight FoldColumn ctermbg=black ctermfg=white
+highlight FloatBorder ctermbg=none ctermfg=blue
 highlight Identifier cterm=none ctermfg=cyan
 highlight LineNr cterm=bold ctermfg=black
 highlight MatchParen cterm=bold ctermbg=none ctermfg=yellow

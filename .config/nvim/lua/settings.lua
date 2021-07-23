@@ -7,7 +7,7 @@ vim.opt.hidden = true
 vim.opt.ignorecase = true
 vim.opt.laststatus = 0
 vim.opt.list = true
-vim.opt.listchars = { trail = '·' }
+vim.opt.listchars = { trail = '·', tab = '│ ' }
 vim.opt.mouse = 'n'
 vim.opt.wrap = false
 vim.opt.hlsearch = false
