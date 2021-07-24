@@ -46,8 +46,6 @@ nnoremap <silent> <c-w>j 5<c-w>+
 nnoremap <silent> <c-w>k 5<c-w>-
 nnoremap <silent> <c-w>l 10<c-w>>
 
-" nnoremap <silent> <c-w>T :call delete(expand('%')) | bdelete!<cr>
-
 nnoremap \\ :term<cr>
 nnoremap \s :split<cr>:term<cr>
 nnoremap \v :vsplit<cr>:term<cr>
@@ -84,8 +82,6 @@ if filereadable(expand("$XDG_DATA_HOME/nvim/site/autoload/plug.vim"))
     Plug 'junegunn/vim-easy-align',
     Plug 'mcchrish/nnn.vim'
     Plug 'sirver/ultisnips'
-    " Plug 'tomtom/tcomment_vim'
-
     Plug 'suy/vim-context-commentstring'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-eunuch'
@@ -113,6 +109,7 @@ if filereadable(expand("$XDG_DATA_HOME/nvim/site/autoload/plug.vim"))
     " Plug 'nvim-treesitter/playground'
     " Plug 'windwp/nvim-autopairs'
     " Plug 'windwp/nvim-ts-autotag'
+    " Plug 'JoosepAliviste/nvim-ts-context-commentstring'
 
     call plug#end()
 end
