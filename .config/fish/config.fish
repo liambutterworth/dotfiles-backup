@@ -91,6 +91,7 @@ set -gx NNN_BMS 'h:~;c:~/.config;d:~/Development'
 set -gx NNN_PLUG 'f:fzcd;o:fzopen'
 set -gx NNN_COLORS '4444'
 set -gx NNN_FCOLORS '020304020705060701030501'
+set -gx NNN_USE_EDITOR 1
 set -gx FZF_DEFAULT_COMMAND "fd --type file --follow"
 set -gx FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 set -gx FZF_ALT_C_COMMAND "fd --type directory"

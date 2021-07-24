@@ -35,27 +35,30 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
-nnoremap <c-w>d :bwipe<cr>
-nnoremap <c-w>D :bwipe!<cr>
-nnoremap <c-w>Q :quit!<cr>
-nnoremap <c-w>C :close!<cr>
-nnoremap <c-w>h 10<c-w><
-nnoremap <c-w>j 5<c-w>+
-nnoremap <c-w>k 5<c-w>-
-nnoremap <c-w>l 10<c-w>>
+nnoremap <silent> <c-w>d :bwipe<cr>
+nnoremap <silent> <c-w>D :bwipe!<cr>
+nnoremap <silent> <c-w>Q :quit!<cr>
+nnoremap <silent> <c-w>C :close!<cr>
+nnoremap <silent> <c-w>] :bnext<cr>
+nnoremap <silent> <c-w>[ :bprev<cr>
+nnoremap <silent> <c-w>h 10<c-w><
+nnoremap <silent> <c-w>j 5<c-w>+
+nnoremap <silent> <c-w>k 5<c-w>-
+nnoremap <silent> <c-w>l 10<c-w>>
 
-nnoremap [<space> m`O<esc>``
-nnoremap ]<space> m`o<esc>``
-nnoremap [e :m .-2<CR>==
-nnoremap ]e :m .+1<CR>==
-vnoremap [e :m '<-2<CR>gv=gv
-vnoremap ]e :m '>+1<CR>gv=gv
+" nnoremap <silent> <c-w>T :call delete(expand('%')) | bdelete!<cr>
 
 nnoremap \\ :term<cr>
 nnoremap \s :split<cr>:term<cr>
 nnoremap \v :vsplit<cr>:term<cr>
 tnoremap <c-\> <c-\><c-n>
 
+nnoremap <silent> <expr> [<space> 'm`' . v:count . 'O<esc>``'
+nnoremap <silent> <expr> ]<space> 'm`' . v:count . 'o<esc>``'
+nnoremap <silent> [e :<c-u>execute 'm-' . (v:count1 + 1)<cr>==
+nnoremap <silent> ]e :<c-u>execute 'm+' . v:count1<cr>==
+vnoremap <silent> [e :<c-u>execute "'<,'>m-" . (v:count1 + 1)<cr>gv=gv
+vnoremap <silent> ]e :<c-u>execute "'<,'>m+" . (v:count1 + 1)<cr>gv=gv
 
 " TODO remove
 let mapleader = ' '
@@ -82,6 +85,7 @@ if filereadable(expand("$XDG_DATA_HOME/nvim/site/autoload/plug.vim"))
     Plug 'mcchrish/nnn.vim'
     Plug 'sirver/ultisnips'
     Plug 'tomtom/tcomment_vim'
+    Plug 'tpope/vim-eunuch'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-surround'
@@ -91,7 +95,6 @@ if filereadable(expand("$XDG_DATA_HOME/nvim/site/autoload/plug.vim"))
     Plug 'hrsh7th/nvim-compe'
 
     " Plug 'michaeljsmith/vim-indent-object'
-    " Plug 'tpope/vim-eunuch'
     " Plug 'tpope/vim-unimpaired'
 
     " TODO remove after treesitter is working
@@ -100,6 +103,7 @@ if filereadable(expand("$XDG_DATA_HOME/nvim/site/autoload/plug.vim"))
     Plug 'blankname/vim-fish'
     Plug 'tbastos/vim-lua'
     Plug 'StanAngeloff/php.vim'
+    Plug 'jwalton512/vim-blade'
 
     " TODO get treesitter working
     " Plug 'nvim-treesitter/nvim-treesitter'
