@@ -20,7 +20,7 @@ awful.screen.connect_for_each_screen(function(screen)
         expand = 'none',
 
         {
-            power.create(screen),
+            -- power.create(screen),
             layout = wibox.layout.fixed.horizontal,
             taglist.create(screen),
         },

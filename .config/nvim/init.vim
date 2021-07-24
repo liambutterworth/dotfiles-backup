@@ -84,7 +84,10 @@ if filereadable(expand("$XDG_DATA_HOME/nvim/site/autoload/plug.vim"))
     Plug 'junegunn/vim-easy-align',
     Plug 'mcchrish/nnn.vim'
     Plug 'sirver/ultisnips'
-    Plug 'tomtom/tcomment_vim'
+    " Plug 'tomtom/tcomment_vim'
+
+    Plug 'suy/vim-context-commentstring'
+    Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-eunuch'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-repeat'
