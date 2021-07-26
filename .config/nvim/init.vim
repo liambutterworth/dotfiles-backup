@@ -1,62 +1,8 @@
-"
-" Vim
-"
-" :: Commands
-" :: Mappings
-" :: Plugins
-
 lua require 'settings'
-
-"
-" Commands
-"
+lua require 'mappings'
 
 autocmd TermOpen * setlocal nonumber norelativenumber | startinsert
 autocmd BufEnter * if &buftype == 'terminal' | :startinsert | endif
-
-"
-" Mappings
-"
-
-nnoremap j gj
-nnoremap k gk
-nnoremap Y y$
-nnoremap Q @q
-nnoremap c* *``cgn
-nnoremap c# #``cgN
-nnoremap d* *``dgn
-nnoremap d# #``dgN
-nnoremap g= mmgg=G`m
-nnoremap gQ mmgggq`
-
-nnoremap <bs> <c-^>
-nnoremap <c-s> :write<cr>
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
-nnoremap <silent> <c-w>d :bwipe<cr>
-nnoremap <silent> <c-w>D :bwipe!<cr>
-nnoremap <silent> <c-w>Q :quit!<cr>
-nnoremap <silent> <c-w>C :close!<cr>
-nnoremap <silent> <c-w>] :bnext<cr>
-nnoremap <silent> <c-w>[ :bprev<cr>
-nnoremap <silent> <c-w>h 10<c-w><
-nnoremap <silent> <c-w>j 5<c-w>+
-nnoremap <silent> <c-w>k 5<c-w>-
-nnoremap <silent> <c-w>l 10<c-w>>
-
-nnoremap \\ :term<cr>
-nnoremap \s :split<cr>:term<cr>
-nnoremap \v :vsplit<cr>:term<cr>
-tnoremap <c-\> <c-\><c-n>
-
-nnoremap <silent> <expr> [<space> 'm`' . v:count . 'O<esc>``'
-nnoremap <silent> <expr> ]<space> 'm`' . v:count . 'o<esc>``'
-nnoremap <silent> [e :<c-u>execute 'm-' . (v:count1 + 1)<cr>==
-nnoremap <silent> ]e :<c-u>execute 'm+' . v:count1<cr>==
-vnoremap <silent> [e :<c-u>execute "'<,'>m-" . (v:count1 + 1)<cr>gv=gv
-vnoremap <silent> ]e :<c-u>execute "'<,'>m+" . (v:count1 + 1)<cr>gv=gv
 
 " TODO remove
 let mapleader = ' '
@@ -66,10 +12,6 @@ nnoremap <leader>H :so $VIMRUNTIME/syntax/hitest.vim<cr>
 map <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
     \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
     \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-
-"
-" Plugins
-"
 
 if filereadable(expand("$XDG_DATA_HOME/nvim/site/autoload/plug.vim"))
     call plug#begin()
