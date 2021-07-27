@@ -1,8 +1,11 @@
 lua require 'settings'
 lua require 'mappings'
 
-autocmd TermOpen * setlocal nonumber norelativenumber | startinsert
-autocmd BufEnter * if &buftype == 'terminal' | :startinsert | endif
+augroup TERM
+    autocmd!
+    autocmd TermOpen * startinsert
+    autocmd TermOpen * setlocal nonumber norelativenumber
+augroup END
 
 " TODO remove
 let mapleader = ' '
