@@ -1,3 +1,5 @@
+vim.g.mapleader = ' '
+
 vim.opt.backup = false
 vim.opt.completeopt = { 'menuone', 'noselect' }
 vim.opt.dictionary = '/usr/share/dict/words'

@@ -8,8 +8,6 @@ augroup TERM
 augroup END
 
 " TODO remove
-let mapleader = ' '
-nnoremap <silent> <leader>r :so $MYVIMRC<cr>
 nnoremap <leader>t :TSHighlightCapturesUnderCursor<cr>
 nnoremap <leader>H :so $VIMRUNTIME/syntax/hitest.vim<cr>
 map <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
@@ -33,6 +31,7 @@ if filereadable(expand("$XDG_DATA_HOME/nvim/site/autoload/plug.vim"))
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-surround'
+    Plug 'vimwiki/vimwiki'
 
     " TODO troubleshoot and make faster
     Plug 'neovim/nvim-lspconfig'

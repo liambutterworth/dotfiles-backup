@@ -15,28 +15,28 @@ power.create = function(screen)
         },
     }
 
-    local popup = awful.popup {
-        position = awful.placement.top_left,
-        ontop = true,
-        visible = true,
+    -- local popup = awful.popup {
+    --     position = awful.placement.top_left,
+    --     ontop = true,
+    --     visible = false,
 
-        widget = {
-            widget = wibox.container.margin,
+    --     widget = {
+    --         widget = wibox.container.margin,
 
-            {
-                layout = wibox.layout.fixed.vertical,
+    --         {
+    --             layout = wibox.layout.fixed.vertical,
 
-                { widget = wibox.widget.textbox, text = 'Power off' },
-                { widget = wibox.widget.textbox, text = 'Reboot' },
-            },
-        }
-    }
+    --             { widget = wibox.widget.textbox, text = 'Power off' },
+    --             { widget = wibox.widget.textbox, text = 'Reboot' },
+    --         },
+    --     }
+    -- }
 
-    button:buttons(awful.util.table.join(
-        awful.button({}, 1, function()
-            popup.visible = not popup.visible
-        end)
-    ))
+    -- button:buttons(awful.util.table.join(
+    --     awful.button({}, 1, function()
+    --         popup.visible = not popup.visible
+    --     end)
+    -- ))
 
     return button
 end
