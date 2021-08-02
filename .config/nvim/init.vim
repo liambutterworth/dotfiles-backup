@@ -24,9 +24,8 @@ if filereadable(expand("$XDG_DATA_HOME/nvim/site/autoload/plug.vim"))
     Plug 'junegunn/limelight.vim'
     Plug 'junegunn/vim-easy-align',
     Plug 'mcchrish/nnn.vim'
-    Plug 'sirver/ultisnips'
-    Plug 'suy/vim-context-commentstring'
-    Plug 'tpope/vim-commentary'
+    " Plug 'sirver/ultisnips'
+    Plug 'tomtom/tcomment_vim'
     Plug 'tpope/vim-eunuch'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-repeat'
@@ -36,23 +35,21 @@ if filereadable(expand("$XDG_DATA_HOME/nvim/site/autoload/plug.vim"))
     " TODO troubleshoot and make faster
     Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/nvim-compe'
-
-    " Plug 'michaeljsmith/vim-indent-object'
-    " Plug 'tpope/vim-unimpaired'
+    Plug 'hrsh7th/vim-vsnip'
 
     " TODO remove after treesitter is working
     Plug 'posva/vim-vue'
-    Plug 'pangloss/vim-javascript'
-    Plug 'blankname/vim-fish'
-    Plug 'tbastos/vim-lua'
-    Plug 'StanAngeloff/php.vim'
-    Plug 'jwalton512/vim-blade'
+    " Plug 'pangloss/vim-javascript'
+    " Plug 'blankname/vim-fish'
+    " Plug 'tbastos/vim-lua'
+    " Plug 'StanAngeloff/php.vim'
+    " Plug 'jwalton512/vim-blade'
 
     " TODO get treesitter working
-    " Plug 'nvim-treesitter/nvim-treesitter'
-    " Plug 'nvim-treesitter/playground'
-    " Plug 'windwp/nvim-autopairs'
-    " Plug 'windwp/nvim-ts-autotag'
+    Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'nvim-treesitter/playground'
+    Plug 'windwp/nvim-autopairs'
+    Plug 'windwp/nvim-ts-autotag'
     " Plug 'JoosepAliviste/nvim-ts-context-commentstring'
 
     call plug#end()
@@ -100,10 +97,10 @@ end
 
 if exists('g:plugs') && has_key(g:plugs, 'nnn.vim')
     let g:nnn#action = { '<c-s>': 'split', '<c-v>': 'vsplit', '<c-v': 'tab' }
-    let g:nnn#command = 'nnn -Q'
+    let g:nnn#command = 'nnn -QS'
     let g:nnn#layout = { 'window': { 'width': 0.8, 'height': 0.8, 'border': 'sharp' } }
     let g:nnn#replace_netrw = 1
-    let g:nnn#session = 'global'
+    " let g:nnn#session = 'global'
 
     nnoremap <silent> <cr>f :NnnPicker %:p:h<cr>
     nnoremap <silent> <cr><cr> :NnnPicker<cr>
@@ -120,6 +117,10 @@ if exists('g:plugs') && has_key(g:plugs, 'ultisnips')
     let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 
     nnoremap <s-tab> :UltiSnipsEdit<cr>
+endif
+
+if exists('g:plugs') && has_key(g:plugs, 'vim-context-commentstring')
+    let g:context#commentstring#table.php = { 'phpRegion': '// %s' }
 endif
 
 if exists('g:plugs') && has_key(g:plugs, 'vim-easy-align')
@@ -142,3 +143,15 @@ if exists('g:plugs') && has_key(g:plugs, 'vim-gitgutter')
     xmap ic <plug>(GitGutterTextObjectInnerVisual)
     xmap ac <plug>(GitGutterTextObjectInnerVisual)
 endif
+
+if exists('g:plugs') && has_key(g:plugs, 'vim-vsnip')
+    let g:vsnip_snippet_dir = expand('~/.config/nvim/snippets')
+
+    imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+    smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+
+    imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+    smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+    imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+    smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+end

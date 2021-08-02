@@ -46,6 +46,7 @@ if has_lsp then
         max_kind_width = 100;
         max_menu_width = 100;
         documentation = true;
+        vsnip = truee;
 
         source = {
             path = true;
@@ -60,18 +61,20 @@ if has_lsp then
 end
 
 if has_treesitter then
-    require('nvim-autopairs').setup({
-        check_ts = true,
-    })
+    -- require('nvim-autopairs').setup({
+    --     check_ts = true,
+    -- })
 
-    require('nvim-autopairs.completion.compe').setup({
-        map_cr = true,
-        map_complete = true,
-    })
+    -- require('nvim-autopairs.completion.compe').setup({
+    --     map_cr = true,
+    --     map_complete = true,
+    -- })
+
+    -- require('nvim-ts-autotag').setup()
 
     treesitter.setup {
-        autopairs = { enable = true },
-        autotag = { enable = true },
+        -- autopairs = { enable = true },
+        -- autotag = { enable = true },
         highlight = { enable = true },
         indent = { enable = true },
     }
