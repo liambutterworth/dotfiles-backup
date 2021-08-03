@@ -1,0 +1,34 @@
+{
+    "Test": {
+        "prefix": ["test"],
+
+        "body": [
+            "{",
+            "\tJump 1:$1,",
+            "\tJump 2:$2,",
+            "\tJump 0:$0,",
+            "}"
+        ]
+    },
+
+    "Class": {
+        "prefix": ["class"],
+        "body": [
+            "/**",
+            " * @author ${VIM:\\$USER}",
+            " */",
+            "class $1 ${2:extends ${3:Parent} }{",
+            "jump_to = $4;",
+            "\tconstructor() {",
+            "\t\t$0",
+            "\t}",
+            "}"
+        ],
+        "description": "Class definition template."
+    },
+
+    "log": {
+        "prefix": ["log"],
+        "body": "console.log(${1:$TM_SELECTED_TEXT});"
+    }
+}

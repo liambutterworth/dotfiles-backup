@@ -1,0 +1,12 @@
+{
+    "braces": {
+        "prefix": ["{"],
+        "description": "Expand braces",
+
+        "body": [
+            "{",
+            "\t$0",
+            "}"
+        ]
+    }
+}

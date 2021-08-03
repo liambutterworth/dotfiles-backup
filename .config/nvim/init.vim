@@ -25,7 +25,9 @@ if filereadable(expand("$XDG_DATA_HOME/nvim/site/autoload/plug.vim"))
     Plug 'junegunn/vim-easy-align',
     Plug 'mcchrish/nnn.vim'
     " Plug 'sirver/ultisnips'
-    Plug 'tomtom/tcomment_vim'
+    " Plug 'tomtom/tcomment_vim'
+
+    Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-eunuch'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-repeat'
@@ -50,7 +52,7 @@ if filereadable(expand("$XDG_DATA_HOME/nvim/site/autoload/plug.vim"))
     Plug 'nvim-treesitter/playground'
     Plug 'windwp/nvim-autopairs'
     Plug 'windwp/nvim-ts-autotag'
-    " Plug 'JoosepAliviste/nvim-ts-context-commentstring'
+    Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
     call plug#end()
 end
@@ -110,14 +112,14 @@ if exists('g:plugs') && has_key(g:plugs, 'nvim-lspconfig')
     lua require 'plugins'
 end
 
-if exists('g:plugs') && has_key(g:plugs, 'ultisnips')
-    let g:UltiSnipsSnippetDirectories = [ $XDG_CONFIG_HOME . '/nvim/ultisnips' ]
-    let g:UltiSnipsExpandTrigger = '<tab>'
-    let g:UltiSnipsJumpForwardTrigger = '<c-j>'
-    let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
-
-    nnoremap <s-tab> :UltiSnipsEdit<cr>
-endif
+" if exists('g:plugs') && has_key(g:plugs, 'ultisnips')
+"     let g:UltiSnipsSnippetDirectories = [ $XDG_CONFIG_HOME . '/nvim/ultisnips' ]
+"     let g:UltiSnipsExpandTrigger = '<tab>'
+"     let g:UltiSnipsJumpForwardTrigger = '<c-j>'
+"     let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
+"
+"     nnoremap <s-tab> :UltiSnipsEdit<cr>
+" endif
 
 if exists('g:plugs') && has_key(g:plugs, 'vim-context-commentstring')
     let g:context#commentstring#table.php = { 'phpRegion': '// %s' }
@@ -147,11 +149,11 @@ endif
 if exists('g:plugs') && has_key(g:plugs, 'vim-vsnip')
     let g:vsnip_snippet_dir = expand('~/.config/nvim/snippets')
 
-    imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
-    smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+    imap <expr> <C-j> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-j>'
+    smap <expr> <C-j> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-j>'
 
-    imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-    smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-    imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
-    smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+    " imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+    " smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+    " imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+    " smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
 end
