@@ -12,7 +12,7 @@
     browser = firefox
 [user]
     name = Liam Butterworth
-    email = liambutterworth@protonmail.com
+	email = liambutterworth@randallreilly.com
 [init]
     defaultBranch = master
 [pull]
