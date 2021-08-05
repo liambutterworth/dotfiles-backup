@@ -18,26 +18,26 @@ if filereadable(expand("$XDG_DATA_HOME/nvim/site/autoload/plug.vim"))
     call plug#begin()
 
     Plug 'airblade/vim-gitgutter'
-    Plug 'junegunn/fzf'
+    Plug 'hrsh7th/nvim-compe'
+    Plug 'hrsh7th/vim-vsnip'
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/limelight.vim'
     Plug 'junegunn/vim-easy-align',
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'mcchrish/nnn.vim'
-    " Plug 'sirver/ultisnips'
-    " Plug 'tomtom/tcomment_vim'
-
-    Plug 'tpope/vim-commentary'
+    Plug 'tomtom/tcomment_vim'
     Plug 'tpope/vim-eunuch'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-surround'
     Plug 'vimwiki/vimwiki'
+    Plug 'windwp/nvim-autopairs'
+    Plug 'windwp/nvim-ts-autotag'
 
-    " TODO troubleshoot and make faster
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'hrsh7th/nvim-compe'
-    Plug 'hrsh7th/vim-vsnip'
+    " TODO figure out how to use fzf in the $PATH
+    Plug 'junegunn/fzf'
 
     " TODO remove after treesitter is working
     Plug 'posva/vim-vue'
@@ -47,12 +47,8 @@ if filereadable(expand("$XDG_DATA_HOME/nvim/site/autoload/plug.vim"))
     " Plug 'StanAngeloff/php.vim'
     " Plug 'jwalton512/vim-blade'
 
-    " TODO get treesitter working
-    Plug 'nvim-treesitter/nvim-treesitter'
+    " TODO remove after treesitter is setup
     Plug 'nvim-treesitter/playground'
-    Plug 'windwp/nvim-autopairs'
-    Plug 'windwp/nvim-ts-autotag'
-    Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
     call plug#end()
 end
@@ -102,7 +98,6 @@ if exists('g:plugs') && has_key(g:plugs, 'nnn.vim')
     let g:nnn#command = 'nnn -QS'
     let g:nnn#layout = { 'window': { 'width': 0.8, 'height': 0.8, 'border': 'sharp' } }
     let g:nnn#replace_netrw = 1
-    " let g:nnn#session = 'global'
 
     nnoremap <silent> <cr>f :NnnPicker %:p:h<cr>
     nnoremap <silent> <cr><cr> :NnnPicker<cr>
@@ -111,19 +106,6 @@ end
 if exists('g:plugs') && has_key(g:plugs, 'nvim-lspconfig')
     lua require 'plugins'
 end
-
-" if exists('g:plugs') && has_key(g:plugs, 'ultisnips')
-"     let g:UltiSnipsSnippetDirectories = [ $XDG_CONFIG_HOME . '/nvim/ultisnips' ]
-"     let g:UltiSnipsExpandTrigger = '<tab>'
-"     let g:UltiSnipsJumpForwardTrigger = '<c-j>'
-"     let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
-"
-"     nnoremap <s-tab> :UltiSnipsEdit<cr>
-" endif
-
-if exists('g:plugs') && has_key(g:plugs, 'vim-context-commentstring')
-    let g:context#commentstring#table.php = { 'phpRegion': '// %s' }
-endif
 
 if exists('g:plugs') && has_key(g:plugs, 'vim-easy-align')
     nmap ga <Plug>(EasyAlign)

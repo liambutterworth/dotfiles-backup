@@ -6,6 +6,8 @@
 # :: Colors
 # :: Exports
 
+fish_ssh_agent
+
 #
 # Aliases
 #

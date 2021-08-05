@@ -113,7 +113,8 @@ if has_lsp then
 end
 
 if has_treesitter then
-    vim.g.AutoPairsFlyMode = 1
+    -- vim.g.AutoPairsFlyMode = 1
+    -- vim.g.AutoPairsShortcutJump = '<c-j>'
 
     require('nvim-autopairs').setup({
         check_ts = true,
