@@ -104,9 +104,8 @@ set -x FZF_DEFAULT_OPTS "--color $FZF_COLORS --no-preview"
 # Startup
 #
 
+fish_add_path $HOME/.local/bin
+
 if test -e $XDG_CONFIG_HOME/fish/profile.fish
     source $XDG_CONFIG_HOME/fish/profile.fish
 end
-
-fish_add_path $HOME/.local/bin
-fish_ssh_agent
