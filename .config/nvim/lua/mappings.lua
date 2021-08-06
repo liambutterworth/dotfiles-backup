@@ -27,9 +27,3 @@ vim.api.nvim_set_keymap('n', '<c-w>l', '10<c-w>>', {})
 vim.api.nvim_set_keymap('n', '\\', ':term<cr>', { silent = true });
 vim.api.nvim_set_keymap('n', '\\s', ':split | term<cr>', { silent = true });
 vim.api.nvim_set_keymap('n', '\\v', ':vsplit | term<cr>', { silent = true });
-vim.api.nvim_set_keymap('n', '[<space>', "'m`' . v:count . 'O<esc>``'", { expr = true })
-vim.api.nvim_set_keymap('n', ']<space>', "'m`' . v:count . 'o<esc>``'", { expr = true })
-vim.api.nvim_set_keymap('n', '[e', ":<c-u>execute 'm-' . (v:count1 + 1)<cr>==", { silent = true })
-vim.api.nvim_set_keymap('n', ']e', ":<c-u>execute 'm+' . v:count1<cr>==", { silent = true })
-vim.api.nvim_set_keymap('v', '[e', ":<c-u>execute \"'<,'>m-\" . (v:count1 + 1)<cr>gv=gv", { silent = true })
-vim.api.nvim_set_keymap('v', ']e', ":<c-u>execute \"'<,'>m+\" . (v:count1 + 1)<cr>gv=gv", { silent = true })

@@ -2,6 +2,8 @@ local has_lsp, lsp = pcall(require, 'lspconfig')
 local has_treesitter, treesitter = pcall(require, 'nvim-treesitter.configs')
 
 if has_lsp then
+    local compe = require('compe')
+
     local on_attach = function(client, bufnr)
         local function buf_set_keymap(...)
             vim.api.nvim_buf_set_keymap(bufnr, ...)
@@ -29,7 +31,7 @@ if has_lsp then
         on_attach = on_attach
     }
 
-    require('compe').setup {
+    compe.setup {
         enabled = true;
         autocomplete = true;
         debug = false;
@@ -110,20 +112,28 @@ if has_lsp then
 end
 
 if has_treesitter then
-    require('nvim-autopairs').setup({
+    local autopairs = require('nvim-autopairs')
+    local autotag = require('nvim-ts-autotag')
+    local autopairs_compe = require('nvim-autopairs.completion.compe')
+    local autopairs_lua = require('nvim-autopairs.rules.endwise-lua')
+
+    autopairs.setup({
         check_ts = true,
     })
 
-    require('nvim-autopairs.completion.compe').setup({
+    autopairs.add_rules(autopairs_lua)
+
+    autopairs_compe.setup({
         map_cr = true,
         map_complete = true,
     })
 
-    require('nvim-ts-autotag').setup()
+    autotag.setup()
 
     treesitter.setup {
         autopairs = { enable = true },
         autotag = { enable = true },
+        context_commentstring = { enable = true },
         highlight = { enable = true },
         indent = { enable = true },
     }

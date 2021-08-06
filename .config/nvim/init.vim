@@ -8,11 +8,7 @@ augroup TERM
 augroup END
 
 " TODO remove
-nnoremap <leader>t :TSHighlightCapturesUnderCursor<cr>
-nnoremap <leader>H :so $VIMRUNTIME/syntax/hitest.vim<cr>
-map <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-    \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-    \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+nnoremap <space>t :TSHighlightCapturesUnderCursor<cr>
 
 if filereadable(expand("$XDG_DATA_HOME/nvim/site/autoload/plug.vim"))
     call plug#begin()
@@ -20,35 +16,29 @@ if filereadable(expand("$XDG_DATA_HOME/nvim/site/autoload/plug.vim"))
     Plug 'airblade/vim-gitgutter'
     Plug 'hrsh7th/nvim-compe'
     Plug 'hrsh7th/vim-vsnip'
+    Plug 'joosepalviste/nvim-ts-context-commentstring'
+    Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/limelight.vim'
     Plug 'junegunn/vim-easy-align',
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'nvim-treesitter/playground'
     Plug 'mcchrish/nnn.vim'
-    Plug 'tomtom/tcomment_vim'
+    Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-eunuch'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-unimpaired'
+    Plug 'tpope/vim-speeddating'
     Plug 'vimwiki/vimwiki'
     Plug 'windwp/nvim-autopairs'
     Plug 'windwp/nvim-ts-autotag'
 
-    " TODO figure out how to use fzf in the $PATH
-    Plug 'junegunn/fzf'
-
-    " TODO remove after treesitter is working
+    " TODO remove after https://github.com/nvim-treesitter/nvim-treesitter/issues/1388
     Plug 'posva/vim-vue'
-    " Plug 'pangloss/vim-javascript'
-    " Plug 'blankname/vim-fish'
-    " Plug 'tbastos/vim-lua'
-    " Plug 'StanAngeloff/php.vim'
-    " Plug 'jwalton512/vim-blade'
-
-    " TODO remove after treesitter is setup
-    Plug 'nvim-treesitter/playground'
 
     call plug#end()
 end
@@ -97,7 +87,7 @@ end
 
 if exists('g:plugs') && has_key(g:plugs, 'nnn.vim')
     let g:nnn#action = { '<c-s>': 'split', '<c-v>': 'vsplit', '<c-v': 'tab' }
-    let g:nnn#command = 'nnn -QS'
+    let g:nnn#command = 'n'
     let g:nnn#layout = { 'window': { 'width': 0.8, 'height': 0.8, 'border': 'sharp' } }
     let g:nnn#replace_netrw = 1
     let g:nnn#set_default_mappings = 0
