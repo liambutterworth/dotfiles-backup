@@ -11,10 +11,7 @@ if has_lsp then
             vim.api.nvim_buf_set_option(bufnr, ...)
         end
 
-        local opts = {
-            noremap = true,
-            silent = true
-        }
+        local opts = { noremap = true, silent = true }
 
         buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
         buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover({ border = "single" })<cr>', opts)
@@ -113,9 +110,6 @@ if has_lsp then
 end
 
 if has_treesitter then
-    -- vim.g.AutoPairsFlyMode = 1
-    -- vim.g.AutoPairsShortcutJump = '<c-j>'
-
     require('nvim-autopairs').setup({
         check_ts = true,
     })
