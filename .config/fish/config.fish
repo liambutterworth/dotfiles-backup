@@ -5,8 +5,7 @@
 # :: Bindings
 # :: Colors
 # :: Exports
-
-fish_ssh_agent
+# :: Startup
 
 #
 # Aliases
@@ -16,6 +15,7 @@ alias dot="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 alias ls="ls -F --color=always --group-directories-first"
 alias la="ls -A"
 alias ll="ls -Ahl"
+alias n='nnn -QS'
 alias tree="tree --dirsfirst -I 'node_modules|plugged|vendor'"
 
 #
@@ -60,7 +60,7 @@ set -g fish_pager_color_secondary magenta
 # Exports
 #
 
-set -gx FZF_COLORS (string join ',' \
+set -x FZF_COLORS (string join ',' \
     "bg:-1" \
     "bg+:-1" \
     "fg:white" \
@@ -76,29 +76,37 @@ set -gx FZF_COLORS (string join ',' \
     "spinner:cyan" \
 )
 
-set -gx EDITOR 'nvim'
-set -gx TERM 'alacritty'
-set -gx XDG_CONFIG_HOME "$HOME/.config"
-set -gx XDG_CACHE_HOME "$HOME/.cache"
-set -gx XDG_DATA_HOME "$HOME/.local/share"
-set -gx XDG_STATE_HOME "$HOME/.local/state"
-set -gx DOCKER_CONFIG "$XDG_CONFIG_HOME/docker"
-set -gx LESSHISTFILE "$XDG_CACHE_HOME/less"
-set -gx NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npm/npmrc"
-set -gx CARGO_HOME "$XDG_DATA_HOME/cargo"
-set -gx RUSTUP_HOME "$XDG_DATA_HOME/rustup"
-set -gx PYENV_ROOT "$XDG_DATA_HOME/pyenv"
-set -gx PYTHON3_HOST_PROG (command -v python)
-set -gx NNN_BMS 'h:~;c:~/.config;d:~/Development'
-set -gx NNN_PLUG 'f:fzcd;o:fzopen'
-set -gx NNN_COLORS '4444'
-set -gx NNN_FCOLORS '020304020705060701030501'
-set -gx NNN_USE_EDITOR 1
-set -gx FZF_DEFAULT_COMMAND "fd --type file --follow"
-set -gx FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
-set -gx FZF_ALT_C_COMMAND "fd --type directory"
-set -gx FZF_DEFAULT_OPTS "--color $FZF_COLORS --no-preview"
+set -x EDITOR 'nvim'
+set -x TERM 'alacritty'
+set -x XDG_CONFIG_HOME "$HOME/.config"
+set -x XDG_CACHE_HOME "$HOME/.cache"
+set -x XDG_DATA_HOME "$HOME/.local/share"
+set -x XDG_STATE_HOME "$HOME/.local/state"
+set -x DOCKER_CONFIG "$XDG_CONFIG_HOME/docker"
+set -x LESSHISTFILE "$XDG_CACHE_HOME/less"
+set -x NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npm/npmrc"
+set -x CARGO_HOME "$XDG_DATA_HOME/cargo"
+set -x RUSTUP_HOME "$XDG_DATA_HOME/rustup"
+set -x PYENV_ROOT "$XDG_DATA_HOME/pyenv"
+set -x PYTHON3_HOST_PROG (command -v python)
+set -x NNN_BMS 'c:~/.config;d:~/Development'
+set -x NNN_PLUG 'f:fzcd;o:fzopen'
+set -x NNN_COLORS '4444'
+set -x NNN_FCOLORS '020304020705060701030501'
+set -x NNN_USE_EDITOR 1
+set -x NNN_TMPFILE "$XDG_CONFIG_HOME/nnn/.lastd"
+set -x FZF_DEFAULT_COMMAND "fd --type file --follow"
+set -x FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
+set -x FZF_ALT_C_COMMAND "fd --type directory"
+set -x FZF_DEFAULT_OPTS "--color $FZF_COLORS --no-preview"
+
+#
+# Startup
+#
 
 if test -e $XDG_CONFIG_HOME/fish/profile.fish
     source $XDG_CONFIG_HOME/fish/profile.fish
 end
+
+fish_add_path $HOME/.local/bin
+fish_ssh_agent

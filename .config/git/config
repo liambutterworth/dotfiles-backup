@@ -14,6 +14,6 @@
     name = Liam Butterworth
     email = liambutterworth@protonmail.com
 [init]
-	defaultBranch = master
+    defaultBranch = master
 [pull]
-	ff = only
+    ff = only

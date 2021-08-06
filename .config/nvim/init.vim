@@ -53,6 +53,8 @@ if filereadable(expand("$XDG_DATA_HOME/nvim/site/autoload/plug.vim"))
     call plug#end()
 end
 
+lua require 'plugins'
+
 colorscheme custom
 
 if exists('g:plugs') && has_key(g:plugs, 'fzf.vim') && executable('fzf')
@@ -87,10 +89,10 @@ endif
 if exists('g:plugs') && has_key(g:plugs, 'goyo.vim')
     let g:limelight_conceal_ctermfg = 8
 
-    nnoremap - :Goyo<cr>
-
     autocmd User GoyoEnter Limelight
     autocmd User GoyoLeave Limelight! | colorscheme custom
+
+    nnoremap - :Goyo<cr>
 end
 
 if exists('g:plugs') && has_key(g:plugs, 'nnn.vim')
@@ -98,13 +100,10 @@ if exists('g:plugs') && has_key(g:plugs, 'nnn.vim')
     let g:nnn#command = 'nnn -QS'
     let g:nnn#layout = { 'window': { 'width': 0.8, 'height': 0.8, 'border': 'sharp' } }
     let g:nnn#replace_netrw = 1
+    let g:nnn#set_default_mappings = 0
 
-    nnoremap <silent> <cr>f :NnnPicker %:p:h<cr>
     nnoremap <silent> <cr><cr> :NnnPicker<cr>
-end
-
-if exists('g:plugs') && has_key(g:plugs, 'nvim-lspconfig')
-    lua require 'plugins'
+    nnoremap <silent> <cr>f :NnnPicker %:p:h<cr>
 end
 
 if exists('g:plugs') && has_key(g:plugs, 'vim-easy-align')
@@ -112,30 +111,9 @@ if exists('g:plugs') && has_key(g:plugs, 'vim-easy-align')
     xmap ga <Plug>(EasyAlign)
 endif
 
-if exists('g:plugs') && has_key(g:plugs, 'vim-fugitive')
-    nnoremap gs :Git<cr>
-    nnoremap gl :Gclog<cr>
-endif
-
-if exists('g:plugs') && has_key(g:plugs, 'vim-gitgutter')
-    let g:gitgutter_map_keys = 0
-
-    nmap ]c <plug>(GitGutterNextHunk)
-    nmap [c <plug>(GitGutterPrevHunk)
-    omap ic <plug>(GitGutterTextObjectInnerPending)
-    omap ac <plug>(GitGutterTextObjectOuterPending)
-    xmap ic <plug>(GitGutterTextObjectInnerVisual)
-    xmap ac <plug>(GitGutterTextObjectInnerVisual)
-endif
-
 if exists('g:plugs') && has_key(g:plugs, 'vim-vsnip')
     let g:vsnip_snippet_dir = expand('~/.config/nvim/snippets')
 
     imap <expr> <C-j> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-j>'
     smap <expr> <C-j> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-j>'
-
-    " imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-    " smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-    " imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
-    " smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
 end
