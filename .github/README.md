@@ -6,8 +6,8 @@
 
 ## Install
 
-Install dependencies, then run:
+Install dependencies, then execute:
 
 ```
-$ curl https://raw.githubusercontent.com/liambutterworth/dotfiles/master/.local/bin/dot-init | bash
+curl https://raw.githubusercontent.com/liambutterworth/dotfiles/master/.local/bin/dot-init | bash
 ```
