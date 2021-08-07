@@ -1,31 +1,33 @@
-vim.opt.backup = false
-vim.opt.completeopt = { 'menuone', 'noselect' }
-vim.opt.dictionary = '/usr/share/dict/words'
-vim.opt.expandtab = true
-vim.opt.fillchars = { vert = ' ' }
-vim.opt.hidden = true
-vim.opt.ignorecase = true
-vim.opt.laststatus = 0
-vim.opt.list = true
-vim.opt.listchars = { trail = '·', tab = '│ ' }
-vim.opt.mouse = 'n'
-vim.opt.wrap = false
-vim.opt.hlsearch = false
-vim.opt.joinspaces = false
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.shiftwidth = 4
-vim.opt.shortmess = vim.opt.shortmess + { c = true }
-vim.opt.showmode = false
-vim.opt.showtabline = 0
-vim.opt.signcolumn = 'yes:1'
-vim.opt.smartcase = true
-vim.opt.smartindent = true
-vim.opt.splitbelow = true
-vim.opt.splitright = true
-vim.opt.swapfile = false
-vim.opt.tabstop = 4
-vim.opt.tags = '.git/tags'
-vim.opt.undofile = true
-vim.opt.wildignorecase = true
-vim.opt.writebackup = false
+local api = require('api')
+
+api.option.backup = false
+api.option.completeopt = { 'menuone', 'noselect' }
+api.option.dictionary = '/usr/share/dict/words'
+api.option.expandtab = true
+api.option.fillchars = { vert = ' ' }
+api.option.hidden = true
+api.option.ignorecase = true
+api.option.laststatus = 0
+api.option.list = true
+api.option.listchars = { trail = '·', tab = '│ ' }
+api.option.mouse = 'n'
+api.option.wrap = false
+api.option.hlsearch = false
+api.option.joinspaces = false
+api.option.number = true
+api.option.relativenumber = true
+api.option.shiftwidth = 4
+api.option.shortmess = api.option.shortmess + { c = true }
+api.option.showmode = false
+api.option.showtabline = 0
+api.option.signcolumn = 'yes:1'
+api.option.smartcase = true
+api.option.smartindent = true
+api.option.splitbelow = true
+api.option.splitright = true
+api.option.swapfile = false
+api.option.tabstop = 4
+api.option.tags = '.git/tags'
+api.option.undofile = true
+api.option.wildignorecase = true
+api.option.writebackup = false

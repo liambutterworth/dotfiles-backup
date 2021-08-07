@@ -1,0 +1,40 @@
+require 'paq' {
+    'airblade/vim-gitgutter',
+    'hrsh7th/nvim-compe',
+    'hrsh7th/vim-vsnip',
+    'joosepalviste/nvim-ts-context-commentstring',
+    'junegunn/fzf',
+    'junegunn/fzf.vim',
+    'junegunn/goyo.vim',
+    'junegunn/limelight.vim',
+    'junegunn/vim-easy-align',
+    'neovim/nvim-lspconfig',
+    'nvim-treesitter/nvim-treesitter',
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    'nvim-treesitter/playground',
+    'mcchrish/nnn.vim',
+    'savq/paq-nvim',
+    'tpope/vim-commentary',
+    'tpope/vim-eunuch',
+    'tpope/vim-fugitive',
+    'tpope/vim-repeat',
+    'tpope/vim-surround',
+    'tpope/vim-unimpaired',
+    'tpope/vim-speeddating',
+    'vimwiki/vimwiki',
+    'windwp/nvim-autopairs',
+    'windwp/nvim-ts-autotag',
+}
+
+require('plugins.compe')
+require('plugins.fzf')
+require('plugins.goyo')
+require('plugins.limelight')
+require('plugins.lspconfig')
+require('plugins.nnn')
+require('plugins.nvim-autopairs')
+require('plugins.nvim-treesitter')
+require('plugins.nvim-ts-autotag')
+require('plugins.vim-easy-align')
+require('plugins.vim-vsnip')
+require('plugins.vimwiki')
