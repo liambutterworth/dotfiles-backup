@@ -1,3 +1,1 @@
-return function()
-    return vim.fn
-end
+return vim.fn

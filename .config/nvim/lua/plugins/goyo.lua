@@ -1,3 +1,3 @@
-local map = require('utils.map')
+local api = require('api')
 
-map.normal('-', ':Goyo<cr>')
+api.map.normal('-', ':Goyo<cr>')

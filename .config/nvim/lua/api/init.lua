@@ -1,7 +1,7 @@
 local api = {
-    call = vim.fn,
-    global = vim.g,
-    option = vim.opt,
+    call = require('api.call'),
+    global = require('api.global'),
+    option = require('api.option'),
     map = require('api.map'),
 }
 

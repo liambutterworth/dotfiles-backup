@@ -1,3 +1,3 @@
-local set = require('utils.set')
+local api = require('api')
 
-set.global('limelight_conceal_ctermfg', 8)
+api.global.limelight_conceal_ctermfg = 0
