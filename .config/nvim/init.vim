@@ -3,6 +3,13 @@ lua require 'plugins'
 
 colorscheme custom
 
+" TODO
+"
+" move all autocmds to ~/.config/nvim/lua/globals/commands.lua
+" once the autocmd implementation for lua has been pulled in
+"
+" PR: https://github.com/neovim/neovim/pull/14661
+
 augroup Term
     autocmd!
     autocmd TermOpen * startinsert
