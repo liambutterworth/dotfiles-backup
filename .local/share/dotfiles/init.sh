@@ -11,9 +11,9 @@ git clone --mirror https://github.com/liambutterworth/dotfiles .dotfiles
 dotfiles switch -f master
 dotfiles config --local status.showUntrackedFiles no
 
-echo "\nInstalling vim-plug\n"
+echo "\nInstalling plugins\n"
 
-curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+git clone --depth=1 https://github.com/savq/paq-nvim.git \
+    "~/.local/share/nvim/site/pack/paqs/start/paq-nvim"
 
-nvim --headless +PlugInstall +qall
+nvim --headless +PaqInstall +qall
