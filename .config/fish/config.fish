@@ -92,7 +92,6 @@ set -x NNN_BMS 'c:~/.config;d:~/Development'
 set -x NNN_PLUG 'f:fzcd;o:fzopen'
 set -x NNN_COLORS '4444'
 set -x NNN_FCOLORS '020304020705060701030501'
-set -x NNN_TMPFILE "$XDG_CONFIG_HOME/nnn/.lastd"
 set -x NNN_USE_EDITOR 1
 set -x FZF_DEFAULT_COMMAND "fd --type file --follow"
 set -x FZF_DEFAULT_OPTS "--color=$FZF_COLORS --preview-window=$FZF_PREVIEW"
