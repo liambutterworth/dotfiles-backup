@@ -3,7 +3,6 @@
 "
 
 set background=dark
-set statusline=\ %f\ %h%m%r%=%-14.(%l,%c%V%)\ %P\ 
 
 highlight clear
 
@@ -18,13 +17,17 @@ highlight DiffText cterm=bold ctermbg=red ctermfg=black
 highlight Error cterm=bold ctermbg=none ctermfg=red
 highlight Folded ctermbg=black ctermfg=white
 highlight FoldColumn ctermbg=black ctermfg=white
-highlight FloatBorder ctermbg=none ctermfg=blue
+highlight Float ctermbg=green
+highlight FloatBorder ctermbg=white ctermfg=none
+highlight FloatShadow cterm=bold ctermbg=blue
+highlight FloatShadowThrough cterm=bold ctermbg=yellow
 highlight Identifier cterm=none ctermfg=cyan
 highlight LineNr cterm=bold ctermfg=black
 highlight MatchParen cterm=bold ctermbg=none ctermfg=yellow
 highlight MatchTag ctermfg=yellow
 highlight NonText cterm=bold ctermbg=none ctermfg=black
 highlight Normal ctermbg=none
+highlight NormalFloat ctermbg=blue
 highlight Number ctermfg=magenta
 highlight Operator ctermfg=blue
 highlight Pmenu ctermbg=black ctermfg=white
@@ -43,6 +46,9 @@ highlight SpellLocal cterm=bold ctermbg=cyan ctermfg=black
 highlight Statement ctermfg=blue
 highlight StatusLine cterm=none ctermbg=black ctermfg=white
 highlight StatusLineNc cterm=none ctermbg=black ctermfg=white
+highlight TabLine cterm=none ctermbg=black
+highlight TabLineFill cterm=none ctermbg=none
+highlight TabLineSel cterm=none ctermbg=white ctermfg=black
 highlight Title cterm=bold ctermfg=cyan
 highlight Todo ctermbg=none ctermfg=yellow
 highlight Type ctermfg=white
@@ -50,15 +56,6 @@ highlight Underlined ctermfg=cyan
 highlight VertSplit cterm=bold ctermbg=black
 highlight Visual cterm=bold ctermbg=black
 highlight WarningMsg ctermbg=none ctermfg=yellow
-
-"
-" NerdTree
-"
-
-highlight NERDTreeClosable ctermfg=magenta
-highlight NERDTreeOpenable ctermfg=magenta
-highlight NERDTreeDir cterm=none ctermfg=cyan
-highlight NERDTreeFlags ctermfg=blue
 
 "
 " GitGutter

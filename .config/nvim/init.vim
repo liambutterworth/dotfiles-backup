@@ -1,7 +1,11 @@
 lua require 'globals'
 lua require 'plugins'
+lua require 'interface'
 
 colorscheme custom
+
+" TODO remove after theme is setup
+nnoremap <f1> :so $VIMRUNTIME/syntax/hitest.vim<cr>
 
 " TODO
 "

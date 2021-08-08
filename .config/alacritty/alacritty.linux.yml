@@ -118,7 +118,10 @@ font:
     style: Italic
   offset:
     x: 0
-    y: 5
+    y: 4
+  glyph_offset:
+    x: 0
+    y: 2
 
 #
 # Mouse
@@ -134,5 +137,5 @@ mouse:
 window:
   dynamic_padding: true
   padding:
-    x: 24
-    y: 24
+    x: 20
+    y: 20
