@@ -17,17 +17,17 @@ highlight DiffText cterm=bold ctermbg=red ctermfg=black
 highlight Error cterm=bold ctermbg=none ctermfg=red
 highlight Folded ctermbg=black ctermfg=white
 highlight FoldColumn ctermbg=black ctermfg=white
-highlight Float ctermbg=green
-highlight FloatBorder ctermbg=white ctermfg=none
-highlight FloatShadow cterm=bold ctermbg=blue
+highlight Float ctermbg=black
+highlight FloatBorder ctermbg=black ctermfg=none
+highlight FloatShadow ctermbg=black
 highlight FloatShadowThrough cterm=bold ctermbg=yellow
-highlight Identifier cterm=none ctermfg=cyan
+highlight Identifier cterm=none ctermfg=white
 highlight LineNr cterm=bold ctermfg=black
 highlight MatchParen cterm=bold ctermbg=none ctermfg=yellow
 highlight MatchTag ctermfg=yellow
 highlight NonText cterm=bold ctermbg=none ctermfg=black
 highlight Normal ctermbg=none
-highlight NormalFloat ctermbg=blue
+highlight NormalFloat ctermbg=black
 highlight Number ctermfg=magenta
 highlight Operator ctermfg=blue
 highlight Pmenu ctermbg=black ctermfg=white
@@ -37,8 +37,8 @@ highlight PmenuThumb cterm=bold ctermbg=white ctermfg=black
 highlight PreProc cterm=none ctermfg=blue
 highlight Question ctermfg=yellow
 highlight SignColumn ctermbg=none ctermfg=white
-highlight Special ctermfg=blue
-highlight SpecialChar ctermfg=yellow
+highlight Special ctermfg=white
+highlight SpecialChar ctermfg=magenta
 highlight SpellBad cterm=bold ctermbg=red ctermfg=black
 highlight SpellCap cterm=bold ctermbg=yellow ctermfg=black
 highlight SpellRare cterm=bold ctermbg=magenta ctermfg=black
@@ -51,7 +51,7 @@ highlight TabLineFill cterm=none ctermbg=none
 highlight TabLineSel cterm=none ctermbg=white ctermfg=black
 highlight Title cterm=bold ctermfg=cyan
 highlight Todo ctermbg=none ctermfg=yellow
-highlight Type ctermfg=white
+highlight Type ctermfg=blue
 highlight Underlined ctermfg=cyan
 highlight VertSplit cterm=bold ctermbg=black
 highlight Visual cterm=bold ctermbg=black
@@ -86,91 +86,93 @@ highlight LspVirtualTextInformation ctermfg=blue
 " Lua
 "
 
-highlight link luaFuncKeyword Operator
-highlight link luaLocal Operator
+" highlight link luaFuncKeyword Operator
+" highlight link luaLocal Operator
 
 "
 " Vim
 "
 
-highlight link vimHiAttrib Number
-highlight link vimHiCterm Special
-highlight link vimHiCtermColor vimHiAttrib
-highlight link vimHiCtermFgBg vimHiCterm
-highlight link vimHiGuiColor vimHiCtermColor
-highlight link vimHiGuiFgBg vimHiCtermFgBg
-highlight link vimParenSep Type
-highlight link vimSep Type
-highlight link vimSetSep Type
+highlight link vimHiGroup Identifier
+highlight link vimGroup Identifier
+highlight link vimHiAttrib SpecialChar
+highlight link vimHiCtermColor SpecialChar
 
 "
 " HTML
 "
 
-highlight link htmlArg Identifier
-highlight link htmlEndTag htmlTagName
+" highlight link htmlArg Identifier
+" highlight link htmlEndTag htmlTagName
 highlight link htmlTag htmlTagName
+highlight link htmlTagN htmlTag
+highlight link htmlEndTag htmlTag
 
 "
 " CSS
 "
 
-highlight link cssBackgroundProp Keyword
-highlight link cssBorderAttr Number
-highlight link cssBorderProp Keyword
-highlight link cssBraces Type
-highlight link cssBoxProp Keyword
-highlight link cssFlexibleBoxProp Keyword
-highlight link cssColor Number
-highlight link cssCommonAttr Number
-highlight link cssFontProp Keyword
-highlight link cssMediaProp Keyword
-highlight link cssMultiColumnProp Keyword
-highlight link cssPageProp Keyword
-highlight link cssPositioningAttr Number
-highlight link cssPositioningProp Keyword
-highlight link cssPseudoClassId Identifier
-highlight link cssTextProp Keyword
-highlight link cssTransitionAttr Number
-highlight link cssTransitionProp Keyword
-highlight link cssUIProp Keyword
-highlight link cssUIAttr Number
-highlight link cssUnicodeEscape SpecialChar
-highlight link cssVisualProp Keyword
+" highlight link cssBackgroundProp Keyword
+" highlight link cssBorderAttr Number
+" highlight link cssBorderProp Keyword
+" highlight link cssBraces Type
+" highlight link cssBoxProp Keyword
+" highlight link cssFlexibleBoxProp Keyword
+" highlight link cssColor Number
+" highlight link cssCommonAttr Number
+" highlight link cssFontProp Keyword
+" highlight link cssMediaProp Keyword
+" highlight link cssMultiColumnProp Keyword
+" highlight link cssPageProp Keyword
+" highlight link cssPositioningAttr Number
+" highlight link cssPositioningProp Keyword
+" highlight link cssPseudoClassId Identifier
+" highlight link cssTextProp Keyword
+" highlight link cssTransitionAttr Number
+" highlight link cssTransitionProp Keyword
+" highlight link cssUIProp Keyword
+" highlight link cssUIAttr Number
+" highlight link cssUnicodeEscape SpecialChar
+" highlight link cssVisualProp Keyword
 
 "
 " SCSS
 "
 
-highlight link scssAmpersand scssSelectorName
-highlight link scssProperty Keyword
-highlight link scssSemicolon Type
+" highlight link scssAmpersand scssSelectorName
+" highlight link scssProperty Keyword
+" highlight link scssSemicolon Type
 
 "
 " JS
 "
 
-highlight link javaScript Keyword
-highlight link jsBuiltins Identifier
-highlight link jsGlobalObjects Type
-highlight link jsStorageClass Keyword
-highlight link jsUndefined Keyword
-highlight link jsBooleanFalse Number
-highlight link jsBooleanTrue Number
+highlight link javascriptIdentifier Keyword
+
+" highlight link javaScript Keyword
+" highlight link jsBuiltins Identifier
+" highlight link jsGlobalObjects Type
+" highlight link jsStorageClass Keyword
+" highlight link jsUndefined Keyword
+" highlight link jsBooleanFalse Number
+" highlight link jsBooleanTrue Number
 
 "
 " Vue
 "
 
-highlight link vueSurroundingTag htmlTag
+" highlight link vueSurroundingTag htmlTag
 
 "
 " PHP
 "
 
-highlight link phpFunction phpFunctions
-highlight link phpIdentifier Type
-highlight link phpMethod phpMethods
-highlight link phpParent Type
-highlight link phpStaticClasses Title
-highlight link phpType Keyword
+" highlight link phpStructure Operator
+" highlight link phpIdetifier
+
+" highlight link phpFunction phpFunctions
+" highlight link phpIdentifier Type
+" highlight link phpMethod phpMethods
+" highlight link phpParent Type
+" highlight link phpStaticClasses Title
+" highlight link phpType Keyword
