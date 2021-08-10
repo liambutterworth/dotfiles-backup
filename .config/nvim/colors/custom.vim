@@ -86,6 +86,9 @@ highlight LspVirtualTextInformation ctermfg=blue
 " Lua
 "
 
+highlight link luaFunc Operator
+highlight link luaFunction Operator
+highlight link luaTable Identifer
 " highlight link luaFuncKeyword Operator
 " highlight link luaLocal Operator
 

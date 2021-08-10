@@ -1,9 +1,9 @@
 function ActiveStatusLine()
     return table.concat({
         ' ',
-        '%F',
+        '%f',
         '%=',
-        '%l',
+        '%l,%c',
         ' ',
     })
 end
@@ -11,9 +11,9 @@ end
 function InactiveStatusLine()
     return table.concat({
         ' ',
-        '%F',
+        '%f',
         '%=',
-        '%l',
+        '%l,%c',
         ' ',
     })
 end
