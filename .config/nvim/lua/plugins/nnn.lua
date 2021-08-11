@@ -1,22 +1,25 @@
 local api = require('api')
+local nnn = require('nnn')
 
-api.global['nnn#command'] = 'n'
-api.global['nnn#replace_netrw'] = 1
-api.global['nnn$set_default_mappings'] = 0
+nnn.setup({
+    command = 'n',
+    set_default_mappings = 0,
+    replace_netrw = 1,
 
-api.global['nnn#layout'] = {
-    window = {
-        height = 0.8,
-        width = 0.8,
-        border = 'sharp',
-    }
-}
+    action = {
+        ['<c-s>'] = 'split',
+        ['<c-v>'] = 'vsplit',
+        ['<c-t>'] = 'tab',
+    },
 
-api.global['nnn#action'] = {
-    ['<c-s>'] = 'split',
-    ['<c-v>'] = 'vsplit',
-    ['<c-t>'] = 'tab',
-}
+    layout = {
+        window = {
+            height = 0.8,
+            width = 0.8,
+            border = 'sharp',
+        }
+    },
+})
 
 api.map.normal('<cr><cr>', ':NnnPicker<cr>', {
     noremap = true,

@@ -1,46 +1,44 @@
-local left_separator = '<'
-local right_separator = '>'
+local api = require('api')
 
-local getTabLabel = function(n)
-    local current_win = vim.api.nvim_tabpage_get_win(n)
-    local current_buf = vim.api.nvim_win_get_buf(current_win)
-    local file_name = vim.api.nvim_buf_get_name(current_buf)
+function Tabname(number)
+    local window = api.nvim_tabpage_get_win(number)
+    local buffer = api.nvim_win_get_buf(window)
+    local name = api.nvim_buf_get_name(buffer)
 
-    if string.find(file_name, 'term://') ~= nil then
-        return ' '..vim.api.nvim_call_function('fnamemodify', {file_name, ":p:t"})
+    if string.find(name, 'term://') ~= nil then
+        return ' ' .. api.call.fnamemodify(name, ':p:t')
     end
 
-    file_name = vim.api.nvim_call_function('fnamemodify', {file_name, ":p:t"})
+    name = api.call.fnamemodify(name, ':p:t')
 
-    if file_name == '' then
-        return "No Name"
+    if name == '' then
+        return 'No Name'
     end
 
-    return file_name
+    return name
 end
 
-function TabLine()
-    local tabline = ''
-    local tab_list = vim.api.nvim_list_tabpages()
-    local current_tab = vim.api.nvim_get_current_tabpage()
+function Tabline()
+    local tabline = {}
+    local tabs = api.nvim_list_tabpages()
+    local current = api.nvim_get_current_tabpage()
 
-    for _, val in ipairs(tab_list) do
-        local file_name = getTabLabel(val)
+    for tab in pairs(tabs) do
+        local name = Tabname(tab)
 
-        if val == current_tab then
-            tabline = tabline.."%#TabLineSelSeparator# "
-            tabline = tabline.."%#TabLineSel# "..file_name
-            tabline = tabline.." %#TabLineSelSeparator#"
+        table.insert(tabline, '%#TabLineSeparator# ')
+
+        if tab == current then
+            table.insert(tabline, '%#TabLineSel# ')
         else
-            tabline = tabline.."%#TabLineSeparator# "
-            tabline = tabline.."%#TabLine# "..file_name
-            tabline = tabline.." %#TabLineSeparator#"
+            table.insert(tabline, '%#TabLine# ')
         end
+
+        table.insert(tabline, name)
+        table.insert(tabline, ' %#TabLineSeparator#')
     end
 
-    tabline = tabline.."%="
-
-    return tabline
+    return table.concat(tabline)
 end
 
-vim.o.tabline = "%!v:lua.TabLine()"
+api.option.tabline = "%!v:lua.Tabline()"

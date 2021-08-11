@@ -1,8 +1,11 @@
-local api = {
-    call = require('api.call'),
-    global = require('api.global'),
-    option = require('api.option'),
-    map = require('api.map'),
-}
+local api = vim.api
+
+api.buffer = require('api.buffer')
+api.call = require('api.call')
+api.exec = require('api.exec')
+api.global = require('api.global')
+api.option = require('api.option')
+api.map = require('api.map')
+api.window = require('api.window')
 
 return api
