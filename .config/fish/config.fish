@@ -17,6 +17,7 @@ alias la="ls -A"
 alias ll="ls -Ahl"
 alias n='nnn -QS'
 alias tree="tree --dirsfirst -I 'node_modules|plugged|vendor'"
+alias xclip='xclip -selection clipboard'
 
 #
 # Bindings
@@ -101,6 +102,8 @@ set -x FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 #
 # Startup
 #
+
+fish_ssh_agent
 
 fish_add_path $HOME/.local/bin
 
