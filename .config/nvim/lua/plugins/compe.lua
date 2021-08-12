@@ -1,3 +1,4 @@
+local api = require('api')
 local compe = require('compe')
 
 compe.setup {
@@ -36,11 +37,11 @@ end
 
 _G.tab_complete = function()
     if vim.fn.pumvisible() == 1 then
-        return t "<c-n>"
-    elseif vim.fn.call("vsnip#available", {1}) == 1 then
-        return t "<plug>(vsnip-expand-or-jump)"
+        return t '<c-n>'
+    elseif vim.fn['vsnip#available'](1) == 1 then
+        return t '<plug>(vsnip-expand-or-jump)'
     elseif check_back_space() then
-        return t "<tab>"
+        return t '<tab>'
     else
         return vim.fn['compe#complete']()
     end
@@ -48,11 +49,11 @@ end
 
 _G.s_tab_complete = function()
     if vim.fn.pumvisible() == 1 then
-        return t "<c-p>"
-    elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
-        return t "<plug>(vsnip-jump-prev)"
+        return t '<c-p>'
+    elseif vim.fn['vsnip#jumpable'](-1) == 1 then
+        return t '<plug>(vsnip-jump-prev)'
     else
-        return t "<s-tab>"
+        return t '<s-tab>'
     end
 end
 

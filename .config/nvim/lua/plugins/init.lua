@@ -22,19 +22,15 @@ require 'paq' {
     'tpope/vim-unimpaired',
     'tpope/vim-speeddating',
     'vimwiki/vimwiki',
-    'windwp/nvim-autopairs',
-    'windwp/nvim-ts-autotag',
 }
 
 require('plugins.compe')
+require('plugins.easy-align')
 require('plugins.fzf')
 require('plugins.goyo')
 require('plugins.limelight')
 require('plugins.lspconfig')
 require('plugins.nnn')
-require('plugins.nvim-autopairs')
-require('plugins.nvim-treesitter')
-require('plugins.nvim-ts-autotag')
-require('plugins.vim-easy-align')
-require('plugins.vim-vsnip')
+require('plugins.treesitter')
 require('plugins.vimwiki')
+require('plugins.vsnip')

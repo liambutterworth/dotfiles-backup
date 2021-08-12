@@ -42,5 +42,3 @@ lsp.intelephense.setup{
 lsp.vuels.setup{
     on_attach = on_attach
 }
-
-

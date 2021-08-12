@@ -1,4 +1,6 @@
-vim.api.nvim_exec([[
+local api = require('api')
+
+api.exec([[
     augroup Term
         autocmd!
         autocmd TermOpen * startinsert
