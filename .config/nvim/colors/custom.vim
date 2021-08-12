@@ -58,31 +58,6 @@ highlight Visual cterm=bold ctermbg=black
 highlight WarningMsg ctermbg=none ctermfg=yellow
 
 "
-" GitGutter
-"
-
-highlight GitGutterAdd ctermfg=green
-highlight GitGutterChange ctermfg=yellow
-highlight GitGutterDelete ctermfg=red
-
-"
-" LSP
-"
-
-highlight LspDiagnosticsDefaultError ctermfg=red
-highlight LspVirtualFloatingError ctermfg=red
-highlight LspVirtualSignError ctermfg=red
-highlight LspVirtualTextError ctermfg=red
-highlight LspDiagnosticsDefaultWarning ctermfg=yellow
-highlight LspVirtualFloatingWarning ctermfg=yellow
-highlight LspVirtualSignWarning ctermfg=yellow
-highlight LspVirtualTextWarning ctermfg=yellow
-highlight LspDiagnosticsDefaultInformation ctermfg=blue
-highlight LspVirtualFloatingInformation ctermfg=blue
-highlight LspVirtualSignInformation ctermfg=blue
-highlight LspVirtualTextInformation ctermfg=blue
-
-"
 " Lua
 "
 
@@ -179,3 +154,35 @@ highlight link javascriptIdentifier Keyword
 " highlight link phpParent Type
 " highlight link phpStaticClasses Title
 " highlight link phpType Keyword
+
+"
+" GitGutter
+"
+
+highlight GitGutterAdd ctermfg=green
+highlight GitGutterChange ctermfg=yellow
+highlight GitGutterDelete ctermfg=red
+
+"
+" Floaterm
+"
+
+highlight FloatermBorder ctermbg=none guibg=none
+
+"
+" LSP
+"
+
+highlight LspDiagnosticsDefaultError ctermfg=red
+highlight LspVirtualFloatingError ctermfg=red
+highlight LspVirtualSignError ctermfg=red
+highlight LspVirtualTextError ctermfg=red
+highlight LspDiagnosticsDefaultWarning ctermfg=yellow
+highlight LspVirtualFloatingWarning ctermfg=yellow
+highlight LspVirtualSignWarning ctermfg=yellow
+highlight LspVirtualTextWarning ctermfg=yellow
+highlight LspDiagnosticsDefaultInformation ctermfg=blue
+highlight LspVirtualFloatingInformation ctermfg=blue
+highlight LspVirtualSignInformation ctermfg=blue
+highlight LspVirtualTextInformation ctermfg=blue
+

@@ -35,10 +35,17 @@ lsp.rust_analyzer.setup {
     capabilities = capabilities,
 }
 
-lsp.intelephense.setup{
+lsp.intelephense.setup {
+    capabilities = capabilities,
     on_attach = on_attach
 }
 
-lsp.vuels.setup{
-    on_attach = on_attach
+lsp.vuels.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+}
+
+lsp.html.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
 }

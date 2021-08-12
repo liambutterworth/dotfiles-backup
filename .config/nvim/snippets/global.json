@@ -1,12 +1,133 @@
 {
-    "braces": {
-        "prefix": ["{"],
-        "description": "Expand braces",
+    "{": {
+        "prefix": "{",
+        "description": "Expand brace",
 
         "body": [
             "{",
             "\t$0",
             "}"
+        ]
+    },
+
+    "{;": {
+        "prefix": "{;",
+        "description": "Expand brace with colon",
+
+        "body": [
+            "{",
+            "\t$0",
+            "}"
+        ]
+    },
+
+    "{);": {
+        "prefix": "{);",
+        "description": "Expand brace with ending parenthesis and colon",
+
+        "body": [
+            "{",
+            "\t$0",
+            "})"
+        ]
+    },
+
+    "[": {
+        "prefix": "[",
+        "description": "Expand bracket",
+
+        "body": [
+            "[",
+            "\t$0",
+            "]"
+        ]
+    },
+
+    "[;": {
+        "prefix": "[;",
+        "description": "Expand bracket with colon",
+
+        "body": [
+            "[",
+            "\t$0",
+            "];"
+        ]
+    },
+
+    "[);": {
+        "prefix": "[);",
+        "description": "Expand bracket with ending parenthesis and colon",
+
+        "body": [
+            "[",
+            "\t$0",
+            "]);"
+        ]
+    },
+
+    "(": {
+        "prefix": "(",
+        "description": "Expand parenthasis",
+
+        "body": [
+            "(",
+            "\t$0",
+            ")"
+        ]
+    },
+
+    "(;": {
+        "prefix": "(;",
+        "description": "Expand parenthesis with colon",
+
+        "body": [
+            "(",
+            "\t$0",
+            ");"
+        ]
+    },
+
+    "({": {
+        "prefix": "({",
+        "description": "Expand brace in parenthesis",
+
+        "body": [
+            "({",
+            "\t$0",
+            "})"
+        ]
+    },
+
+    "({;": {
+        "prefix": "({;",
+        "description": "Expand brace in parenthesis with colon",
+
+        "body": [
+            "({",
+            "\t$0",
+            "});"
+        ]
+    },
+
+    "([": {
+        "prefix": "([",
+        "description": "Expand bracket in parenthesis",
+
+        "body": [
+            "([",
+            "\t$0",
+            "])"
+        ]
+    },
+
+    "([;": {
+        "prefix": "([;",
+        "description": "Expand bracket in paranthesis with colono",
+
+        "body": [
+            "([",
+            "\t$0",
+            "]);"
         ]
     }
 }

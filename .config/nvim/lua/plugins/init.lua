@@ -2,31 +2,36 @@ require 'paq' {
     'airblade/vim-gitgutter',
     'hrsh7th/nvim-compe',
     'hrsh7th/vim-vsnip',
-    'joosepalviste/nvim-ts-context-commentstring',
     'junegunn/fzf',
     'junegunn/fzf.vim',
     'junegunn/goyo.vim',
     'junegunn/limelight.vim',
     'junegunn/vim-easy-align',
+    'mattn/emmet-vim',
+    'mcchrish/nnn.vim',
     'neovim/nvim-lspconfig',
     'nvim-treesitter/nvim-treesitter',
-    'nvim-treesitter/nvim-treesitter-textobjects',
-    'nvim-treesitter/playground',
-    'mcchrish/nnn.vim',
     'savq/paq-nvim',
-    'tpope/vim-commentary',
+    'tomtom/tcomment_vim',
     'tpope/vim-eunuch',
     'tpope/vim-fugitive',
     'tpope/vim-repeat',
+    'tpope/vim-speeddating',
     'tpope/vim-surround',
     'tpope/vim-unimpaired',
-    'tpope/vim-speeddating',
     'vimwiki/vimwiki',
+    'voldikss/vim-floaterm',
+
+    -- TODO remove after finding alternative
+    -- for :TSHighlightCapturesUnderCursor
+    'nvim-treesitter/playground',
 }
 
 require('plugins.compe')
 require('plugins.easy-align')
+require('plugins.emmet')
 require('plugins.fzf')
+require('plugins.floaterm')
 require('plugins.goyo')
 require('plugins.limelight')
 require('plugins.lspconfig')
