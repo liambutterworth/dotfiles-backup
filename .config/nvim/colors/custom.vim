@@ -109,8 +109,8 @@ highlight link luaTSConstructor TSPuncBracket
 "
 
 highlight link fishTSFunction TSKeyword
-highlight link fishTSFuncBuiltin fishTSFunction
-highlight link fishTSParameter TSType
+highlight link fishTSFuncBuiltin TSKeyword
+highlight link fishTSParameter TSNumber
 
 "
 " GitGutter
@@ -142,4 +142,3 @@ highlight LspDiagnosticsDefaultInformation cterm=bold ctermfg=blue
 highlight LspVirtualFloatingInformation cterm=bold ctermfg=blue
 highlight LspVirtualSignInformation cterm=bold ctermfg=blue
 highlight LspVirtualTextInformation cterm=bold ctermfg=blue
-
