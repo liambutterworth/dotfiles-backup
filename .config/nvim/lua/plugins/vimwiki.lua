@@ -7,7 +7,7 @@ api.global.vimwiki_list = {{
 
 api.map.normal('+', ':VimwikiIndex<cr>')
 
-vim.api.nvim_exec([[
+api.exec([[
     augroup Vimwiki
         autocmd FileType vimwiki nmap <c-]> <plug>VimwikiFollowLink
         autocmd FileType vimwiki nmap <c-t> <plug>VimwikiGoBackLink
