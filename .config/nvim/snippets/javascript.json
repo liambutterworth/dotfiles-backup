@@ -30,5 +30,27 @@
     "log": {
         "prefix": ["log"],
         "body": "console.log(${1:$TM_SELECTED_TEXT});"
+    },
+
+    "function": {
+        "prefix": ["fun", "function"],
+        "description": "Function",
+
+        "body": [
+            "function ${1:name}($2) {",
+            "\t$0",
+            "}"
+        ]
+    },
+
+    "if": {
+        "prefix": "if",
+        "description": "Conditional",
+
+        "body": [
+            "if ($1) {",
+            "\t$0",
+            "}"
+        ]
     }
 }

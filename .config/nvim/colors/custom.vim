@@ -58,14 +58,36 @@ highlight Visual cterm=bold ctermbg=black
 highlight WarningMsg ctermbg=none ctermfg=yellow
 
 "
-" Lua
+" Treesitter
 "
 
-highlight link luaFunc Operator
-highlight link luaFunction Operator
-highlight link luaTable Identifer
-" highlight link luaFuncKeyword Operator
-" highlight link luaLocal Operator
+highlight TSBoolean ctermfg=magenta
+highlight TSConstructor ctermfg=cyan
+highlight TSError ctermfg=red
+highlight TSFunction ctermfg=cyan
+highlight TSFuncBuiltin ctermfg=cyan
+highlight TSMethod ctermfg=cyan
+highlight TSKeyword ctermfg=blue
+highlight TSNumber ctermfg=magenta
+highlight TSPunctDelimiter ctermfg=white
+highlight TSPunctBracket ctermfg=white
+highlight TSProperty ctermfg=white
+highlight TSString ctermfg=green
+highlight TSStringEscape ctermfg=yellow
+highlight TSTag ctermfg=blue
+highlight TSTagAttribute ctermfg=cyan
+highlight TSTagDelimiter ctermfg=blue
+highlight TSType ctermfg=yellow
+highlight TSTypeBuiltin ctermfg=yellow
+highlight TSVariableBuiltin ctermfg=white
+
+"
+" CSS
+"
+
+highlight link scssTSVariable TSKeyword
+highlight link scssTSProperty TSKeyword
+highlight link scssTSType TSMethod
 
 "
 " Vim
@@ -77,83 +99,18 @@ highlight link vimHiAttrib SpecialChar
 highlight link vimHiCtermColor SpecialChar
 
 "
-" HTML
+" Lua
 "
 
-" highlight link htmlArg Identifier
-" highlight link htmlEndTag htmlTagName
-highlight link htmlTag htmlTagName
-highlight link htmlTagN htmlTag
-highlight link htmlEndTag htmlTag
+highlight link luaTSConstructor TSPuncBracket
 
 "
-" CSS
+" Fish
 "
 
-" highlight link cssBackgroundProp Keyword
-" highlight link cssBorderAttr Number
-" highlight link cssBorderProp Keyword
-" highlight link cssBraces Type
-" highlight link cssBoxProp Keyword
-" highlight link cssFlexibleBoxProp Keyword
-" highlight link cssColor Number
-" highlight link cssCommonAttr Number
-" highlight link cssFontProp Keyword
-" highlight link cssMediaProp Keyword
-" highlight link cssMultiColumnProp Keyword
-" highlight link cssPageProp Keyword
-" highlight link cssPositioningAttr Number
-" highlight link cssPositioningProp Keyword
-" highlight link cssPseudoClassId Identifier
-" highlight link cssTextProp Keyword
-" highlight link cssTransitionAttr Number
-" highlight link cssTransitionProp Keyword
-" highlight link cssUIProp Keyword
-" highlight link cssUIAttr Number
-" highlight link cssUnicodeEscape SpecialChar
-" highlight link cssVisualProp Keyword
-
-"
-" SCSS
-"
-
-" highlight link scssAmpersand scssSelectorName
-" highlight link scssProperty Keyword
-" highlight link scssSemicolon Type
-
-"
-" JS
-"
-
-highlight link javascriptIdentifier Keyword
-
-" highlight link javaScript Keyword
-" highlight link jsBuiltins Identifier
-" highlight link jsGlobalObjects Type
-" highlight link jsStorageClass Keyword
-" highlight link jsUndefined Keyword
-" highlight link jsBooleanFalse Number
-" highlight link jsBooleanTrue Number
-
-"
-" Vue
-"
-
-" highlight link vueSurroundingTag htmlTag
-
-"
-" PHP
-"
-
-" highlight link phpStructure Operator
-" highlight link phpIdetifier
-
-" highlight link phpFunction phpFunctions
-" highlight link phpIdentifier Type
-" highlight link phpMethod phpMethods
-" highlight link phpParent Type
-" highlight link phpStaticClasses Title
-" highlight link phpType Keyword
+highlight link fishTSFunction TSKeyword
+highlight link fishTSFuncBuiltin fishTSFunction
+highlight link fishTSParameter TSType
 
 "
 " GitGutter
@@ -173,16 +130,16 @@ highlight FloatermBorder ctermbg=none guibg=none
 " LSP
 "
 
-highlight LspDiagnosticsDefaultError ctermfg=red
-highlight LspVirtualFloatingError ctermfg=red
-highlight LspVirtualSignError ctermfg=red
-highlight LspVirtualTextError ctermfg=red
-highlight LspDiagnosticsDefaultWarning ctermfg=yellow
-highlight LspVirtualFloatingWarning ctermfg=yellow
-highlight LspVirtualSignWarning ctermfg=yellow
-highlight LspVirtualTextWarning ctermfg=yellow
-highlight LspDiagnosticsDefaultInformation ctermfg=blue
-highlight LspVirtualFloatingInformation ctermfg=blue
-highlight LspVirtualSignInformation ctermfg=blue
-highlight LspVirtualTextInformation ctermfg=blue
+highlight LspDiagnosticsDefaultError cterm=bold ctermfg=red
+highlight LspVirtualFloatingError cterm=bold ctermfg=red
+highlight LspVirtualSignError cterm=bold ctermfg=red
+highlight LspVirtualTextError cterm=bold ctermfg=red
+highlight LspDiagnosticsDefaultWarning cterm=bold ctermfg=yellow
+highlight LspVirtualFloatingWarning cterm=bold ctermfg=yellow
+highlight LspVirtualSignWarning cterm=bold ctermfg=yellow
+highlight LspVirtualTextWarning cterm=bold ctermfg=yellow
+highlight LspDiagnosticsDefaultInformation cterm=bold ctermfg=blue
+highlight LspVirtualFloatingInformation cterm=bold ctermfg=blue
+highlight LspVirtualSignInformation cterm=bold ctermfg=blue
+highlight LspVirtualTextInformation cterm=bold ctermfg=blue
 

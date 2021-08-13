@@ -1,25 +1,24 @@
-local lsp = require('lspconfig')
+local api = require('api')
+local config = require('lspconfig')
+local capabilities = api.lsp.protocol.make_client_capabilities()
 
-local on_attach = function(client, bufnr)
-    local function buf_set_keymap(...)
-        vim.api.nvim_buf_set_keymap(bufnr, ...)
-    end
+local servers = {
+    'intelephense',
+    'vuels',
+    'html',
+}
 
-    local function buf_set_option(...)
-        vim.api.nvim_buf_set_option(bufnr, ...)
-    end
-
+local function on_attach(client, buffer)
     local opts = { noremap = true, silent = true }
 
-    buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-    buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover({ border = "single" })<cr>', opts)
-    buf_set_keymap('n', '<c-]>', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
-    buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>', opts)
-    buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-    buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-end
+    api.buffer.omnifunc = 'v:lua.vim.lsp.omnifunc'
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+    api.map.buffer.normal(buffer, 'K', '<cmd>lua vim.lsp.buf.hover({ border = "single" })<cr>', opts)
+    api.map.buffer.normal(buffer, '<c-]>', '<cmd>lua vim.lsp.buf.defintion()<cr>', opts)
+    api.map.buffer.normal(buffer, 'gi', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>', opts)
+    api.map.buffer.normal(buffer, '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>', opts)
+    api.map.buffer.normal(buffer, ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<cr>', opts)
+end
 
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
@@ -31,21 +30,21 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
     }
 }
 
-lsp.rust_analyzer.setup {
+config.rust_analyzer.setup {
     capabilities = capabilities,
 }
 
-lsp.intelephense.setup {
+config.intelephense.setup {
     capabilities = capabilities,
     on_attach = on_attach
 }
 
-lsp.vuels.setup {
+config.vuels.setup {
     capabilities = capabilities,
     on_attach = on_attach,
 }
 
-lsp.html.setup {
+config.html.setup {
     capabilities = capabilities,
     on_attach = on_attach,
 }
