@@ -21,6 +21,17 @@
         ]
     },
 
+    "{,": {
+        "prefix": "{,",
+        "description": "Expand brace with comma",
+
+        "body": [
+            "{",
+            "\t$0",
+            "},"
+        ]
+    },
+
     "{);": {
         "prefix": "{);",
         "description": "Expand brace with ending parenthesis and colon",
@@ -51,6 +62,17 @@
             "[",
             "\t$0",
             "];"
+        ]
+    },
+
+    "[,": {
+        "prefix": "[,",
+        "description": "Expand bracket with comma",
+
+        "body": [
+            "[",
+            "\t$0",
+            "],"
         ]
     },
 

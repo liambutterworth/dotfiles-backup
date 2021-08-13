@@ -2,7 +2,15 @@
 
 ## Dependencies
 
-`git fish neovim fzf fd ripgrap`
+```
+git fish neovim fzf fd ripgrap
+```
+
+## Langauge Servers
+
+```
+npm i -g vscode-langservers-extracted vls intelephense
+```
 
 ## Install
 

@@ -7,10 +7,11 @@ require 'paq' {
     'junegunn/goyo.vim',
     'junegunn/limelight.vim',
     'junegunn/vim-easy-align',
-    'mattn/emmet-vim',
     'mcchrish/nnn.vim',
     'neovim/nvim-lspconfig',
     'nvim-treesitter/nvim-treesitter',
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    'nvim-treesitter/playground',
     'savq/paq-nvim',
     'tomtom/tcomment_vim',
     'tpope/vim-eunuch',
@@ -21,15 +22,10 @@ require 'paq' {
     'tpope/vim-unimpaired',
     'vimwiki/vimwiki',
     'voldikss/vim-floaterm',
-
-    -- TODO remove after finding alternative
-    -- for :TSHighlightCapturesUnderCursor
-    'nvim-treesitter/playground',
 }
 
 require('plugins.compe')
 require('plugins.easy-align')
-require('plugins.emmet')
 require('plugins.fzf')
 require('plugins.floaterm')
 require('plugins.goyo')

@@ -2,12 +2,6 @@ local api = require('api')
 local config = require('lspconfig')
 local capabilities = api.lsp.protocol.make_client_capabilities()
 
-local servers = {
-    'intelephense',
-    'vuels',
-    'html',
-}
-
 local function on_attach(client, buffer)
     local opts = { noremap = true, silent = true }
 
@@ -34,9 +28,19 @@ config.rust_analyzer.setup {
     capabilities = capabilities,
 }
 
-config.intelephense.setup {
+config.html.setup {
     capabilities = capabilities,
-    on_attach = on_attach
+    on_attach = on_attach,
+}
+
+config.cssls.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+}
+
+config.jsonls.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
 }
 
 config.vuels.setup {
@@ -44,7 +48,7 @@ config.vuels.setup {
     on_attach = on_attach,
 }
 
-config.html.setup {
+config.intelephense.setup {
     capabilities = capabilities,
-    on_attach = on_attach,
+    on_attach = on_attach
 }
