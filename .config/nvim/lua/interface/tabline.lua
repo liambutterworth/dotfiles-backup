@@ -22,23 +22,26 @@ function Tabline()
     local tabline = {}
     local tabs = api.nvim_list_tabpages()
     local current = api.nvim_get_current_tabpage()
+    local separator = '%#TabLineSeparator#'
+    local selected = '%#TabLineSel#'
+    local unselected = '%#TabLine#'
+    local space = ' '
 
-    for tab in pairs(tabs) do
+    for index, tab in ipairs(tabs) do
         local name = Tabname(tab)
 
-        table.insert(tabline, '%#TabLineSeparator# ')
+        table.insert(tabline, separator .. space)
 
         if tab == current then
-            table.insert(tabline, '%#TabLineSel# ')
+            table.insert(tabline, selected .. space .. name)
         else
-            table.insert(tabline, '%#TabLine# ')
+            table.insert(tabline, unselected .. space .. name)
         end
 
-        table.insert(tabline, name)
-        table.insert(tabline, ' %#TabLineSeparator#')
+        table.insert(tabline, space .. separator)
     end
 
     return table.concat(tabline)
 end
 
-api.option.tabline = "%!v:lua.Tabline()"
+api.option.tabline = '%!v:lua.Tabline()'

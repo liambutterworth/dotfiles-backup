@@ -1,137 +1,76 @@
 {
     "doctype": {
         "prefix": "doctype",
+        "description": "Defines the document type",
+
         "body": [
             "<!DOCTYPE>",
             "$1"
-        ],
-        "description": "HTML - Defines the document type",
-        "scope": "text.html"
+        ]
     },
+
     "a": {
         "prefix": "a",
-        "body": "<a href=\"$1\">$2</a>$3",
-        "description": "HTML - Defines a hyperlink",
-        "scope": "text.html"
+        "description": "Defines a hyperlink",
+        "body": "<a href=\"$1\">$2</a>"
     },
-    "abbr": {
-        "prefix": "abbr",
-        "body": "<abbr title=\"$1\">$2</abbr>$3",
-        "description": "HTML - Defines an abbreviation",
-        "scope": "text.html"
-    },
+
     "address": {
-        "prefix": "address",
+        "prefix": ["add", "address"],
+        "description": "Defines an address element",
+
         "body": [
             "<address>",
-            "$1",
+            "\t$TM_SELECTED_TEXT$1",
             "</address>"
-        ],
-        "description": "HTML - Defines an address element",
-        "scope": "text.html"
+        ]
     },
-    "area": {
-        "prefix": "area",
-        "body": "<area shape=\"$1\" coords=\"$2\" href=\"$3\" alt=\"$4\">$5",
-        "description": "HTML - Defines an area inside an image map",
-        "scope": "text.html"
-    },
+
     "article": {
         "prefix": "article",
+        "description": "Defines an article",
+
         "body": [
             "<article>",
-            "\t$1",
+            "\t$TM_SELECTED_TEXT$1",
             "</article>"
-        ],
-        "description": "HTML - Defines an article",
-        "scope": "text.html"
+        ]
     },
+
     "aside": {
         "prefix": "aside",
+        "description": "Defines content aside from the page content",
+
         "body": [
             "<aside>",
-            "\t$1",
-            "</aside>$2"
-        ],
-        "description": "HTML - Defines content aside from the page content",
-        "scope": "text.html"
+            "\t$TM_SELECTED_TEXT$1",
+            "</aside>"
+        ]
     },
-    "audio": {
-        "prefix": "audio",
-        "body": [
-            "<audio controls>",
-            "\t$1",
-            "</audio>"
-        ],
-        "description": "HTML - Defines sounds content",
-        "scope": "text.html"
-    },
+
     "b": {
         "prefix": "b",
-        "body": "<b>$1</b>$2",
-        "description": "HTML - Defines bold text",
-        "scope": "text.html"
+        "description": "Defines bold text",
+        "body": "<b>${1:$TM_SELECTED_TEXT}</b>"
     },
-    "base": {
-        "prefix": "base",
-        "body": "<base href=\"$1\" target=\"$2\">$3",
-        "description": "HTML - Defines a base URL for all the links in a page",
-        "scope": "text.html"
-    },
-    "bdi": {
-        "prefix": "bdi",
-        "body": "<bdi>$1</bdi>$2",
-        "description": "HTML - Used to isolate text that is of unknown directionality",
-        "scope": "text.html"
-    },
-    "bdo": {
-        "prefix": "bdo",
-        "body": [
-            "<bdo dir=\"$1\">",
-            "$2",
-            "</bdo>"
-        ],
-        "description": "HTML - Defines the direction of text display",
-        "scope": "text.html"
-    },
-    "big": {
-        "prefix": "big",
-        "body": "<big>$1</big>$2",
-        "description": "HTML - Used to make text bigger",
-        "scope": "text.html"
-    },
-    "blockquote": {
-        "prefix": "blockquote",
-        "body": [
-            "<blockquote cite=\"$2\">",
-            "\t$1",
-            "</blockquote>"
-        ],
-        "description": "HTML - Defines a long quotation",
-        "scope": "text.html"
-    },
+
     "body": {
         "prefix": "body",
+        "description": "HTML - Defines the body element",
+
         "body": [
             "<body>",
             "\t$1",
             "</body>"
-        ],
-        "description": "HTML - Defines the body element",
-        "scope": "text.html"
+        ]
     },
-    "br": {
-        "prefix": "br",
-        "body": "<br>",
-        "description": "HTML - Inserts a single line break",
-        "scope": "text.html"
-    },
+
     "button": {
         "prefix": "button",
-        "body": "<button type=\"$1\">$2</button>$3",
         "description": "HTML - Defines a push button",
-        "scope": "text.html"
+        "body": "<button type=\"$1\">${2:$TM_SELECTED_TEXT}</button>"
     },
+
     "canvas": {
         "prefix": "canvas",
         "body": "<canvas id=\"$1\">$2</canvas>$3",
@@ -222,16 +161,18 @@
         "description": "HTML - Defines a definition term",
         "scope": "text.html"
     },
+
     "div": {
         "prefix": "div",
+        "description": "Defines a section in a document",
+
         "body": [
             "<div>",
-            "\t$1",
+            "\t$TM_SELECTED_TEXT$1",
             "</div>"
-        ],
-        "description": "HTML - Defines a section in a document",
-        "scope": "text.html"
+        ]
     },
+
     "dl": {
         "prefix": "dl",
         "body": [

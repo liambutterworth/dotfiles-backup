@@ -8,7 +8,7 @@ local function on_attach(client, buffer)
     api.buffer.omnifunc = 'v:lua.vim.lsp.omnifunc'
 
     api.map.normal(buffer, 'K', '<cmd>lua vim.lsp.buf.hover({ border = "single" })<cr>', opts)
-    api.map.normal(buffer, '<c-]>', '<cmd>lua vim.lsp.buf.defintion()<cr>', opts)
+    api.map.normal(buffer, '<c-]>', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
     api.map.normal(buffer, 'gi', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>', opts)
     api.map.normal(buffer, '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>', opts)
     api.map.normal(buffer, ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<cr>', opts)

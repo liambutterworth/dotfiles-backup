@@ -1,0 +1,34 @@
+{
+    "function": {
+        "prefix": ["fun", "function"],
+        "description": "Function",
+
+        "body": [
+            "function ${1:name}($2)",
+            "\t$TM_SELECTED_TEXT$3",
+            "end$0"
+        ]
+    },
+
+    "for": {
+        "prefix": "for",
+        "description": "For loop",
+
+        "body": [
+            "for ${1:index, ${2:item}} in ${3:pairs(${4:items})} do",
+            "\t$TM_SELECTED_TEXT$5",
+            "end$0"
+        ]
+    },
+
+    "if": {
+        "prefix": "if",
+        "description": "Conditional statement",
+
+        "body": [
+            "if $1 then",
+            "\t$TM_SELECTED_TEXT$2",
+            "end$0"
+        ]
+    }
+}

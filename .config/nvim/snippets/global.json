@@ -1,11 +1,11 @@
 {
-    "{": {
-        "prefix": "{",
+    "{}": {
+        "prefix": "{}",
         "description": "Expand brace",
 
         "body": [
             "{",
-            "\t$0",
+            "\t$TM_SELECTED_TEXT$0",
             "}"
         ]
     },
@@ -16,7 +16,7 @@
 
         "body": [
             "{",
-            "\t$0",
+            "\t$TM_SELECTED_TEXT$0",
             "}"
         ]
     },
@@ -27,7 +27,7 @@
 
         "body": [
             "{",
-            "\t$0",
+            "\t$TM_SELECTED_TEXT$0",
             "},"
         ]
     },
@@ -38,18 +38,18 @@
 
         "body": [
             "{",
-            "\t$0",
+            "\t$TM_SELECTED_TEXT$0",
             "});"
         ]
     },
 
-    "[": {
-        "prefix": "[",
+    "[]": {
+        "prefix": "[]",
         "description": "Expand bracket",
 
         "body": [
             "[",
-            "\t$0",
+            "\t$TM_SELECTED_TEXT$0",
             "]"
         ]
     },
@@ -60,7 +60,7 @@
 
         "body": [
             "[",
-            "\t$0",
+            "\t$TM_SELECTED_TEXT$0",
             "];"
         ]
     },
@@ -71,7 +71,7 @@
 
         "body": [
             "[",
-            "\t$0",
+            "\t$TM_SELECTED_TEXT$0",
             "],"
         ]
     },
@@ -82,18 +82,18 @@
 
         "body": [
             "[",
-            "\t$0",
+            "\t$TM_SELECTED_TEXT$0",
             "]);"
         ]
     },
 
-    "(": {
-        "prefix": "(",
+    "()": {
+        "prefix": "()",
         "description": "Expand parenthasis",
 
         "body": [
             "(",
-            "\t$0",
+            "\t$TM_SELECTED_TEXT$0",
             ")"
         ]
     },
@@ -104,51 +104,51 @@
 
         "body": [
             "(",
-            "\t$0",
+            "\t$TM_SELECTED_TEXT$0",
             ");"
         ]
     },
 
-    "({": {
-        "prefix": "({",
+    "(}": {
+        "prefix": "(}",
         "description": "Expand brace in parenthesis",
 
         "body": [
             "({",
-            "\t$0",
+            "\t$TM_SELECTED_TEXT$0",
             "})"
         ]
     },
 
-    "({;": {
-        "prefix": "({;",
+    "(};": {
+        "prefix": "(};",
         "description": "Expand brace in parenthesis with colon",
 
         "body": [
             "({",
-            "\t$0",
+            "\t$TM_SELECTED_TEXT$0",
             "});"
         ]
     },
 
-    "([": {
+    "(]": {
         "prefix": "([",
         "description": "Expand bracket in parenthesis",
 
         "body": [
             "([",
-            "\t$0",
+            "\t$TM_SELECTED_TEXT$0",
             "])"
         ]
     },
 
-    "([;": {
+    "(];": {
         "prefix": "([;",
         "description": "Expand bracket in paranthesis with colono",
 
         "body": [
             "([",
-            "\t$0",
+            "\t$TM_SELECTED_TEXT$0",
             "]);"
         ]
     }

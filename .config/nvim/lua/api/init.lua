@@ -1,4 +1,4 @@
-local api = {}
+local api = vim.api
 
 api.buffer = vim.bo
 api.call = vim.fn
