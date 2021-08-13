@@ -1,4 +1,10 @@
 {
+    "print": {
+        "prefix": "p",
+        "description": "Print",
+        "body": "print(${1:$TM_SELECTED_TEXT})"
+    },
+
     "function": {
         "prefix": ["fun", "function"],
         "description": "Function",

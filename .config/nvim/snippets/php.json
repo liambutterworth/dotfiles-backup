@@ -6,7 +6,7 @@
         "body": [
             "<?php",
             "",
-            "$0"
+            "$1"
         ]
     },
 
@@ -15,7 +15,7 @@
         "description": "Dump",
 
         "body": [
-            "dump(${0:$TM_SELECTED_TEXT});"
+            "dump(${1:$TM_SELECTED_TEXT});"
         ]
     },
 
@@ -24,7 +24,7 @@
         "description": "Die and dump",
 
         "body": [
-            "dd(${0:$TM_SELECTED_TEXT});"
+            "dd(${1:$TM_SELECTED_TEXT});"
         ]
     },
 
@@ -35,7 +35,7 @@
         "body": [
             "class ${1:Name}${2: extends ${3:Parent}}",
             "{",
-            "\t$0",
+            "\t$4",
             "}"
         ]
     },
@@ -48,7 +48,7 @@
             "public function ${1:name}($2)",
             "{",
             "\t$TM_SELECTED_TEXT$3",
-            "}$0"
+            "}"
         ]
     },
 
@@ -60,7 +60,7 @@
             "public static function ${1:name}($2)",
             "{",
             "\t$TM_SELECTED_TEXT$3",
-            "}$0"
+            "}"
         ]
     },
 
@@ -72,7 +72,7 @@
             "private function ${1:name}($2)",
             "{",
             "\t$TM_SELECTED_TEXT$3",
-            "}$0"
+            "}"
         ]
     },
 
@@ -84,24 +84,13 @@
             "private static function ${1:name}($2)",
             "{",
             "\t$TM_SELECTED_TEXT$3",
-            "}$0"
-        ]
-    },
-
-    "function": {
-        "prefix": ["fun", "function"],
-        "description": "Function",
-
-        "body": [
-            "function ${1:name}($2) {",
-            "\t$TM_SELECTED_TEXT$3",
             "}"
         ]
     },
 
-    "closure": {
-        "prefix": ["cl", "closure"],
-        "description": "Closure",
+    "function": {
+        "prefix": ["fn", "function"],
+        "description": "Function",
 
         "body": [
             "function($1) {",
@@ -117,18 +106,18 @@
         "body": [
             "for (\\$index = ${1:1}; \\$index ${2:<= 10}; ${3:\\$index++}) {",
             "\t$TM_SELECTED_TEXT$4",
-            "}$0"
+            "}"
         ]
     },
 
-    "fore": {
+    "each": {
         "prefix": "each",
         "description": "Foreach loop",
 
         "body": [
             "foreach (${1:items} as ${2:item}) {",
             "\t$TM_SELECTED_TEXT$3",
-            "}$0"
+            "}"
         ]
     },
 
@@ -139,7 +128,7 @@
         "body": [
             "if ($1) {",
             "\t$TM_SELECTED_TEXT$1",
-            "}$0"
+            "}"
         ]
     },
 
@@ -150,18 +139,18 @@
         "body": [
             "switch (${1:$TM_SELECTED_TEXT) {",
             "\t$2",
-            "}$0"
+            "}"
         ]
     },
 
     "case": {
-        "prefix": "case",
+        "prefix": ["ca", "case"],
         "description": "Case statement",
 
         "body": [
             "case $1:",
-            "\t${2:$TM_SELECTED_TEXT}",
-            "\tbreak;$0"
+            "\t$TM_SELECTED_TEXT$2",
+            "\tbreak;"
         ]
     },
 
@@ -171,7 +160,7 @@
 
         "body": [
             "default $1:",
-            "\t${0:$TM_SELECTED_TEXT}"
+            "\t$TM_SELECTED_TEXT$2"
         ]
     }
 }

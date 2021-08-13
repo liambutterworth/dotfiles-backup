@@ -24,7 +24,8 @@ function jump(direction)
     end
 end
 
-api.map.visual('s', '<plug>(vsnip-cut-text)')
+api.map.visual('\\y', '<plug>(vsnip-select-text)<esc>')
+api.map.visual('\\c', '<plug>(vsnip-cut-text)')
 api.map.normal('\\\\', '<cmd>VsnipOpenEdit<cr>')
 api.map.normal('\\s', '<cmd>VsnipOpenVsplit<cr>')
 api.map.normal('\\v', '<cmd>VsnipOpen<cr>')

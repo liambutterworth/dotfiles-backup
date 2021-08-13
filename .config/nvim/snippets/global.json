@@ -151,5 +151,16 @@
             "\t$TM_SELECTED_TEXT$0",
             "]);"
         ]
+    },
+
+    "```": {
+        "prefix": "```",
+        "description": "Expand backticks",
+
+        "body": [
+            "```",
+            "\t$TM_SELECTED_TEXT$1",
+            "```"
+        ]
     }
 }
