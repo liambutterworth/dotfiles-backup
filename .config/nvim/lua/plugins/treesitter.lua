@@ -4,8 +4,17 @@ local treesitter = require('nvim-treesitter.configs')
 api.map.normal('<f10>', ':TSHighlightCapturesUnderCursor<cr>')
 
 treesitter.setup {
-    highlight = { enable = true },
-    indent = { enable = true },
+    context_commentstring = {
+        enable = true,
+    },
+
+    highlight = {
+        enable = true,
+    },
+
+    indent = {
+        enable = true,
+    },
 
     textobjects = {
         select = {
