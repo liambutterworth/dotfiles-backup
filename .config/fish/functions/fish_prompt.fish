@@ -11,5 +11,5 @@ function fish_prompt
         case insert;  echo \U276F
     end)(set_color normal)
 
-    printf "\033[J%s %s\n%s " "$directory" "$branch" "$character"
+    printf "%s %s\n%s " "$directory" "$branch" "$character"
 end

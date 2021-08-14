@@ -10,6 +10,8 @@
 # :: Mouse
 # :: Window
 
+# darker bg = 242831
+
 #
 # Globals
 #
@@ -24,7 +26,6 @@ draw_bold_text_with_bright_colors: true
 key_bindings:
   - { key: L, mods: Control, chars: "\x0c" }
   - { key: L, mods: Control|Shift, action: ClearHistory }
-
 
 #
 # Colors
@@ -69,8 +70,15 @@ colors:
     magenta: '#b48ead'
     cyan: '#8fbcbb'
     white: '#eceff4'
-
-# darker bg = 242831
+  dim:
+    black: '#373e4d'
+    red: '#94545d'
+    green: '#809575'
+    yellow: '#b29e75'
+    blue: '#68809a'
+    magenta: '#8c738c'
+    cyan: '#6d96a5'
+    white: '#aeb3bb'
 
 #
 # Cursor
@@ -129,6 +137,6 @@ mouse:
 
 window:
   dynamic_padding: true
-  # padding:
-  #   x: 20
-  #   y: 20
+  padding:
+    x: 8
+    y: 8

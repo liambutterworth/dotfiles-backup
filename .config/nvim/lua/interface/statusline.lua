@@ -6,7 +6,7 @@ function Statusline(state)
     local buffer = api.utils.get_current_window()
     local errors = api.utils.get_lsp_error_count(buffer)
     local warnings = api.utils.get_lsp_warning_count(buffer)
-    local separator = '%#StatusLineSep# │ '
+    local separator = '%#StatusLineSep# │ %#StatusLine#'
 
     if state == 'inactive' then
         table.insert(statusline, '%#StatusLineInactive# ')

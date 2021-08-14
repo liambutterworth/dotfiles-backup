@@ -77,18 +77,21 @@ highlight TSVariableBuiltin ctermfg=white
 " Tabline
 "
 
-highlight TabLine cterm=none ctermbg=black
+highlight TabLine cterm=none ctermbg=none
 highlight TabLineFill cterm=none ctermbg=none
 highlight TabLineSel cterm=none ctermbg=white ctermfg=black
+highlight TabLineSelSep cterm=none ctermbg=none ctermfg=white
+highlight TabLineUnsel cterm=none ctermbg=black ctermfg=white
+highlight TabLineUnselSep cterm=none ctermbg=none ctermfg=black
 
 "
 " Statusline
 "
 
 highlight StatusLine cterm=none ctermbg=black ctermfg=white
-highlight StatusLineNc cterm=none ctermbg=none ctermfg=white
+highlight StatusLineNc cterm=none ctermbg=black ctermfg=white
 highlight StatusLineLn cterm=bold ctermbg=black ctermfg=white
-highlight StatusLineSep cterm=none ctermbg=black ctermfg=none
+highlight StatusLineSep cterm=bold ctermbg=black ctermfg=white
 highlight StatusLineBranch cterm=bold ctermbg=black ctermfg=blue
 highlight StatusLineInactive cterm=bold ctermbg=white ctermfg=black
 highlight StatusLineInactiveSep cterm=bold ctermbg=black ctermfg=white

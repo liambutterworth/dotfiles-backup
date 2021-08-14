@@ -1,10 +1,12 @@
 local api = require('api')
 
 function Tabname(number)
-    local name = api.tab.get_name(number)
+    local name = api.utils.get_tab_name(number)
 
     if string.find(name, 'term://') ~= nil then
-        return ' ' .. api.call.fnamemodify(name, ':p:t')
+        local command = api.call.fnamemodify(name, ':p:t')
+
+        return ' ' .. command:gsub('[^a-zA-Z]', '')
     end
 
     name = api.call.fnamemodify(name, ':p:t')
@@ -13,30 +15,24 @@ function Tabname(number)
         return 'No Name'
     end
 
-    return name
+    return ' ' .. name
 end
 
 function Tabline()
     local tabline = {}
-    local tabs = api.tab.get_list()
-    local current = api.tab.get_current()
-    local separator = '%#TabLineSeparator#'
-    local selected = '%#TabLineSel#'
-    local unselected = '%#TabLine#'
-    local space = ' '
+    local tabs = api.utils.get_tab_list()
+    local current = api.utils.get_current_tab()
 
     for index, tab in ipairs(tabs) do
         local name = Tabname(tab)
 
-        table.insert(tabline, separator .. space)
-
         if tab == current then
-            table.insert(tabline, selected .. space .. name)
+            table.insert(tabline, '%#TabLineSel# ' .. name .. ' ')
         else
-            table.insert(tabline, unselected .. space .. name)
+            table.insert(tabline, '%#TabLineUnsel# ' .. name .. ' ')
         end
 
-        table.insert(tabline, space .. separator)
+        table.insert(tabline, '%#TabLine# ')
     end
 
     return table.concat(tabline)
