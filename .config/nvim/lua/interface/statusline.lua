@@ -6,7 +6,7 @@ function Statusline(state)
     local buffer = api.utils.get_current_window()
     local errors = api.utils.get_lsp_error_count(buffer)
     local warnings = api.utils.get_lsp_warning_count(buffer)
-    local separator = '%#StatusLineSep# │ %#StatusLine#'
+    local separator = ' %#StatusLineSep# %#StatusLine# '
 
     if state == 'inactive' then
         table.insert(statusline, '%#StatusLineInactive# ')
@@ -27,13 +27,25 @@ function Statusline(state)
     table.insert(statusline, '%#StatusLine# %f%<%=')
 
     if state == 'active' then
+        table.insert(statusline, separator)
         table.insert(statusline, '%#StatusLineLn#%#StatusLine# %l/%L:%c')
+        table.insert(statusline, separator)
 
         if (branch and #branch > 0) then
-            table.insert(statusline, separator .. ' %#StatusLineBranch#' .. branch)
-        end
+            local status = api.shell('git status')
 
-        table.insert(statusline, separator)
+            table.insert(statusline, '  ')
+
+            if string.find(status, 'Changes not staged') then
+                table.insert(statusline, '%#StatusLineBranchDirty#')
+            elseif string.find(status, 'Changes to be committed') then
+                table.insert(statusline, '%#StatusLineBranchCommit#')
+            elseif string.find(status, 'Your branch is ahead') then
+                table.insert(statusline, '%#StatusLineBranchAhead#')
+            end
+
+            table.insert(statusline, branch .. separator)
+        end
     end
 
     if errors > 0 then
@@ -49,10 +61,10 @@ function Statusline(state)
     return table.concat(statusline)
 end
 
-api.exec([[
+api.cmd([[
 augroup StatusLine
 autocmd!
 autocmd WinEnter,BufEnter * setlocal statusline=%!v:lua.Statusline('active')
 autocmd WinLeave,BufLeave * setlocal statusline=%!v:lua.Statusline('inactive')
 augroup END
-]], false)
+]])
