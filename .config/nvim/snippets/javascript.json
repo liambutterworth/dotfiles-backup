@@ -10,8 +10,19 @@
 
         "body": [
             "function ${1:name}($2) {",
-            "\t$3",
+            "\t$TM_SELECTED_TEXT$3",
             "}$0"
+        ]
+    },
+
+    "closure": {
+        "prefix": ["fn", "closure"],
+        "description": "Closure",
+
+        "body": [
+            "function ${1:name}($2) {",
+            "\t$TM_SELECTED_TEXT$3",
+            "}"
         ]
     },
 

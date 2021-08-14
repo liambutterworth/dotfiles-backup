@@ -3,7 +3,9 @@ local api = require('api')
 api.global.vsnip_snippet_dir = api.call.expand('~/.config/nvim/snippets')
 
 api.global.vsnip_filetypes = {
-    vue = { 'html', 'css', 'javascript' },
+    javascript = { 'javascript', 'c' },
+    vue = { 'html', 'css', 'javascript', 'c'},
+    php = { 'php', 'c' },
 }
 
 function expand_or_jump()

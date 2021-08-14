@@ -88,28 +88,6 @@
         ]
     },
 
-    "function": {
-        "prefix": ["fn", "function"],
-        "description": "Function",
-
-        "body": [
-            "function($1) {",
-            "\t$TM_SELECTED_TEXT$2",
-            "}"
-        ]
-    },
-
-    "for": {
-        "prefix": "for",
-        "description": "For loop",
-
-        "body": [
-            "for (\\$index = ${1:1}; \\$index ${2:<= 10}; ${3:\\$index++}) {",
-            "\t$TM_SELECTED_TEXT$4",
-            "}"
-        ]
-    },
-
     "each": {
         "prefix": "each",
         "description": "Foreach loop",
@@ -118,49 +96,6 @@
             "foreach (${1:items} as ${2:item}) {",
             "\t$TM_SELECTED_TEXT$3",
             "}"
-        ]
-    },
-
-    "if": {
-        "prefix": "if",
-        "description": "Conditional statement",
-
-        "body": [
-            "if ($1) {",
-            "\t$TM_SELECTED_TEXT$1",
-            "}"
-        ]
-    },
-
-    "switch": {
-        "prefix": ["sw", "switch"],
-        "description": "Switch statement",
-
-        "body": [
-            "switch (${1:$TM_SELECTED_TEXT) {",
-            "\t$2",
-            "}"
-        ]
-    },
-
-    "case": {
-        "prefix": ["ca", "case"],
-        "description": "Case statement",
-
-        "body": [
-            "case $1:",
-            "\t$TM_SELECTED_TEXT$2",
-            "\tbreak;"
-        ]
-    },
-
-    "default": {
-        "prefix": ["de", "default"],
-        "description": "Default case statement",
-
-        "body": [
-            "default $1:",
-            "\t$TM_SELECTED_TEXT$2"
         ]
     }
 }

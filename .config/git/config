@@ -4,15 +4,13 @@
     who = !git config user.name && git config user.email
 [core]
     editor = nvim
-[credential]
-    helper = cache --timeout=3600
 [diff]
     tool = nvim -d
 [web]
     browser = firefox
 [user]
     name = Liam Butterworth
-	email = liambutterworth@randallreilly.com
+    email = liambutterworth@randallreilly.com
 [init]
     defaultBranch = master
 [pull]

@@ -1,5 +1,6 @@
 require 'paq' {
     'airblade/vim-gitgutter',
+    'gregsexton/matchtag',
     'hrsh7th/nvim-compe',
     'hrsh7th/vim-vsnip',
     'joosepalviste/nvim-ts-context-commentstring',

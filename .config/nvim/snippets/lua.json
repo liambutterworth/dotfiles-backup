@@ -16,6 +16,17 @@
         ]
     },
 
+    "closure": {
+        "prefix": ["fn", "closure"],
+        "description": "Closure",
+
+        "body": [
+            "function($1)",
+            "\t$TM_SELECTED_TEXT$2",
+            "end"
+        ]
+    },
+
     "for": {
         "prefix": "for",
         "description": "For loop",
