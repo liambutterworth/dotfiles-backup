@@ -90,12 +90,12 @@ highlight TabLineUnselSep cterm=none ctermbg=none ctermfg=black
 
 highlight StatusLine cterm=none ctermbg=black ctermfg=white
 highlight StatusLineNc cterm=none ctermbg=black ctermfg=white
-highlight StatusLineLn cterm=bold ctermbg=black ctermfg=white
+highlight StatusLineIcon cterm=bold ctermbg=black ctermfg=white
 highlight StatusLineSep cterm=bold ctermbg=none ctermfg=none
 highlight StatusLineBranchAhead cterm=bold ctermbg=black ctermfg=blue
-highlight StatusLineBranchBehind cterm=bold ctermbg=black ctermfg=blue
-highlight StatusLineBranchCommit cterm=bold ctermbg=black ctermfg=green
+highlight StatusLineBranchCommit cterm=bold ctermbg=black ctermfg=yellow
 highlight StatusLineBranchDirty cterm=bold ctermbg=black ctermfg=red
+highlight StatusLineBranchClean cterm=bold ctermbg=black ctermfg=green
 highlight StatusLineInactive cterm=bold ctermbg=white ctermfg=black
 highlight StatusLineInactiveSep cterm=bold ctermbg=black ctermfg=white
 highlight StatusLineModified cterm=bold ctermbg=yellow ctermfg=black
@@ -106,6 +106,7 @@ highlight StatusLineReadOnly cterm=bold ctermbg=red ctermfg=black
 highlight StatusLineReadOnlySep cterm=bold ctermbg=black ctermfg=red
 highlight StatusLineHasErrors cterm=bold ctermbg=black ctermfg=red
 highlight StatusLineHasWarnings cterm=bold ctermbg=black ctermfg=yellow
+highlight StatusLineHasInfo cterm=bold ctermbg=black ctermfg=blue
 highlight StatusLineClean cterm=bold ctermbg=black ctermfg=green
 
 "

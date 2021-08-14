@@ -45,4 +45,8 @@ utils.get_lsp_warning_count = function(buffer)
     return vim.lsp.diagnostic.get_count(buffer, 'Warnings')
 end
 
+utils.get_lsp_info_count = function(buffer)
+    return vim.lsp.diagnostic.get_count(buffer, 'Information')
+end
+
 return utils
