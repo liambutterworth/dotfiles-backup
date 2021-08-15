@@ -1,4 +1,6 @@
-local api = require('api')
+return function()
+    local map = require('utils.map')
 
-api.map.normal('ga', '<plug>(EasyAlign)')
-api.map.visual('ga', '<plug>(EasyAlign)')
+    map.normal('ga', '<plug>(EasyAlign)')
+    map.visual('ga', '<plug>(EasyAlign)')
+end

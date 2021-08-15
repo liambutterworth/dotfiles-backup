@@ -1,39 +1,81 @@
-require 'paq' {
-    'airblade/vim-gitgutter',
-    'gregsexton/matchtag',
-    'hrsh7th/nvim-compe',
-    'hrsh7th/vim-vsnip',
-    'joosepalviste/nvim-ts-context-commentstring',
-    'junegunn/fzf',
-    'junegunn/fzf.vim',
-    'junegunn/goyo.vim',
-    'junegunn/limelight.vim',
-    'junegunn/vim-easy-align',
-    'mcchrish/nnn.vim',
-    'neovim/nvim-lspconfig',
-    'nvim-treesitter/nvim-treesitter',
-    'nvim-treesitter/nvim-treesitter-textobjects',
-    'nvim-treesitter/playground',
-    'savq/paq-nvim',
-    'tpope/vim-commentary',
-    'tpope/vim-eunuch',
-    'tpope/vim-fugitive',
-    'tpope/vim-repeat',
-    'tpope/vim-speeddating',
-    'tpope/vim-surround',
-    'tpope/vim-unimpaired',
-    'vimwiki/vimwiki',
-    'voldikss/vim-floaterm',
-}
+local packer = require('packer')
 
-require('plugins.compe')
-require('plugins.easy-align')
-require('plugins.fzf')
-require('plugins.floaterm')
-require('plugins.goyo')
-require('plugins.limelight')
-require('plugins.lspconfig')
-require('plugins.nnn')
-require('plugins.treesitter')
-require('plugins.vimwiki')
-require('plugins.vsnip')
+return packer.startup(function(use)
+    use 'wbthomason/packer.nvim'
+
+    use {
+        'lewis6991/gitsigns.nvim',
+        requires = 'nvim-lua/plenary.nvim',
+        config = require('plugins.gitsigns'),
+    }
+
+    use {
+        'tpope/vim-commentary',
+        'tpope/vim-eunuch',
+        'tpope/vim-fugitive',
+        'tpope/vim-repeat',
+        'tpope/vim-speeddating',
+        'tpope/vim-surround',
+        'tpope/vim-unimpaired',
+    }
+
+    use {
+        'neovim/nvim-lspconfig',
+        config = require('plugins.lspconfig'),
+    }
+
+    use {
+        'hrsh7th/nvim-compe',
+        config = require('plugins.compe'),
+    }
+
+    use {
+        'hrsh7th/vim-vsnip',
+        config = require('plugins.vsnip'),
+    }
+
+    use {
+        'mcchrish/nnn.vim',
+        config = require('plugins.nnn'),
+    }
+
+    use {
+        'voldikss/vim-floaterm',
+        config = require('plugins.floaterm'),
+    }
+
+    use {
+        'junegunn/vim-easy-align',
+        config = require('plugins.easy-align'),
+    }
+
+
+    use {
+        'junegunn/fzf.vim',
+        requires = 'junegunn/fzf',
+        config = require('plugins.fzf'),
+    }
+
+    use {
+        'junegunn/goyo.vim',
+        requires = 'junegunn/limelight.vim',
+        config = require('plugins.goyo'),
+    }
+
+    use {
+        'vimwiki/vimwiki',
+        config = require('plugins.vimwiki')
+    }
+
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate',
+        config = require('plugins.treesitter'),
+
+        requires = {
+            'joosepalviste/nvim-ts-context-commentstring',
+            'nvim-treesitter/nvim-treesitter-textobjects',
+            'nvim-treesitter/playground',
+        },
+    }
+end)

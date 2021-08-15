@@ -1,7 +1,5 @@
-local api = require('api')
-
 require('globals')
 require('plugins')
 require('interface')
 
-api.cmd('colorscheme custom')
+vim.cmd('colorscheme custom')

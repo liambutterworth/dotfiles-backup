@@ -1,10 +1,14 @@
-local api = require('api')
+return function()
+    local map = require('utils.map')
 
-api.map.normal('-', ':Goyo<cr>')
+    vim.g.limelight_conceal_ctermfg = '8'
 
-api.cmd([[
-    augroup Goyo
-        autocmd User GoyoEnter Limelight
-        autocmd User GoyoLeave Limelight! | colorscheme custom
-    augroup end
-]])
+    map.normal('-', ':Goyo<cr>')
+
+    vim.cmd([[
+        augroup Goyo
+            autocmd User GoyoEnter Limelight
+            autocmd User GoyoLeave Limelight! | colorscheme custom
+        augroup end
+    ]])
+end

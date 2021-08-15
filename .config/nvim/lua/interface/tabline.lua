@@ -1,41 +1,50 @@
-local api = require('api')
+local tabline = {
+    segments = {}
+}
 
-function Tabname(number)
-    local name = api.utils.get_tab_name(number)
-
-    if string.find(name, 'term://') ~= nil then
-        local command = api.call.fnamemodify(name, ':p:t')
-
-        return ' ' .. command:gsub('[^a-zA-Z]', '')
-    end
-
-    name = api.call.fnamemodify(name, ':p:t')
-
-    if name == '' then
-        return 'No Name'
-    end
-
-    return ' ' .. name
+function tabline:clear()
+    self.segments = {}
 end
 
-function Tabline()
-    local tabline = {}
-    local tabs = api.utils.get_tab_list()
-    local current = api.utils.get_current_tab()
+function tabline:append(segment)
+    table.insert(self.segments, segment)
+end
+
+function tabline:get()
+    local tabs = vim.api.nvim_list_tabpages()
+    local current = vim.api.nvim_get_current_tabpage()
+
+    self:clear()
 
     for index, tab in ipairs(tabs) do
-        local name = Tabname(tab)
+        local window = vim.api.nvim_tabpage_get_win(index)
+        local buffer = vim.api.nvim_win_get_buf(window)
+        local name = vim.api.nvim_buf_get_name(buffer)
 
         if tab == current then
-            table.insert(tabline, '%#TabLineSel# ' .. name .. ' ')
+            self:append('%#TabLineSel# ')
         else
-            table.insert(tabline, '%#TabLineUnsel# ' .. name .. ' ')
+            self:append('%#TabLineUnsel# ')
         end
 
-        table.insert(tabline, '%#TabLine# ')
+        if string.find(name, 'term://') ~= nil then
+            local command = vim.fn.fnamemodify(name, ':p:t')
+
+            self:append(' ' .. command:gsub('[^a-zA-Z]', ''))
+        else
+            name = vim.fn.fnamemodify(name, ':p:t')
+
+            if name == '' then
+                self:append('No Name')
+            else
+                self:append(' ' .. name)
+            end
+        end
+
+        self:append(' %#TabLine# ')
     end
 
-    return table.concat(tabline)
+    return table.concat(self.segments)
 end
 
-api.option.tabline = '%!v:lua.Tabline()'
+return tabline

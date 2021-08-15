@@ -1,97 +1,87 @@
-local api = require('api')
+local statusline = {
+    segments = {},
+    separator = '%#StatusLineSep# %#StatusLine#',
+}
 
-function StatusLineFile(active)
-    local widget = {}
+function statusline:append(segment)
+    table.insert(self.segments, segment)
+end
 
-    if state == 'inactive' then
-        table.insert(widget, '%#StatusLineInactive# ')
-        table.insert(widget, '%#StatusLineInactiveSep#')
-    elseif api.buffer.modifiable then
-        if api.buffer.modified then
-            table.insert(widget, '%#StatusLineModified# ')
-            table.insert(widget, '%#StatusLineModifiedSep#')
+function statusline:clear()
+    self.segments = {}
+end
+
+function statusline:add_file(active)
+    if not active then
+        self:append('%#StatusLineInactive# ')
+        self:append('%#StatusLineInactiveSep#')
+    elseif vim.bo.modifiable then
+        if vim.bo.modified then
+            self:append('%#StatusLineModified# ')
+            self:append('%#StatusLineModifiedSep#')
         else
-            table.insert(widget, '%#StatusLineUnmodified# ')
-            table.insert(widget, '%#StatusLineUnmodifiedSep#')
+            self:append('%#StatusLineUnmodified# ')
+            self:append('%#StatusLineUnmodifiedSep#')
         end
     else
-        table.insert(widget, '%#StatusLineReadOnly# ')
-        table.insert(widget, '%#StatusLineReadOnlySep#')
+        self:append('%#StatusLineReadOnly# ')
+        self:append('%#StatusLineReadOnlySep#')
     end
 
-    table.insert(widget, '%#StatusLine# %f%<%=')
-
-    return table.concat(widget)
+    self:append('%#StatusLine# %f%<%=')
 end
 
-function StatusLineNumber()
-    return '%#StatusLineIcon#%#StatusLine# %l/%L:%c'
+function statusline:add_line_number()
+    self:append(self.separator)
+    self:append(' %#StatusLineIcon#%#StatusLine# %l/%L:%c ')
 end
 
-function StatusLineBranch()
-    local widget = {}
-    local branch = api.call.FugitiveHead()
+function statusline:add_branch()
+    local branch = vim.b.gitsigns_head or ''
+    local changes = vim.b.gitsigns_status or ''
 
-    if (branch and #branch > 0) then
-        local status = api.shell('git status')
+    if #branch > 0 then
+        self:append(self.separator)
+        self:append('%#StatusLineIcon# %#StatusLine# ')
 
-        table.insert(widget, ' ')
-
-        if string.find(status, 'Changes not staged') then
-            table.insert(widget, '%#StatusLineBranchDirty#')
-        elseif string.find(status, 'Changes to be committed') then
-            table.insert(widget, '%#StatusLineBranchCommit#')
-        elseif string.find(status, 'Your branch is ahead') then
-            table.insert(widget, '%#StatusLineBranchAhead#')
+        if #changes > 0 then
+            self:append('%#StatusLineBranchDirty#')
         else
-            table.insert(widget, '%#StatusLineBranchClean#')
+            self:append('%#StatusLineBranchClean#')
         end
 
-        table.insert(widget, branch)
+        self:append(branch .. ' %#StatusLine#')
+        self:append(self.separator)
     end
-
-    return table.concat(widget)
 end
 
-function StatusLineLsp()
-    local widget = {}
-    local buffer = api.utils.get_current_window()
+function statusline:add_diagnostics()
+    local buffer = vim.fn.bufnr()
 
-    if api.utils.get_lsp_error_count(buffer) > 0 then
-        table.insert(widget, '%#StatusLineHasErrors#')
-    elseif api.utils.get_lsp_warning_count(buffer) > 0 then
-        table.insert(widget, '%#StatusLineHasWarnings#')
-    elseif api.utils.get_lsp_info_count(buffer) > 0 then
-        table.insert(widget, '%#StatusLineHasInfo#')
+    if vim.lsp.diagnostic.get_count(buffer, 'Error') > 0 then
+        self:append('%#StatusLineHasErrors#')
+    elseif vim.lsp.diagnostic.get_count(buffer, 'Warnings') > 0 then
+        self:append('%#StatusLineHasWarnings#')
+    elseif vim.lsp.diagnostic.get_count(buffer, 'Information') > 0 then
+        self:append('%#StatusLineHasInfo#')
     else
-        table.insert(widget, '%#StatusLineClean#')
+        self:append('%#StatusLineClean#')
     end
 
-    table.insert(widget, ' ')
-
-    return table.concat(widget)
+    self:append('  ')
 end
 
-function StatusLine(state)
-    local statusline = {}
-    local separator = ' %#StatusLineSep# %#StatusLine# '
+function statusline:get(active)
+    self:clear()
+    self:add_file(active)
 
-    table.insert(statusline, StatusLineFile(state == 'active'))
-
-    if state == 'active' then
-        table.insert(statusline, separator .. StatusLineNumber())
-        table.insert(statusline, separator .. StatusLineBranch() .. separator)
+    if active then
+        self:add_line_number()
+        self:add_branch()
+        self:add_diagnostics()
     end
 
-    table.insert(statusline, StatusLineLsp())
-
-    return table.concat(statusline)
+    return table.concat(self.segments)
 end
 
-api.cmd([[
-augroup StatusLine
-autocmd!
-autocmd WinEnter,BufEnter * setlocal statusline=%!v:lua.StatusLine('active')
-autocmd WinLeave,BufLeave * setlocal statusline=%!v:lua.StatusLine('inactive')
-augroup END
-]])
+return statusline

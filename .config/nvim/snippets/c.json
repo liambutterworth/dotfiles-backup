@@ -38,7 +38,7 @@
 
         "body": [
             "if ($1) {",
-            "\t$TM_SELECTED_TEXT$1",
+            "\t$TM_SELECTED_TEXT$2",
             "}"
         ]
     },

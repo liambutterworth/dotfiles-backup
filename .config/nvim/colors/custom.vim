@@ -69,8 +69,9 @@ highlight TSStringEscape ctermfg=yellow
 highlight TSTag ctermfg=blue
 highlight TSTagAttribute ctermfg=cyan
 highlight TSTagDelimiter ctermfg=blue
-highlight TSType ctermfg=yellow
-highlight TSTypeBuiltin ctermfg=yellow
+highlight TSType ctermfg=blue
+highlight TSTypeBuiltin ctermfg=blue
+highlight TSVariable ctermfg=white
 highlight TSVariableBuiltin ctermfg=white
 
 "
@@ -92,9 +93,9 @@ highlight StatusLine cterm=none ctermbg=black ctermfg=white
 highlight StatusLineNc cterm=none ctermbg=black ctermfg=white
 highlight StatusLineIcon cterm=bold ctermbg=black ctermfg=white
 highlight StatusLineSep cterm=bold ctermbg=none ctermfg=none
-highlight StatusLineBranchAhead cterm=bold ctermbg=black ctermfg=blue
-highlight StatusLineBranchCommit cterm=bold ctermbg=black ctermfg=yellow
-highlight StatusLineBranchDirty cterm=bold ctermbg=black ctermfg=red
+" highlight StatusLineBranchAhead cterm=bold ctermbg=black ctermfg=blue
+" highlight StatusLineBranchCommit cterm=bold ctermbg=black ctermfg=yellow
+highlight StatusLineBranchDirty cterm=bold ctermbg=black ctermfg=yellow
 highlight StatusLineBranchClean cterm=bold ctermbg=black ctermfg=green
 highlight StatusLineInactive cterm=bold ctermbg=white ctermfg=black
 highlight StatusLineInactiveSep cterm=bold ctermbg=black ctermfg=white
@@ -159,9 +160,13 @@ highlight link fishTSParameter TSNumber
 
 " Git Gutter
 
-highlight GitGutterAdd ctermfg=green
-highlight GitGutterChange ctermfg=yellow
-highlight GitGutterDelete ctermfg=red
+" highlight GitGutterAdd ctermfg=green
+" highlight GitGutterChange ctermfg=yellow
+" highlight GitGutterDelete ctermfg=red
+
+highlight GitSignsAdd ctermfg=green
+highlight GitSignsChange ctermfg=yellow
+highlight GitSignsDelete ctermfg=red
 
 " Floaterm
 
