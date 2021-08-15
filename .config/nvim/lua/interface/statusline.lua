@@ -1,14 +1,17 @@
 local statusline = {
     segments = {},
-    separator = '%#StatusLineSep# %#StatusLine#',
 }
+
+function statusline:clear()
+    self.segments = {}
+end
 
 function statusline:append(segment)
     table.insert(self.segments, segment)
 end
 
-function statusline:clear()
-    self.segments = {}
+function statusline:add_separator()
+    self:append('%#StatusLineSep# %#StatusLine#')
 end
 
 function statusline:add_file(active)
@@ -32,8 +35,9 @@ function statusline:add_file(active)
 end
 
 function statusline:add_line_number()
-    self:append(self.separator)
+    self:add_separator()
     self:append(' %#StatusLineIcon#%#StatusLine# %l/%L:%c ')
+    self:add_separator()
 end
 
 function statusline:add_branch()
@@ -41,7 +45,6 @@ function statusline:add_branch()
     local changes = vim.b.gitsigns_status or ''
 
     if #branch > 0 then
-        self:append(self.separator)
         self:append('%#StatusLineIcon# %#StatusLine# ')
 
         if #changes > 0 then
@@ -51,7 +54,7 @@ function statusline:add_branch()
         end
 
         self:append(branch .. ' %#StatusLine#')
-        self:append(self.separator)
+        self:add_separator()
     end
 end
 

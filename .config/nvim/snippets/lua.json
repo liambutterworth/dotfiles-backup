@@ -47,5 +47,27 @@
             "\t$TM_SELECTED_TEXT$2",
             "end$0"
         ]
+    },
+
+    "then": {
+        "prefix": "then",
+        "description": "Expand then statement",
+
+        "body": [
+            "then",
+            "\t$TM_SELECTED_TEXT$1",
+            "end"
+        ]
+    },
+
+    "do": {
+        "prefix": "do",
+        "description": "Expand do statement",
+
+        "body": [
+            "do",
+            "\t$TM_SELECTED_TEXT$1",
+            "end"
+        ]
     }
 }
