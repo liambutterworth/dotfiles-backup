@@ -1,32 +1,36 @@
-api.set('mapleader', ' ')
-api.set('loaded_netrw', 0)
+api.set({
+    mapleader = ' ',
+    loaded_netrw = 0,
+})
 
-api.opt.set('completeopt', { 'menuone', 'noselect' })
-api.opt.set('dictionary', '/usr/share/dict/words')
-api.opt.set('expandtab', true)
-api.opt.set('fillchars', { vert = ' ' })
-api.opt.set('hidden', true)
-api.opt.set('hlsearch', false)
-api.opt.set('ignorecase', true)
-api.opt.set('joinspaces', false)
-api.opt.set('lazyredraw', true)
-api.opt.set('list', true)
-api.opt.set('laststatus', 2)
-api.opt.set('listchars', { trail = '·', tab = '│ ' })
-api.opt.set('mouse', 'n')
-api.opt.set('number', true)
-api.opt.set('relativenumber', true)
-api.opt.set('shiftwidth', 4)
-api.opt.set('shortmess', api.opt.get('shortmess') + { c = true })
-api.opt.set('showmode', false)
-api.opt.set('signcolumn', 'yes:1')
-api.opt.set('smartcase', true)
-api.opt.set('smartindent', true)
-api.opt.set('splitbelow', true)
-api.opt.set('splitright', true)
-api.opt.set('swapfile', false)
-api.opt.set('tabstop', 4)
-api.opt.set('tags', '.git/tags')
-api.opt.set('undofile', true)
-api.opt.set('wildignorecase', true)
-api.opt.set('wrap', false)
+api.opt.set({
+    completeopt = { 'menuone', 'noselect' },
+    dictionary = '/usr/share/dict/words',
+    expandtab = true,
+    fillchars = { vert = ' ' },
+    hidden = true,
+    hlsearch = false,
+    ignorecase = true,
+    joinspaces = false,
+    lazyredraw = true,
+    list = true,
+    laststatus = 2,
+    listchars = { trail = '·', tab = '│ ' },
+    mouse = 'n',
+    number = true,
+    relativenumber = true,
+    shiftwidth = 4,
+    shortmess = api.opt.get('shortmess') + { c = true },
+    showmode = false,
+    signcolumn = 'yes:1',
+    smartcase = true,
+    smartindent = true,
+    splitbelow = true,
+    splitright = true,
+    swapfile = false,
+    tabstop = 4,
+    tags = '.git/tags',
+    undofile = true,
+    wildignorecase = true,
+    wrap = false,
+})

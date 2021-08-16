@@ -30,9 +30,14 @@ return function()
         end
     end
 
-    api.map.insert('<cr>', "compe#confirm('<cr>')", { expr = true, silent = true })
-    api.map.insert('<tab>', 'v:lua.tab_complete()', { expr = true })
-    api.map.select('<tab>', 'v:lua.tab_complete()', { expr = true })
-    api.map.insert('<s-tab>', 'v:lua.s_tab_complete()', { expr = true })
-    api.map.select('<s-tab>', 'v:lua.s_tab_complete()', { expr = true })
+    api.map.insert({
+        { '<cr>', "compe#confirm('<cr>')", { expr = true, silent = true } },
+        { '<tab>', 'v:lua.tab_complete()', { expr = true } },
+        { '<s-tab>', 'v:lua.s_tab_complete()', { expr = true } },
+    })
+
+    api.map.select({
+        { '<tab>', 'v:lua.tab_complete()', { expr = true } },
+        { '<s-tab>', 'v:lua.s_tab_complete()', { expr = true } },
+    })
 end

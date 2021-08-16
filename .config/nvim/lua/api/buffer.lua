@@ -79,30 +79,37 @@ buffer.opt.set = function(...)
     vim.api.nvim_buf_set_option(number or 0, name, value)
 end
 
-for name, mode in pairs(modes) do
+for name, mode in pairs(api.modes) do
     buffer.map[name] = function(...)
         local params = {...}
-        local buffer, key, value, options
 
-        if #params == 4 then
-            buffer, key, value, options = unpack(params)
-        elseif #params == 3 then
-            if type(params[1]) == 'number' then
-                buffer, key, value = unpack(params)
-            else
-                key, value, options = unpack(params)
+        if type(params[1]) == 'table' then
+            for _, map in ipairs(params[1]) do
+                buffer.map[name](unpack(map))
             end
         else
-            key, value = unpack(params)
-        end
+            local number, key, value, options
 
-        vim.api.nvim_buf_set_keymap(
-            buffer or 0,
-            mode,
-            key,
-            value,
-            options or {}
-        )
+            if #params == 4 then
+                number, key, value, options = unpack(params)
+            elseif #params == 3 then
+                if type(params[1]) == 'number' then
+                    number, key, value = unpack(params)
+                else
+                    key, value, options = unpack(params)
+                end
+            else
+                key, value = unpack(params)
+            end
+
+            vim.api.nvim_buf_set_keymap(
+                number or 0,
+                mode,
+                key,
+                value,
+                options or {}
+            )
+        end
     end
 end
 

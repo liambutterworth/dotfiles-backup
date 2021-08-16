@@ -21,6 +21,17 @@
         ]
     },
 
+    "{),": {
+        "prefix": "{),",
+        "description": "Expand brace with closing parenthesis and comma",
+
+        "body": [
+            "{",
+            "\t$1",
+            "}),"
+        ]
+    },
+
     "{;": {
         "prefix": "{;",
         "description": "Expand brace with colon",

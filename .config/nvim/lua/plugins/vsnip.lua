@@ -1,10 +1,12 @@
 return function()
-    api.set('vsnip_snippet_dir', api.vim.expand('~/.config/nvim/snippets'))
+    api.set({
+        vsnip_snippet_dir = api.vim.expand('~/.config/nvim/snippets'),
 
-    api.set('vsnip_filetypes', {
-        javascript = { 'javascript', 'c' },
-        vue = { 'html', 'css', 'javascript', 'c'},
-        php = { 'php', 'c' },
+        vsnip_filetypes = {
+            javascript = { 'javascript', 'c' },
+            vue = { 'html', 'css', 'javascript', 'c'},
+            php = { 'php', 'c' },
+        },
     })
 
     function expand_or_jump()
@@ -25,10 +27,18 @@ return function()
         end
     end
 
-    api.map.visual('Y', '<plug>(vsnip-select-text)<esc>')
-    api.map.visual('S', '<plug>(vsnip-cut-text)')
-    api.map.insert('<c-j>', 'v:lua.expand_or_jump()', { expr = true })
-    api.map.select('<c-j>', 'v:lua.jump(1)', { expr = true })
-    api.map.insert('<c-k>', 'v:lua.jump(-1)', { expr = true })
-    api.map.select('<c-k>', 'v:lua.jump(-1)', { expr = true })
+    api.map.visual({
+        { 'Y', '<plug>(vsnip-select-text)<esc>' },
+        { 'S', '<plug>(vsnip-cut-text)' },
+    })
+
+    api.map.insert({
+        { '<c-j>', 'v:lua.expand_or_jump()', { expr = true } },
+        { '<c-k>', 'v:lua.jump(-1)', { expr = true } },
+    })
+
+    api.map.select({
+        { '<c-j>', 'v:lua.jump(1)', { expr = true } },
+        { '<c-k>', 'v:lua.jump(-1)', { expr = true } },
+    })
 end

@@ -1,13 +1,13 @@
-api = {}
-
-modes = {
-    command = 'c',
-    normal = 'n',
-    insert = 'i',
-    operator = 'o',
-    terminal = 't',
-    select = 's',
-    visual = 'v',
+api = {
+    modes = {
+        command = 'c',
+        normal = 'n',
+        insert = 'i',
+        operator = 'o',
+        terminal = 't',
+        select = 's',
+        visual = 'v',
+    },
 }
 
 local global = require('api.global')

@@ -41,7 +41,7 @@
         "description": "For loop",
 
         "body": [
-            "for ${1:index, ${2:item}} in ${3:pairs(${4:items})} do",
+            "for ${1:_, ${2:item}} in ${3:ipairs(${4:items})} do",
             "\t$TM_SELECTED_TEXT$5",
             "end$0"
         ]

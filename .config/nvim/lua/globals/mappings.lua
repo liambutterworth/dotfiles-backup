@@ -1,32 +1,44 @@
-api.map.normal('j', 'gj')
-api.map.normal('k', 'gk')
-api.map.normal('Q', '@')
-api.map.normal('n', 'nzz')
-api.map.normal('N', 'Nzz')
-api.map.normal('c*', '*``cgn')
-api.map.normal('c#', '#``cgN')
-api.map.normal('d*', '*``dgn')
-api.map.normal('d#', '#``dgN')
-api.map.normal('gQ', 'm`ggq``')
-api.map.normal('g=', 'm`gg=G``')
-api.map.normal('<f5>', '<cmd>luafile $XDG_CONFIG_HOME/nvim/init.lua<cr>')
-api.map.normal('<f8>', '<cmd>source $VIMRUNTIME/syntax/hitest.vim<cr>')
-api.map.normal('<bs>', '<c-^>')
-api.map.normal('<c-s>', '<cmd>write<cr>')
-api.map.normal('<c-h>', '<c-w>h', { noremap = true })
-api.map.normal('<c-j>', '<c-w>j', { noremap = true })
-api.map.normal('<c-k>', '<c-w>k', { noremap = true })
-api.map.normal('<c-l>', '<c-w>l', { noremap = true })
-api.map.normal('<c-n>', 'gt', { noremap = true })
-api.map.normal('<c-p>', 'gT', { noremap = true })
-api.map.normal('<c-w>j', '<c-w>+', { noremap = true })
-api.map.normal('<c-w>k', '<c-w>-', { noremap = true })
-api.map.normal('<c-w>h', '<c-w>>', { noremap = true })
-api.map.normal('<c-w>l', '<c-w><', { noremap = true })
-api.map.normal('<c-w>p', ':tabmove -" . v:count1 . "<cr>"', { expr = true, silent = true })
-api.map.normal('<c-w>n', ':tabmove +" . v:count1 . "<cr>"', { expr = true, silent = true })
-api.map.normal('<c-w>t', ':tabedit<cr>')
-api.map.normal('<c-w>Q', ':quit!<cr>')
-api.map.normal('<c-w>C', ':close!<cr>')
-api.map.normal('<c-w>d', ':bwipe<cr>')
-api.map.normal('<c-w>D', ':bwipe!<cr>')
+api.map.normal({
+    { 'j', 'gj' },
+    { 'k', 'gk' },
+    { 'Q', '@' },
+    { 'c*', '*``cgn' },
+    { 'c#', '#``cgN' },
+    { 'd*', '*``dgn' },
+    { 'd#', '#``dgN' },
+    { 'gQ', 'm`ggq``' },
+    { 'g=', 'm`gg=G``' },
+    { '<f5>', '<cmd>luafile $XDG_CONFIG_HOME/nvim/init.lua<cr>' },
+    { '<f8>', '<cmd>source $VIMRUNTIME/syntax/hitest.vim<cr>' },
+    { '<bs>', '<c-^>' },
+    { '<c-s>', '<cmd>write<cr>' },
+    { '<bs>', '<c-^>' },
+    { '<c-s>', '<cmd>write<cr>' },
+    { '<c-w>t', ':tabedit<cr>', { silent = true } },
+    { '<c-w>Q', ':quit!<cr>', { silent = true } },
+    { '<c-w>C', ':close!<cr>', { silent = true } },
+    { '<c-w>d', ':bwipe<cr>', { silent = true } },
+    { '<c-w>D', ':bwipe!<cr>', { silent = true } },
+    { '<c-h>', '<c-w>h', { noremap = true } },
+    { '<c-j>', '<c-w>j', { noremap = true } },
+    { '<c-k>', '<c-w>k', { noremap = true } },
+    { '<c-l>', '<c-w>l', { noremap = true } },
+    { '<c-n>', 'gt', { noremap = true } },
+    { '<c-p>', 'gT', { noremap = true } },
+    { '<c-w>j', '<c-w>', { noremap = true } },
+    { '<c-w>k', '<c-w>-', { noremap = true } },
+    { '<c-w>h', '<c-w><', { noremap = true } },
+    { '<c-w>l', '<c-w>>', { noremap = true } },
+
+    {
+        '<c-w>p',
+        ':tabmove -" . v:count1 . "<cr>"',
+        { expr = true, silent = true },
+    },
+
+    {
+        '<c-w>n',
+        ':tabmove +" . v:count1 . "<cr>"',
+        { expr = true, silent = true },
+    },
+})

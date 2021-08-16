@@ -5,12 +5,44 @@ return function()
     local function on_attach(client, buffer)
         local opts = { noremap = true, silent = true }
 
-        api.buf.opt.set('omnifunc',  'v:lua.vim.lsp.omnifunc')
-        api.buf.map.normal(buffer, 'K', '<cmd>lua vim.lsp.buf.hover({ border = "single" })<cr>', opts)
-        api.buf.map.normal(buffer, '<c-]>', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
-        api.buf.map.normal(buffer, '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>', opts)
-        api.buf.map.normal(buffer, ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<cr>', opts)
-        api.buf.map.normal(buffer, 'gi', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>', opts)
+        api.buf.opt.set('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+        api.buf.map.normal({
+            {
+                buffer,
+                'K',
+                '<cmd>lua vim.lsp.buf.hover({ border = "single" })<cr>',
+                { noremap = true, silent = true },
+            },
+
+            {
+                buffer,
+                '<c-]>',
+                '<cmd>lua vim.lsp.buf.definition()<cr>',
+                { noremap = true, silent = true },
+            },
+
+            {
+                buffer,
+                '[d',
+                '<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>',
+                { noremap = true, silent = true },
+            },
+
+            {
+                buffer,
+                ']d',
+                '<cmd>lua vim.lsp.diagnostic.goto_next()<cr>',
+                { noremap = true, silent = true },
+            },
+
+            {
+                buffer,
+                'gi',
+                '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>',
+                { noremap = true, silent = true },
+            },
+        })
     end
 
     capabilities.textDocument.completion.completionItem.snippetSupport = true
