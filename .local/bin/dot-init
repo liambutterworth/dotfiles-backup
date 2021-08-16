@@ -13,7 +13,7 @@ dotfiles config --local status.showUntrackedFiles no
 
 echo "\nInstalling plugins\n"
 
-git clone --depth=1 https://github.com/savq/paq-nvim.git \
-    ~/.local/share/nvim/site/pack/paqs/start/paq-nvim
+git clone https://github.com/wbthomason/packer.nvim \
+    ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-nvim --headless +PaqInstall +qall
+nvim --headless +PackerInstall +qall
