@@ -7,37 +7,32 @@ return function()
 
         api.buf.opt.set('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-        api.buf.map.normal({
+        api.buf.map.normal(buffer, {
             {
-                buffer,
                 'K',
                 '<cmd>lua vim.lsp.buf.hover({ border = "single" })<cr>',
                 { noremap = true, silent = true },
             },
 
             {
-                buffer,
                 '<c-]>',
                 '<cmd>lua vim.lsp.buf.definition()<cr>',
                 { noremap = true, silent = true },
             },
 
             {
-                buffer,
                 '[d',
                 '<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>',
                 { noremap = true, silent = true },
             },
 
             {
-                buffer,
                 ']d',
                 '<cmd>lua vim.lsp.diagnostic.goto_next()<cr>',
                 { noremap = true, silent = true },
             },
 
             {
-                buffer,
                 'gi',
                 '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>',
                 { noremap = true, silent = true },

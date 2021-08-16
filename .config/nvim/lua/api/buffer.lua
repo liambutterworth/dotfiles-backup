@@ -36,11 +36,17 @@ buffer.set = function(...)
 
     if #params == 3 then
         number, name, value = unpack(params)
-    elseif #params == 2 then
+    else
         name, value = unpack(params)
     end
 
-    vim.api.nvim_buf_set_var(number or 0, name, value)
+    if type(name) == 'table' then
+        for name, value in pairs(name) do
+            buffer.set(number or 0, name, value)
+        end
+    else
+        vim.api.nvim_buf_set_var(number or 0, name, value)
+    end
 end
 
 buffer.opt.get = function(...)
@@ -79,13 +85,29 @@ buffer.opt.set = function(...)
     vim.api.nvim_buf_set_option(number or 0, name, value)
 end
 
+-- api.buf.map(buffer, 'j', 'gj', { noremap = false })
+-- api.buf.map('j', 'gj', { noremap = false })
+-- api.buf.map('j', 'gj')
+
+-- api.buf.map(buffer, {
+--     { 'j', 'gj' },
+-- })
+
+-- api.buf.map({
+--     { 'j', 'gj' },
+-- })
+
 for name, mode in pairs(api.modes) do
     buffer.map[name] = function(...)
         local params = {...}
 
-        if type(params[1]) == 'table' then
-            for _, map in ipairs(params[1]) do
+        if #params == 1 then
+            for _, map in ipairs(params) do
                 buffer.map[name](unpack(map))
+            end
+        elseif #params == 2 and type(params[2]) == 'table' then
+            for _, map in ipairs(params[2]) do
+                buffer.map[name](params[1], unpack(map))
             end
         else
             local number, key, value, options
