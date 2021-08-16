@@ -32,6 +32,9 @@ return function()
 
     api.map.insert({
         { '<cr>', "compe#confirm('<cr>')", { expr = true, silent = true } },
+        { '<c-e>', "compe#close('<c-e>')", { expr = true, silent = true } },
+        { '<c-f>', "compe#scroll({ 'delta': +4 })", { expr = true, silent = true } },
+        { '<c-b>', "compe#scroll({ 'delta': -4 })", { expr = true, silent = true } },
         { '<tab>', 'v:lua.tab_complete()', { expr = true } },
         { '<s-tab>', 'v:lua.s_tab_complete()', { expr = true } },
     })

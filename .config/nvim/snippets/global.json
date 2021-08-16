@@ -10,28 +10,6 @@
         ]
     },
 
-    "{)": {
-        "prefix": "{)",
-        "description": "Expand brace with closing parenthesis",
-
-        "body": [
-            "{",
-            "\t$1",
-            "})"
-        ]
-    },
-
-    "{),": {
-        "prefix": "{),",
-        "description": "Expand brace with closing parenthesis and comma",
-
-        "body": [
-            "{",
-            "\t$1",
-            "}),"
-        ]
-    },
-
     "{;": {
         "prefix": "{;",
         "description": "Expand brace with colon",
@@ -51,6 +29,28 @@
             "{",
             "\t$TM_SELECTED_TEXT$0",
             "},"
+        ]
+    },
+
+    "{)": {
+        "prefix": "{)",
+        "description": "Expand brace with closing parenthesis",
+
+        "body": [
+            "{",
+            "\t$1",
+            "})"
+        ]
+    },
+
+    "{),": {
+        "prefix": "{),",
+        "description": "Expand brace with closing parenthesis and comma",
+
+        "body": [
+            "{",
+            "\t$1",
+            "}),"
         ]
     },
 
@@ -109,6 +109,17 @@
         ]
     },
 
+    "[),": {
+        "prefix": "[),",
+        "description": "Expand bracket with ending parenthesis and colon",
+
+        "body": [
+            "[",
+            "\t$TM_SELECTED_TEXT$0",
+            "]),"
+        ]
+    },
+
     "()": {
         "prefix": "()",
         "description": "Expand parenthasis",
@@ -122,6 +133,17 @@
 
     "(;": {
         "prefix": "(;",
+        "description": "Expand parenthesis with colon",
+
+        "body": [
+            "(",
+            "\t$TM_SELECTED_TEXT$0",
+            ");"
+        ]
+    },
+
+    "(,": {
+        "prefix": "(,",
         "description": "Expand parenthesis with colon",
 
         "body": [
@@ -153,6 +175,17 @@
         ]
     },
 
+    "(},": {
+        "prefix": "(},",
+        "description": "Expand brace in parenthesis with colon",
+
+        "body": [
+            "({",
+            "\t$TM_SELECTED_TEXT$0",
+            "}),"
+        ]
+    },
+
     "(]": {
         "prefix": "([",
         "description": "Expand bracket in parenthesis",
@@ -175,8 +208,19 @@
         ]
     },
 
-    "```": {
-        "prefix": "```",
+    "(],": {
+        "prefix": "([,",
+        "description": "Expand bracket in paranthesis with colono",
+
+        "body": [
+            "([",
+            "\t$TM_SELECTED_TEXT$0",
+            "]),"
+        ]
+    },
+
+    "`": {
+        "prefix": "`",
         "description": "Expand backticks",
 
         "body": [

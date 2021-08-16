@@ -76,17 +76,21 @@ function statusline:add_diagnostics()
     self:append(' ● ')
 end
 
-function statusline:get(active)
+function statusline:active()
     self:clear()
-    self:add_file(active)
+    self:add_file(true)
+    self:add_line_number()
+    self:add_branch()
+    self:add_diagnostics()
 
-    if active then
-        self:add_line_number()
-        self:add_branch()
-        self:add_diagnostics()
-    end
+    return self:concat()
+end
 
-    return self:concat(self.segments)
+function statusline:inactive()
+    self:clear()
+    self:add_file(false)
+
+    return self:concat()
 end
 
 return statusline

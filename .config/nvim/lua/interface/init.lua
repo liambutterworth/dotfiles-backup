@@ -1,20 +1,24 @@
 local statusline = require('interface.statusline')
 local tabline = require('interface.tabline')
 
-function Tabline()
+function GetTabLine()
     return tabline:get()
 end
 
-function StatusLine(state)
-    return statusline:get(state == 1)
+function GetActiveStatusLine()
+    return statusline:active()
 end
 
-api.opt.set('tabline',  '%!v:lua.Tabline()')
+function GetInactiveStatusLine()
+    return statusline:inactive()
+end
+
+api.opt.set('tabline',  '%!v:lua.GetTabLine()')
 
 api.cmd([[
     augroup StatusLine
         autocmd!
-        autocmd WinEnter,BufEnter * setlocal statusline=%!v:lua.StatusLine(1)
-        autocmd WinLeave,BufLeave * setlocal statusline=%!v:lua.StatusLine(0)
+        autocmd WinEnter,BufEnter * setlocal statusline=%!v:lua.GetActiveStatusLine()
+        autocmd WinLeave,BufLeave * setlocal statusline=%!v:lua.GetInactiveStatusLine(0)
     augroup END
 ]])

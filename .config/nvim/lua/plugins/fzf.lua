@@ -29,13 +29,19 @@ return function()
     })
 
     api.map.normal({
-        { '<space><space>', ':Rg<cr>' },
-        { '<space><tab>', ':Snippets<cr>' },
-        { '<space><bs>', ':Buffers<cr>' },
-        { '<space><cr>', ':Files<cr>' },
-        { '<space>:', ':History:<cr>' },
-        { '<space>?', ':Helptags<cr>' },
-        { '<space>g', ':Commits!<cr>' },
-        { '<space>l', ':Lines<cr>' },
+        { '<space><space>', '<cmd>Rg<cr>' },
+        { '<space><tab>', '<cmd>Snippets<cr>' },
+        { '<space><bs>', '<cmd>Buffers<cr>' },
+        { '<space><cr>', '<cmd>Files<cr>' },
+        { '<space>:', '<cmd>History:<cr>' },
+        { '<space>/', '<cmd>History/<cr>' },
+        { '<space>?', '<cmd>Helptags<cr>' },
+        { "<space>'", '<cmd>Marks<cr>' },
+        { '<space>w', '<cmd>Windows<cr>' },
+        { '<space>g', '<cmd>Commits<cr>' },
+        { '<space>f', '<cmd>GFiles<cr>' },
+        { '<space>s', '<cmd>GFiles?<cr>' },
+        { '<space>b', '<cmd>BLines<cr>' },
+        { '<space>l', '<cmd>Lines<cr>' },
     })
 end

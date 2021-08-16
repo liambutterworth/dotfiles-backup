@@ -19,6 +19,7 @@ api.opt.set({
     mouse = 'n',
     number = true,
     relativenumber = true,
+    scrolloff = 5,
     shiftwidth = 4,
     shortmess = api.opt.get('shortmess') + { c = true },
     showmode = false,
