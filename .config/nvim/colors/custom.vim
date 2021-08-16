@@ -131,12 +131,6 @@ highlight FloatShadowThrough cterm=bold ctermbg=yellow
 " Syntax
 "
 
-" CSS
-
-highlight link scssTSVariable TSKeyword
-highlight link scssTSProperty TSKeyword
-highlight link scssTSType TSMethod
-
 " Vim
 
 highlight link vimHiGroup Identifier
@@ -153,6 +147,16 @@ highlight link luaTSConstructor TSPuncBracket
 highlight link fishTSFunction TSKeyword
 highlight link fishTSFuncBuiltin TSKeyword
 highlight link fishTSParameter TSNumber
+
+" Yaml
+
+highlight link yamlFloat TSBoolean
+
+" CSS
+
+highlight link scssTSVariable TSKeyword
+highlight link scssTSProperty TSKeyword
+highlight link scssTSType TSMethod
 
 "
 " Plugins

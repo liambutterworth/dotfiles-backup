@@ -27,7 +27,7 @@ function statusline:add_file(active)
             self:append('%#StatusLineModified# ')
             self:append('%#StatusLineModifiedSep#')
         else
-            self:append('%#StatusLineUnmodified# ')
+            self:append('%#StatusLineUnmodified#  ')
             self:append('%#StatusLineUnmodifiedSep#')
         end
     else
@@ -73,7 +73,7 @@ function statusline:add_diagnostics()
         self:append('%#StatusLineClean#')
     end
 
-    self:append('  ')
+    self:append(' ● ')
 end
 
 function statusline:get(active)
