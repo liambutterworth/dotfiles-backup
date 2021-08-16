@@ -5,8 +5,8 @@ return packer.startup(function(use)
 
     use {
         'lewis6991/gitsigns.nvim',
-        requires = 'nvim-lua/plenary.nvim',
         config = require('plugins.gitsigns'),
+        requires = 'nvim-lua/plenary.nvim',
     }
 
     use {
@@ -52,25 +52,20 @@ return packer.startup(function(use)
 
     use {
         'junegunn/fzf.vim',
-        requires = 'junegunn/fzf',
         config = require('plugins.fzf'),
+        requires = 'junegunn/fzf',
     }
 
     use {
         'junegunn/goyo.vim',
-        requires = 'junegunn/limelight.vim',
         config = require('plugins.goyo'),
-    }
-
-    use {
-        'vimwiki/vimwiki',
-        config = require('plugins.vimwiki')
+        requires = 'junegunn/limelight.vim',
     }
 
     use {
         'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate',
         config = require('plugins.treesitter'),
+        run = ':TSUpdate',
 
         requires = {
             'joosepalviste/nvim-ts-context-commentstring',
