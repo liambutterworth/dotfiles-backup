@@ -1,8 +1,17 @@
 {
     "print": {
-        "prefix": "p",
+        "prefix": ["p", "print"],
         "description": "Print",
         "body": "print(${1:$TM_SELECTED_TEXT})"
+    },
+
+    "require": {
+        "prefix": ["r", "require"],
+        "description": "Require",
+
+        "body": [
+            "require(${1:$TM_SELECTED_TEXT})"
+        ]
     },
 
     "function": {
@@ -35,6 +44,17 @@
             "for ${1:index, ${2:item}} in ${3:pairs(${4:items})} do",
             "\t$TM_SELECTED_TEXT$5",
             "end$0"
+        ]
+    },
+
+    "while": {
+        "prefix": "while",
+        "description": "Whilte loop",
+
+        "body": [
+            "while ${1:index < ${2:20}} do",
+            "\t$3",
+            "end"
         ]
     },
 

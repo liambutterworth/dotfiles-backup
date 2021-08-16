@@ -1,5 +1,4 @@
 return function()
-    local utils = require('utils')
     local nnn = require('nnn')
 
     nnn.setup({
@@ -22,12 +21,12 @@ return function()
         },
     })
 
-    utils.map.normal('<cr><cr>', ':NnnPicker<cr>', {
+    api.map.normal('-', ':NnnPicker %:p:h<cr>', {
         noremap = true,
         silent = true,
     })
 
-    utils.map.normal('<cr>f', ':NnnPicker %:p:h<cr>', {
+    api.map.normal('<cr>', ':NnnPicker<cr>', {
         noremap = true,
         silent = true,
     })

@@ -9,9 +9,9 @@ function StatusLine(state)
     return statusline:get(state == 1)
 end
 
-vim.opt.tabline = '%!v:lua.Tabline()'
+api.opt.set('tabline',  '%!v:lua.Tabline()')
 
-vim.cmd([[
+api.cmd([[
     augroup StatusLine
         autocmd!
         autocmd WinEnter,BufEnter * setlocal statusline=%!v:lua.StatusLine(1)

@@ -1,5 +1,6 @@
+require('api')
 require('globals')
 require('plugins')
 require('interface')
 
-vim.cmd('colorscheme custom')
+api.cmd('colorscheme custom')

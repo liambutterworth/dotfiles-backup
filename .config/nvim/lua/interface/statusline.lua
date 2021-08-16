@@ -6,6 +6,10 @@ function statusline:clear()
     self.segments = {}
 end
 
+function statusline:concat()
+    return table.concat(self.segments)
+end
+
 function statusline:append(segment)
     table.insert(self.segments, segment)
 end
@@ -18,8 +22,8 @@ function statusline:add_file(active)
     if not active then
         self:append('%#StatusLineInactive# ')
         self:append('%#StatusLineInactiveSep#')
-    elseif vim.bo.modifiable then
-        if vim.bo.modified then
+    elseif api.buf.opt.get('modifiable') then
+        if api.buf.opt.get('modified') then
             self:append('%#StatusLineModified# ')
             self:append('%#StatusLineModifiedSep#')
         else
@@ -41,8 +45,8 @@ function statusline:add_line_number()
 end
 
 function statusline:add_branch()
-    local branch = vim.b.gitsigns_head or ''
-    local changes = vim.b.gitsigns_status or ''
+    local branch = api.buf.get('gitsigns_head', '')
+    local changes = api.buf.get('gitsigns_status', '')
 
     if #branch > 0 then
         self:append('%#StatusLineIcon# %#StatusLine# ')
@@ -59,13 +63,11 @@ function statusline:add_branch()
 end
 
 function statusline:add_diagnostics()
-    local buffer = vim.fn.bufnr()
-
-    if vim.lsp.diagnostic.get_count(buffer, 'Error') > 0 then
+    if api.lsp.get_error_count() > 0 then
         self:append('%#StatusLineHasErrors#')
-    elseif vim.lsp.diagnostic.get_count(buffer, 'Warnings') > 0 then
+    elseif api.lsp.get_warning_count() > 0 then
         self:append('%#StatusLineHasWarnings#')
-    elseif vim.lsp.diagnostic.get_count(buffer, 'Information') > 0 then
+    elseif api.lsp.get_info_count() > 0 then
         self:append('%#StatusLineHasInfo#')
     else
         self:append('%#StatusLineClean#')
@@ -84,7 +86,7 @@ function statusline:get(active)
         self:add_diagnostics()
     end
 
-    return table.concat(self.segments)
+    return self:concat(self.segments)
 end
 
 return statusline

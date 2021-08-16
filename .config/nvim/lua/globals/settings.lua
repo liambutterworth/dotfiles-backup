@@ -1,33 +1,32 @@
-vim.g.loaded_netrw = 0
+api.set('mapleader', ' ')
+api.set('loaded_netrw', 0)
 
-vim.opt.backup = false
-vim.opt.completeopt = { 'menuone', 'noselect' }
-vim.opt.dictionary = '/usr/share/dict/words'
-vim.opt.expandtab = true
-vim.opt.fillchars = { vert = ' ' }
-vim.opt.hidden = true
-vim.opt.hlsearch = false
-vim.opt.ignorecase = true
-vim.opt.joinspaces = false
-vim.opt.lazyredraw = true
-vim.opt.list = true
-vim.opt.laststatus = 2
-vim.opt.listchars = { trail = '·', tab = '│ ' }
-vim.opt.mouse = 'n'
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.shiftwidth = 4
-vim.opt.shortmess = vim.opt.shortmess + { c = true }
-vim.opt.showmode = false
-vim.opt.signcolumn = 'yes:1'
-vim.opt.smartcase = true
-vim.opt.smartindent = true
-vim.opt.splitbelow = true
-vim.opt.splitright = true
-vim.opt.swapfile = false
-vim.opt.tabstop = 4
-vim.opt.tags = '.git/tags'
-vim.opt.undofile = true
-vim.opt.wildignorecase = true
-vim.opt.wrap = false
-vim.opt.writebackup = false
+api.opt.set('completeopt', { 'menuone', 'noselect' })
+api.opt.set('dictionary', '/usr/share/dict/words')
+api.opt.set('expandtab', true)
+api.opt.set('fillchars', { vert = ' ' })
+api.opt.set('hidden', true)
+api.opt.set('hlsearch', false)
+api.opt.set('ignorecase', true)
+api.opt.set('joinspaces', false)
+api.opt.set('lazyredraw', true)
+api.opt.set('list', true)
+api.opt.set('laststatus', 2)
+api.opt.set('listchars', { trail = '·', tab = '│ ' })
+api.opt.set('mouse', 'n')
+api.opt.set('number', true)
+api.opt.set('relativenumber', true)
+api.opt.set('shiftwidth', 4)
+api.opt.set('shortmess', api.opt.get('shortmess') + { c = true })
+api.opt.set('showmode', false)
+api.opt.set('signcolumn', 'yes:1')
+api.opt.set('smartcase', true)
+api.opt.set('smartindent', true)
+api.opt.set('splitbelow', true)
+api.opt.set('splitright', true)
+api.opt.set('swapfile', false)
+api.opt.set('tabstop', 4)
+api.opt.set('tags', '.git/tags')
+api.opt.set('undofile', true)
+api.opt.set('wildignorecase', true)
+api.opt.set('wrap', false)

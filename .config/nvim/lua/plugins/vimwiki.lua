@@ -1,14 +1,12 @@
 return function()
-    local map = require('utils.map')
-
-    vim.g.vimwiki_list = {{
+    api.set('vimiwiki_list', {{
         path = '~/Dropbox/Wiki',
         syntax = 'markdown',
-    }}
+    }})
 
-    map.normal('+', ':VimwikiIndex<cr>')
+    api.map.normal('+', ':VimwikiIndex<cr>')
 
-    vim.cmd([[
+    api.cmd([[
         augroup Vimwiki
             autocmd FileType vimwiki nmap <c-]> <plug>VimwikiFollowLink
             autocmd FileType vimwiki nmap <c-t> <plug>VimwikiGoBackLink
