@@ -4,12 +4,6 @@ return packer.startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use {
-        'lewis6991/gitsigns.nvim',
-        config = require('plugins.gitsigns'),
-        requires = 'nvim-lua/plenary.nvim',
-    }
-
-    use {
         'tpope/vim-commentary',
         'tpope/vim-eunuch',
         'tpope/vim-fugitive',
@@ -17,6 +11,12 @@ return packer.startup(function(use)
         'tpope/vim-speeddating',
         'tpope/vim-surround',
         'tpope/vim-unimpaired',
+    }
+
+    use {
+        'lewis6991/gitsigns.nvim',
+        config = require('plugins.gitsigns'),
+        requires = 'nvim-lua/plenary.nvim',
     }
 
     use {
@@ -35,20 +35,14 @@ return packer.startup(function(use)
     }
 
     use {
-        'mcchrish/nnn.vim',
-        config = require('plugins.nnn'),
-    }
-
-    use {
         'voldikss/vim-floaterm',
         config = require('plugins.floaterm'),
     }
 
     use {
-        'junegunn/vim-easy-align',
-        config = require('plugins.easy-align'),
+        'mcchrish/nnn.vim',
+        config = require('plugins.nnn'),
     }
-
 
     use {
         'junegunn/fzf.vim',
@@ -60,6 +54,11 @@ return packer.startup(function(use)
         'junegunn/goyo.vim',
         config = require('plugins.goyo'),
         requires = 'junegunn/limelight.vim',
+    }
+
+    use {
+        'junegunn/vim-easy-align',
+        config = require('plugins.easy-align'),
     }
 
     use {

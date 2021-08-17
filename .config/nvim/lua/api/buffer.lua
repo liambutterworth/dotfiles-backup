@@ -99,6 +99,10 @@ buffer.opt.set = function(...)
 end
 
 for name, mode in pairs(api.modes) do
+    local defaults = {
+        noremap = true,
+    }
+
     buffer.map[name] = function(...)
         local params = {...}
         local number = 0
@@ -122,6 +126,12 @@ for name, mode in pairs(api.modes) do
                 buffer.map[name](number, unpack(map))
             end
         else
+            for key, value in pairs(defaults) do
+                if options[key] == nil then
+                    options[key] = defaults[key]
+                end
+            end
+
             vim.api.nvim_buf_set_keymap(number, mode, key, value, options)
         end
     end

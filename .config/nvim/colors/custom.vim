@@ -91,8 +91,8 @@ highlight TabLineUnselSep cterm=none ctermbg=none ctermfg=black
 
 highlight StatusLine cterm=none ctermbg=black ctermfg=white
 highlight StatusLineNc cterm=none ctermbg=black ctermfg=white
-highlight StatusLineIcon cterm=bold ctermbg=black ctermfg=white
 highlight StatusLineSep cterm=bold ctermbg=none ctermfg=none
+highlight StatusLineIcon cterm=bold ctermbg=black ctermfg=white
 highlight StatusLineBranchDirty cterm=none ctermbg=black ctermfg=yellow
 highlight StatusLineBranchClean cterm=none ctermbg=black ctermfg=green
 highlight StatusLineInactive cterm=none ctermbg=white ctermfg=black

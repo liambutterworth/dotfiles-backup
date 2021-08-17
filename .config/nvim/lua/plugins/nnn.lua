@@ -22,7 +22,7 @@ return function()
     })
 
     api.map.normal({
-        { '-', ':NnnPicker %:p:h<cr>', { noremap = true, silent = true } },
+        { '\\', ':NnnPicker %:p:h<cr>', { noremap = true, silent = true } },
         { '<cr>', ':NnnPicker<cr>', { noremap = true, silent = true } },
     })
 end
