@@ -93,17 +93,15 @@ highlight StatusLine cterm=none ctermbg=black ctermfg=white
 highlight StatusLineNc cterm=none ctermbg=black ctermfg=white
 highlight StatusLineIcon cterm=bold ctermbg=black ctermfg=white
 highlight StatusLineSep cterm=bold ctermbg=none ctermfg=none
-" highlight StatusLineBranchAhead cterm=bold ctermbg=black ctermfg=blue
-" highlight StatusLineBranchCommit cterm=bold ctermbg=black ctermfg=yellow
-highlight StatusLineBranchDirty cterm=bold ctermbg=black ctermfg=yellow
-highlight StatusLineBranchClean cterm=bold ctermbg=black ctermfg=green
-highlight StatusLineInactive cterm=bold ctermbg=white ctermfg=black
+highlight StatusLineBranchDirty cterm=none ctermbg=black ctermfg=yellow
+highlight StatusLineBranchClean cterm=none ctermbg=black ctermfg=green
+highlight StatusLineInactive cterm=none ctermbg=white ctermfg=black
 highlight StatusLineInactiveSep cterm=bold ctermbg=black ctermfg=white
-highlight StatusLineModified cterm=bold ctermbg=yellow ctermfg=black
+highlight StatusLineModified cterm=none ctermbg=yellow ctermfg=black
 highlight StatusLineModifiedSep cterm=bold ctermbg=black ctermfg=yellow
-highlight StatusLineUnmodified cterm=bold ctermbg=green ctermfg=black
+highlight StatusLineUnmodified cterm=none ctermbg=green ctermfg=black
 highlight StatusLineUnmodifiedSep cterm=bold ctermbg=black ctermfg=green
-highlight StatusLineReadOnly cterm=bold ctermbg=red ctermfg=black
+highlight StatusLineReadOnly cterm=none ctermbg=red ctermfg=black
 highlight StatusLineReadOnlySep cterm=bold ctermbg=black ctermfg=red
 highlight StatusLineHasErrors cterm=bold ctermbg=black ctermfg=red
 highlight StatusLineHasWarnings cterm=bold ctermbg=black ctermfg=yellow
