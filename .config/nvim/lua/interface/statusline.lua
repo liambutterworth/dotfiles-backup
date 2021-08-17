@@ -20,18 +20,18 @@ end
 
 function statusline:add_file(active)
     if not active then
-        self:append('%#StatusLineInactive# ')
+        self:append('%#StatusLineInactive#  ')
         self:append('%#StatusLineInactiveSep#')
     elseif api.buf.opt.get('modifiable') then
         if api.buf.opt.get('modified') then
-            self:append('%#StatusLineModified# ')
+            self:append('%#StatusLineModified#  ')
             self:append('%#StatusLineModifiedSep#')
         else
-            self:append('%#StatusLineUnmodified# ')
+            self:append('%#StatusLineUnmodified#  ')
             self:append('%#StatusLineUnmodifiedSep#')
         end
     else
-        self:append('%#StatusLineReadOnly# ')
+        self:append('%#StatusLineReadOnly#  ')
         self:append('%#StatusLineReadOnlySep#')
     end
 
