@@ -30,13 +30,13 @@ api.map.normal({
 
     {
         '<c-w>p',
-        ':tabmove -" . v:count1 . "<cr>"',
+        '":tabmove -" . v:count1 . "<cr>"',
         { expr = true, silent = true },
     },
 
     {
         '<c-w>n',
-        ':tabmove +" . v:count1 . "<cr>"',
+        '":tabmove +" . v:count1 . "<cr>"',
         { expr = true, silent = true },
     },
 })

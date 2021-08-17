@@ -15,9 +15,9 @@ function tabline:append(segment)
 end
 
 function tabline:add(tab)
-    local name = api.tab.name(tab)
+    local name = api.tab.get_name(tab)
 
-    if tab == api.tab.current() then
+    if tab == api.tab.get_current() then
         self:append('%#TabLineSel# ')
     else
         self:append('%#TabLineUnsel# ')
@@ -41,8 +41,7 @@ function tabline:add(tab)
 end
 
 function tabline:get()
-    local tabs = api.tab.list()
-    local current = api.tab.current()
+    local tabs = api.tab.get_list()
 
     self:clear()
 
