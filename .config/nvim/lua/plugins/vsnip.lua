@@ -33,12 +33,12 @@ return function()
     })
 
     api.map.insert({
-        { '<c-j>', 'v:lua.expand_or_jump()', { expr = true } },
-        { '<c-k>', 'v:lua.jump(-1)', { expr = true } },
+        { '<c-j>', 'v:lua.expand_or_jump()', { expr = true, noremap = false } },
+        { '<c-k>', 'v:lua.jump(-1)', { expr = true, noremap = false } },
     })
 
     api.map.select({
-        { '<c-j>', 'v:lua.jump(1)', { expr = true } },
-        { '<c-k>', 'v:lua.jump(-1)', { expr = true } },
+        { '<c-j>', 'v:lua.jump(1)', { expr = true, noremap = false } },
+        { '<c-k>', 'v:lua.jump(-1)', { expr = true, noremap = false } },
     })
 end

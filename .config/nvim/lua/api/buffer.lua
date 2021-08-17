@@ -126,9 +126,11 @@ for name, mode in pairs(api.modes) do
                 buffer.map[name](number, unpack(map))
             end
         else
+            options = options or {}
+
             for key, value in pairs(defaults) do
                 if options[key] == nil then
-                    options[key] = defaults[key]
+                    options[key] = value
                 end
             end
 
