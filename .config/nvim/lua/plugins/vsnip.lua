@@ -1,6 +1,6 @@
 return function()
     api.set({
-        vsnip_snippet_dir = api.vim.expand('~/.config/nvim/snippets'),
+        vsnip_snippet_dir = api.fn.expand('~/.config/nvim/snippets'),
 
         vsnip_filetypes = {
             javascript = { 'javascript', 'c' },
@@ -10,7 +10,7 @@ return function()
     })
 
     function expand_or_jump()
-        if api.vim['vsnip#available'](1) then
+        if api.fn['vsnip#available'](1) then
             return api.escape('<plug>(vsnip-expand-or-jump)')
         else
             return api.escape('<c-j>')
@@ -18,26 +18,24 @@ return function()
     end
 
     function jump(direction)
-        if direction == 1 and api.vim['vsnip#jumpable'](1) then
+        if direction == 1 and api.fn['vsnip#jumpable'](1) then
             return api.escape('<plug>(vsnip-jump-next)')
-        elseif direction == -1 and vim.fn['vsnip#jumpable'](-1) then
+        elseif direction == -1 and api.fn['vsnip#jumpable'](-1) then
             return api.escape('<plug>(vsnip-jump-prev)')
         else
             return api.escape('<c-k>')
         end
     end
 
-    api.map.visual({
-        { 'Y', '<plug>(vsnip-select-text)<esc>' },
-        { 'S', '<plug>(vsnip-cut-text)' },
-    })
+    api.vmap('sy', '<plug>(vsnip-select-text)<esc>', { noremap = false })
+    api.vmap('ss', '<plug>(vsnip-cut-text)', { noremap = false })
 
-    api.map.insert({
+    api.imap({
         { '<c-j>', 'v:lua.expand_or_jump()', { expr = true, noremap = false } },
         { '<c-k>', 'v:lua.jump(-1)', { expr = true, noremap = false } },
     })
 
-    api.map.select({
+    api.smap({
         { '<c-j>', 'v:lua.jump(1)', { expr = true, noremap = false } },
         { '<c-k>', 'v:lua.jump(-1)', { expr = true, noremap = false } },
     })

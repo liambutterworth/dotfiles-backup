@@ -44,7 +44,7 @@ set -g fish_color_error red
 set -g fish_color_escape cyan
 set -g fish_color_host brblack
 set -g fish_color_match green
-set -g fish_color_normal red
+set -g fish_color_normal white
 set -g fish_color_operator yellow
 set -g fish_color_param white
 set -g fish_color_quote yellow

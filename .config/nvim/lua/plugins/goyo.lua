@@ -1,6 +1,6 @@
 return function()
     api.set('limelight_conceal_ctermfg', '8')
-    api.map.normal('|', ':Goyo<cr>')
+    api.nmap('|', ':Goyo<cr>')
 
     function goyo_enter()
         api.opt.set({

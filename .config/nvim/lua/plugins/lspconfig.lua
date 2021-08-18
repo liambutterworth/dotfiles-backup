@@ -3,42 +3,34 @@ return function()
     local capabilities = api.lsp.make_capabilities()
 
     local function on_attach(client, buffer)
-        local opts = { noremap = true, silent = true }
-
         api.buf.opt.set('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-        api.buf.map.normal(buffer, {
-            {
-                'K',
-                '<cmd>lua vim.lsp.buf.hover({ border = "single" })<cr>',
-                { noremap = true, silent = true },
-            },
-
-            {
-                '<c-]>',
-                '<cmd>lua vim.lsp.buf.definition()<cr>',
-                { noremap = true, silent = true },
-            },
-
-            {
-                '[d',
-                '<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>',
-                { noremap = true, silent = true },
-            },
-
-            {
-                ']d',
-                '<cmd>lua vim.lsp.diagnostic.goto_next()<cr>',
-                { noremap = true, silent = true },
-            },
-
-            {
-                'gi',
-                '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>',
-                { noremap = true, silent = true },
-            },
+        api.buf.nmap(buffer, {
+            { 'K', '<cmd>lua vim.lsp.buf.hover({ border = "single" })<cr>', { silent = true } },
+            { '<c-]>', '<cmd>lua vim.lsp.buf.definition()<cr>', { silent = true } },
+            { '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>', { silent = true } },
+            { ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<cr>', { silent = true } },
+            { 'gi', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>', { silent = true } },
         })
     end
+
+    local signs = {
+        Error = '●',
+        Warning = '●',
+        Hint = '●',
+        Information = '●',
+    }
+
+    for type, icon in pairs(signs) do
+        local highlight = "LspDiagnosticsSign" .. type
+
+        vim.fn.sign_define(highlight, {
+            text = icon,
+            texthl = highlight,
+            numhl = '',
+        })
+    end
+
 
     capabilities.textDocument.completion.completionItem.snippetSupport = true
 

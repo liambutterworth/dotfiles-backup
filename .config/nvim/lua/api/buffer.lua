@@ -98,16 +98,11 @@ buffer.opt.set = function(...)
     end
 end
 
-for name, mode in pairs(api.modes) do
-    local defaults = {
-        noremap = true,
-    }
+for _, mode in ipairs({ 'c', 'i', 'n', 'o', 's', 't', 'v', 'x' }) do
+    local method = mode .. 'map'
 
-    buffer.map[name] = function(...)
+    buffer[method] = function(...)
         local params = {...}
-        local number = 0
-        local options = {}
-        local key, value
 
         if #params == 4 then
             number, key, value, options = unpack(params)
@@ -123,15 +118,14 @@ for name, mode in pairs(api.modes) do
 
         if type(key) == 'table' then
             for _, map in ipairs(key) do
-                buffer.map[name](number, unpack(map))
+                buffer[method](number, unpack(map))
             end
         else
+            number = number or 0
             options = options or {}
 
-            for key, value in pairs(defaults) do
-                if options[key] == nil then
-                    options[key] = value
-                end
+            if options.noremap == nil then
+                options.noremap = true
             end
 
             vim.api.nvim_buf_set_keymap(number, mode, key, value, options)

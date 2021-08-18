@@ -1,9 +1,9 @@
-function TestingCommand(foo)
-    print(foo)
+function QueryConfig()
+    query:open_config()
 end
 
-api.cmd([[
+vim.cmd([[
 
-command! -complete=file -nargs=1 Test call v:lua.TestingCommand(<f-args>)
+command! QueryConfig call v:lua.QueryConfig()
 
 ]])

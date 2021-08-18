@@ -1,7 +1,7 @@
 return function()
     local treesitter = require('nvim-treesitter.configs')
 
-    api.map.normal('<f10>', ':TSHighlightCapturesUnderCursor<cr>')
+    api.nmap('<f10>', ':TSHighlightCapturesUnderCursor<cr>')
 
     treesitter.setup {
         context_commentstring = {

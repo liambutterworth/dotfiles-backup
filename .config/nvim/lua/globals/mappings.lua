@@ -1,4 +1,4 @@
-api.map.normal({
+api.nmap({
     { 'j', 'gj' },
     { 'k', 'gk' },
     { 'c*', '*``cgn' },
@@ -9,7 +9,7 @@ api.map.normal({
     { 'g=', 'm`gg=G``' },
     { '-', '<cmd>bprevious<cr>', { silent = true } },
     { '+', '<cmd>bnext<cr>', { silent = true } },
-    { '<bs>', '<c-^>' },
+    { '<bs>', '<c-^>', { silent = true } },
     { '<f5>', '<cmd>luafile $XDG_CONFIG_HOME/nvim/init.lua<cr>' },
     { '<f8>', '<cmd>source $VIMRUNTIME/syntax/hitest.vim<cr>' },
     { '<c-s>', '<cmd>write<cr>' },

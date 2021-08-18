@@ -13,24 +13,24 @@ return function()
     }
 
     function tab_complete()
-        if api.vim.pumvisible() == 1 then
+        if api.fn.pumvisible() == 1 then
             return api.escape('<c-n>')
         elseif api.check_backspace() then
             return api.escape('<tab>')
         else
-            return api.vim['compe#complete']()
+            return api.fn['compe#complete']()
         end
     end
 
     function s_tab_complete()
-        if api.vim.pumvisible() == 1 then
+        if api.fn.pumvisible() == 1 then
             return api.escape('<c-p>')
         else
             return api.escape('<s-tab>')
         end
     end
 
-    api.map.insert({
+    api.imap({
         { '<cr>', "compe#confirm('<cr>')", { expr = true, silent = true } },
         { '<c-e>', "compe#close('<c-e>')", { expr = true, silent = true } },
         { '<c-f>', "compe#scroll({ 'delta': +4 })", { expr = true, silent = true } },
@@ -39,7 +39,7 @@ return function()
         { '<s-tab>', 'v:lua.s_tab_complete()', { expr = true } },
     })
 
-    api.map.select({
+    api.smap({
         { '<tab>', 'v:lua.tab_complete()', { expr = true } },
         { '<s-tab>', 'v:lua.s_tab_complete()', { expr = true } },
     })

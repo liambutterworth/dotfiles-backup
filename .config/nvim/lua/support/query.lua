@@ -22,14 +22,4 @@ function query:get_config()
     return self.config
 end
 
-function QueryConfig()
-    query:open_config()
-end
-
-vim.cmd([[
-
-command! QueryConfig call v:lua.QueryConfig()
-
-]])
-
 return query
