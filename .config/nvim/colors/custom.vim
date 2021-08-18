@@ -56,6 +56,7 @@ highlight TSBoolean ctermfg=magenta
 highlight TSConstructor ctermfg=cyan
 highlight TSConstant ctermfg=cyan
 highlight TSError ctermfg=red
+highlight TSField ctermfg=white
 highlight TSFunction ctermfg=cyan
 highlight TSFuncBuiltin ctermfg=cyan
 highlight TSMethod ctermfg=cyan
