@@ -24,11 +24,11 @@ function tabline:add(tab)
     end
 
     if string.find(name, 'term://') ~= nil then
-        local command = api.vim.fnamemodify(name, ':p:t')
+        local command = api.fn.fnamemodify(name, ':p:t')
 
         self:append(' ' .. command:gsub('[^a-zA-Z]', ''))
     else
-        name = api.vim.fnamemodify(name, ':p:t')
+        name = api.fn.fnamemodify(name, ':p:t')
 
         if name == '' then
             self:append('No Name')
