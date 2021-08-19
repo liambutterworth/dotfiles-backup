@@ -10,7 +10,7 @@
         "description": "Require",
 
         "body": [
-            "require(${1:$TM_SELECTED_TEXT})"
+            "require('${1:$TM_SELECTED_TEXT}')"
         ]
     },
 

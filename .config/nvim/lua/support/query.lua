@@ -1,3 +1,5 @@
+local curl = require('support.curl')
+
 local query = {
     config_file = '~/.local/share/nvim-query/config.json',
     results_file = '~/.local/share/nvim-query/results.json',
@@ -29,37 +31,15 @@ function query:get_buffer_string()
     return vim.fn.substitute(string, ' ', '', 'g')
 end
 
-function query:curl(options)
-    local command = { 'curl' }
-
-    if options.url then
-        table.insert(command, options.url)
-    end
-
-    for key, value in pairs(options.headers or {}) do
-        table.insert(command, "-H '" .. key .. ": " .. value .. "'")
-    end
-
-    if options.data then
-        table.insert(command, "-d '" .. options.data .. "'")
-    end
-
-    return vim.fn.system(table.concat(command, ' '))
-end
-
 function query:es(name)
     local config = self:get_config().es[name]
+    local curl = curl:new()
 
-    local results = self:curl({
-        url = config.host .. '/' .. config.index .. '/_search?pretty',
-        data = self:get_buffer_string(),
-
-        headers = {
-            ['Content-Type'] = 'application/json'
-        }
-    })
-
-    print(results)
+    curl:set_url(config.host .. '/' .. config.index .. '/_search?pretty')
+    curl:set_data(self:get_buffer_string())
+    curl:set_header('Content-Type', 'application/json')
+    curl:set_output(self.results_file)
+    curl:execute()
 end
 
 return query
