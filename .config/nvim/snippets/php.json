@@ -33,21 +33,33 @@
         "description": "Class",
 
         "body": [
-            "class ${1:Name}${2: extends ${3:Parent}}",
+            "class ${1:$TM_FILENAME_BASE}${2: extends ${3:Parent}}",
             "{",
             "\t$4",
             "}"
         ]
     },
 
-    "public method": {
+    "trait": {
+        "prefix": "trait",
+        "description": "Trait",
+
+        "body": [
+            "trait ${1:Name}",
+            "{",
+            "\t$4",
+            "}"
+        ]
+    },
+
+    "pub": {
         "prefix": "pub",
         "description": "Public method",
 
         "body": [
-            "public function ${1:name}($2)",
+            "public function ${1:name}($2)$3",
             "{",
-            "\t$TM_SELECTED_TEXT$3",
+            "\t$TM_SELECTED_TEXT$4",
             "}"
         ]
     },
@@ -57,9 +69,33 @@
         "description": "Public static method",
 
         "body": [
-            "public static function ${1:name}($2)",
+            "public static function ${1:name}($2)$3",
+            "{",
+            "\t$TM_SELECTED_TEXT$4",
+            "}"
+        ]
+    },
+
+    "pro": {
+        "prefix": "pro",
+        "description": "Protected method",
+
+        "body": [
+            "protected function ${1:name}($2)",
             "{",
             "\t$TM_SELECTED_TEXT$3",
+            "}"
+        ]
+    },
+
+    "pros": {
+        "prefix": "pros",
+        "description": "Protected static method",
+
+        "body": [
+            "protected static function ${1:name}($2)$3",
+            "{",
+            "\t$TM_SELECTED_TEXT$4",
             "}"
         ]
     },
@@ -81,10 +117,43 @@
         "description": "Private static method",
 
         "body": [
-            "private static function ${1:name}($2)",
+            "private static function ${1:name}($2)$3",
             "{",
+            "\t$TM_SELECTED_TEXT$4",
+            "}"
+        ]
+    },
+
+    "function": {
+        "prefix": ["fun", "function"],
+        "description": "Function",
+
+        "body": [
+            "function ${1:name}($2) {",
             "\t$TM_SELECTED_TEXT$3",
             "}"
+        ]
+    },
+
+    "fn": {
+        "prefix": "fn",
+        "description": "Closure",
+
+        "body": [
+            "function($1) {",
+            "\t$TM_SELECTED_TEXT$2",
+            "}"
+        ]
+    },
+
+    "(fn": {
+        "prefix": "(fn",
+        "description": "Closure inside parenthesis",
+
+        "body": [
+            "(function($1) {",
+            "\t$TM_SELECTED_TEXT$2",
+            "});"
         ]
     },
 
@@ -93,9 +162,63 @@
         "description": "Foreach loop",
 
         "body": [
-            "foreach (${1:items} as ${2:item}) {",
-            "\t$TM_SELECTED_TEXT$3",
+            "foreach ($1) {",
+            "\t$TM_SELECTED_TEXT$2",
             "}"
+        ]
+    },
+
+    "for": {
+        "prefix": "for",
+        "description": "For loop",
+
+        "body": [
+            "for ($1) {",
+            "\t$TM_SELECTED_TEXT$2",
+            "}"
+        ]
+    },
+
+    "if": {
+        "prefix": "if",
+        "description": "Conditional statement",
+
+        "body": [
+            "if ($1) {",
+            "\t$TM_SELECTED_TEXT$2",
+            "}"
+        ]
+    },
+
+    "switch": {
+        "prefix": ["sw", "switch"],
+        "description": "Switch statement",
+
+        "body": [
+            "switch (${1:$TM_SELECTED_TEXT) {",
+            "\t$2",
+            "}"
+        ]
+    },
+
+    "case": {
+        "prefix": ["ca", "case"],
+        "description": "Case statement",
+
+        "body": [
+            "case $1:",
+            "\t$TM_SELECTED_TEXT$2",
+            "\tbreak;"
+        ]
+    },
+
+    "default": {
+        "prefix": ["de", "default"],
+        "description": "Default case statement",
+
+        "body": [
+            "default $1:",
+            "\t$TM_SELECTED_TEXT$2"
         ]
     }
 }

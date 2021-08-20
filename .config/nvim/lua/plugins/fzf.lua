@@ -22,10 +22,10 @@ return function()
     })
 
     api.imap({
-        { '<c-x><c-k>', '<plug>(fzf-complete-word)' },
-        { '<c-x><c-j>', '<plug>(fzf-complete-file)' },
-        { '<c-x><c-p>', '<plug>(fzf-complete-path)' },
-        { '<c-x><c-l>', '<plug>(fzf-complete-line)' },
+        { '<c-x><c-k>', '<plug>(fzf-complete-word)', { noremap = false } },
+        { '<c-x><c-j>', '<plug>(fzf-complete-file)', { noremap = false } },
+        { '<c-x><c-p>', '<plug>(fzf-complete-path)', { noremap = false } },
+        { '<c-x><c-l>', '<plug>(fzf-complete-line)', { noremap = false } },
     })
 
     api.nmap({
