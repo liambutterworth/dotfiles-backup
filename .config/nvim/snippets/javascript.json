@@ -1,39 +1,71 @@
 {
+    "//": {
+        "prefix": "//",
+        "description": "Expand comment",
+
+        "body": [
+            "//",
+            "// $1",
+            "//"
+        ]
+    },
+
     "log": {
         "prefix": ["log"],
         "body": "console.log(${1:$TM_SELECTED_TEXT});"
     },
 
-    "function": {
-        "prefix": ["fun", "function"],
-        "description": "Function",
+    "for": {
+        "prefix": "for",
+        "description": "For loop",
 
         "body": [
-            "function ${1:name}($2) {",
-            "\t$TM_SELECTED_TEXT$3",
-            "}$0"
-        ]
-    },
-
-    "closure": {
-        "prefix": ["fn", "closure"],
-        "description": "Closure",
-
-        "body": [
-            "function ${1:name}($2) {",
-            "\t$TM_SELECTED_TEXT$3",
+            "for ($1) {",
+            "\t$TM_SELECTED_TEXT$2",
             "}"
         ]
     },
 
     "if": {
         "prefix": "if",
-        "description": "Conditional",
+        "description": "Conditional statement",
 
         "body": [
             "if ($1) {",
+            "\t$TM_SELECTED_TEXT$2",
+            "}"
+        ]
+    },
+
+    "switch": {
+        "prefix": ["sw", "switch"],
+        "description": "Switch statement",
+
+        "body": [
+            "switch (${1:$TM_SELECTED_TEXT) {",
             "\t$2",
-            "}$0"
+            "}"
+        ]
+    },
+
+    "case": {
+        "prefix": ["ca", "case"],
+        "description": "Case statement",
+
+        "body": [
+            "case $1:",
+            "\t$TM_SELECTED_TEXT$2",
+            "\tbreak;"
+        ]
+    },
+
+    "default": {
+        "prefix": ["de", "default"],
+        "description": "Default case statement",
+
+        "body": [
+            "default $1:",
+            "\t$TM_SELECTED_TEXT$2"
         ]
     }
 }

@@ -5,20 +5,15 @@ function GetTabLine()
     return tabline:get()
 end
 
-function GetActiveStatusLine()
-    return statusline:active()
+function GetStatusLine(window)
+    api.win.set('is_active', window == api.win.get_current())
+
+    return statusline:get()
 end
 
-function GetInactiveStatusLine()
-    return statusline:inactive()
+function BuildStatusLine(number)
+    return '%{%v:lua.GetStatusLine(' .. api.fn.winnr() .. ')%}'
 end
 
 api.opt.set('tabline',  '%!v:lua.GetTabLine()')
-
-api.cmd([[
-    augroup StatusLine
-        autocmd!
-        autocmd WinEnter,BufEnter * setlocal statusline=%!v:lua.GetActiveStatusLine()
-        autocmd WinLeave,BufLeave * setlocal statusline=%!v:lua.GetInactiveStatusLine(0)
-    augroup END
-]])
+api.opt.set('statusline', '%!v:lua.BuildStatusLine(winnr())')

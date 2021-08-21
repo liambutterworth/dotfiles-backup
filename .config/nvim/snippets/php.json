@@ -10,6 +10,17 @@
         ]
     },
 
+    "//": {
+        "prefix": "//",
+        "description": "Expand comment",
+
+        "body": [
+            "//",
+            "// $1",
+            "//"
+        ]
+    },
+
     "dump": {
         "prefix": "dump",
         "description": "Dump",

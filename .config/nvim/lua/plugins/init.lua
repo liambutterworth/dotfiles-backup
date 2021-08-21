@@ -14,6 +14,12 @@ return packer.startup(function(use)
     }
 
     use {
+        'nvim-telescope/telescope.nvim',
+        config = require('plugins.telescope'),
+        requires = 'nvim-lua/plenary.nvim',
+    }
+
+    use {
         'lewis6991/gitsigns.nvim',
         config = require('plugins.gitsigns'),
         requires = 'nvim-lua/plenary.nvim',
@@ -40,25 +46,9 @@ return packer.startup(function(use)
     }
 
     use {
-        'mcchrish/nnn.vim',
-        config = require('plugins.nnn'),
-    }
-
-    use {
-        'junegunn/fzf.vim',
-        config = require('plugins.fzf'),
-        requires = 'junegunn/fzf',
-    }
-
-    use {
-        'junegunn/goyo.vim',
-        config = require('plugins.goyo'),
-        requires = 'junegunn/limelight.vim',
-    }
-
-    use {
-        'junegunn/vim-easy-align',
-        config = require('plugins.easy-align'),
+        'kyazdani42/nvim-tree.lua',
+        config = require('plugins.tree'),
+        require = 'kyazdani42/nvim-web-devicons',
     }
 
     use {

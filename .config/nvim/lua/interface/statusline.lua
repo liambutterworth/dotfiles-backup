@@ -1,4 +1,7 @@
 local statusline = {
+    active = false,
+    buffer = nil,
+    window = nil,
     segments = {},
 }
 
@@ -6,7 +9,7 @@ function statusline:clear()
     self.segments = {}
 end
 
-function statusline:concat()
+function statusline:build()
     return table.concat(self.segments)
 end
 
@@ -18,8 +21,8 @@ function statusline:add_separator()
     self:append('%#StatusLineSep# %#StatusLine#')
 end
 
-function statusline:add_file(active)
-    if not active then
+function statusline:add_file()
+    if not self.active then
         self:append('%#StatusLineInactive#  ')
         self:append('%#StatusLineInactiveSep#')
     elseif api.buf.opt.get('modifiable') then
@@ -45,8 +48,8 @@ function statusline:add_line_number()
 end
 
 function statusline:add_branch()
-    local branch = api.buf.get('gitsigns_head', '')
-    local changes = api.buf.get('gitsigns_status', '')
+    local branch = api.buf.get(self.buffer, 'gitsigns_head', '')
+    local changes = api.buf.get(self.buffer, 'gitsigns_status', '')
 
     if #branch > 0 then
         self:append('%#StatusLineIcon# %#StatusLine# ')
@@ -63,11 +66,11 @@ function statusline:add_branch()
 end
 
 function statusline:add_diagnostics()
-    if api.lsp.get_error_count() > 0 then
+    if api.lsp.get_error_count(buffer) > 0 then
         self:append('%#StatusLineHasErrors#')
-    elseif api.lsp.get_warning_count() > 0 then
+    elseif api.lsp.get_warning_count(buffer) > 0 then
         self:append('%#StatusLineHasWarnings#')
-    elseif api.lsp.get_info_count() > 0 then
+    elseif api.lsp.get_info_count(buffer) > 0 then
         self:append('%#StatusLineHasInfo#')
     else
         self:append('%#StatusLineClean#')
@@ -76,21 +79,18 @@ function statusline:add_diagnostics()
     self:append(' ● ')
 end
 
-function statusline:active()
+function statusline:get()
+    self.active = api.win.get('is_active')
+    self.window = api.win.get_current();
+    self.buffer = api.win.get_buffer(self.window);
+
     self:clear()
-    self:add_file(true)
+    self:add_file()
     self:add_line_number()
     self:add_branch()
     self:add_diagnostics()
 
-    return self:concat()
-end
-
-function statusline:inactive()
-    self:clear()
-    self:add_file(false)
-
-    return self:concat()
+    return self:build()
 end
 
 return statusline
