@@ -27,7 +27,7 @@ highlight Info cterm=bold ctermfg=blue
 highlight LineNr cterm=bold ctermfg=black
 highlight MatchParen cterm=bold ctermbg=none ctermfg=yellow
 highlight NonText cterm=bold ctermbg=none ctermfg=black
-highlight Normal ctermbg=none
+highlight Normal ctermbg=none ctermfg=white
 highlight NormalFloat ctermbg=black
 highlight Number ctermfg=magenta
 highlight Operator ctermfg=blue
@@ -71,43 +71,42 @@ highlight TSTagAttribute ctermfg=cyan
 highlight TSTagDelimiter ctermfg=blue
 highlight TSType ctermfg=blue
 highlight TSTypeBuiltin ctermfg=blue
-highlight TSVariable ctermfg=white
+highlight TSVariable cterm=none ctermfg=white
 highlight TSVariableBuiltin ctermfg=white
 
 "
 " Tabline
 "
 
-highlight TabLine cterm=none ctermbg=none
-highlight TabLineFill cterm=none ctermbg=none
-highlight TabLineSel cterm=none ctermbg=white ctermfg=black
-highlight TabLineSelSep cterm=none ctermbg=none ctermfg=white
-highlight TabLineUnsel cterm=none ctermbg=black ctermfg=white
-highlight TabLineUnselSep cterm=none ctermbg=none ctermfg=black
+highlight TabLine cterm=none ctermbg=black
+highlight TabLineActive cterm=bold ctermbg=none ctermfg=white
+highlight TabLineActiveIconModified cterm=bold ctermbg=none ctermfg=yellow
+highlight TabLineActiveIconReadOnly cterm=bold ctermbg=none ctermfg=red
+highlight TabLineActiveIconTerminal cterm=bold ctermbg=none ctermfg=magenta
+highlight TabLineActiveIconUnmodified cterm=bold ctermbg=none ctermfg=green
+highlight TabLineInactive cterm=bold ctermbg=black ctermfg=white
+highlight TabLineInactiveIconModified cterm=bold ctermbg=black ctermfg=yellow
+highlight TabLineTerminalActiveIconReadOnly cterm=bold ctermbg=black ctermfg=red
+highlight TabLineTerminalActiveIconTerminal cterm=bold ctermbg=black ctermfg=magenta
+highlight TabLineTerminalActiveIconUnmodified cterm=bold ctermbg=black ctermfg=green
 
 "
 " Statusline
 "
 
-highlight StatusLine cterm=none ctermbg=none ctermfg=none
-highlight StatusLineNC cterm=none ctermbg=none ctermfg=none
-highlight StatusLineNormal cterm=none ctermbg=black ctermfg=white
-highlight StatusLineSep cterm=bold ctermbg=none ctermfg=none
-highlight StatusLineIcon cterm=bold ctermbg=black ctermfg=white
-highlight StatusLineBranchDirty cterm=none ctermbg=black ctermfg=yellow
-highlight StatusLineBranchClean cterm=none ctermbg=black ctermfg=green
-highlight StatusLineInactive cterm=bold ctermbg=white ctermfg=black
-highlight StatusLineInactiveSep cterm=bold ctermbg=black ctermfg=white
-highlight StatusLineModified cterm=bold ctermbg=yellow ctermfg=black
-highlight StatusLineModifiedSep cterm=bold ctermbg=black ctermfg=yellow
-highlight StatusLineUnmodified cterm=bold ctermbg=green ctermfg=black
-highlight StatusLineUnmodifiedSep cterm=bold ctermbg=black ctermfg=green
-highlight StatusLineReadOnly cterm=bold ctermbg=red ctermfg=black
-highlight StatusLineReadOnlySep cterm=bold ctermbg=black ctermfg=red
+highlight StatusLine cterm=none ctermbg=black ctermfg=none
+highlight StatusLineClean cterm=bold ctermbg=black ctermfg=green
+highlight StatusLineDirty cterm=none ctermbg=black ctermfg=yellow
 highlight StatusLineHasErrors cterm=bold ctermbg=black ctermfg=red
 highlight StatusLineHasWarnings cterm=bold ctermbg=black ctermfg=yellow
-highlight StatusLineHasInfo cterm=bold ctermbg=black ctermfg=blue
-highlight StatusLineClean cterm=bold ctermbg=black ctermfg=green
+highlight StatusLineHasInformation cterm=bold ctermbg=black ctermfg=blue
+highlight StatusLineIcon cterm=bold ctermbg=black ctermfg=white
+highlight StatusLineInactive cterm=bold ctermbg=white ctermfg=black
+highlight StatusLineNC cterm=none ctermbg=none ctermfg=none
+highlight StatusLineModified cterm=bold ctermbg=yellow ctermfg=black
+highlight StatusLineUnmodified cterm=bold ctermbg=green ctermfg=black
+highlight StatusLineReadOnly cterm=bold ctermbg=red ctermfg=black
+highlight StatusLineSeparator cterm=bold ctermbg=none ctermfg=none
 
 "
 " Pmenu

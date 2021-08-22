@@ -1,7 +1,5 @@
 local packer = require('packer')
 
-vim.api.nvim_set_keymap('n', '<f5>', '<cmd>PackerCompile<cr>', { noremap = true })
-
 return packer.startup(function(use)
     use 'wbthomason/packer.nvim'
 
@@ -43,14 +41,13 @@ return packer.startup(function(use)
     }
 
     use {
-        'kyazdani42/nvim-tree.lua',
-        config = require('plugins.tree'),
+        'voldikss/vim-floaterm',
+        config = require('plugins.floaterm'),
     }
 
     use {
-        'nvim-telescope/telescope.nvim',
-        config = require('plugins.telescope'),
-        requires = 'nvim-lua/plenary.nvim',
+        'kyazdani42/nvim-web-devicons',
+        config = require('plugins.devicons'),
     }
 
     use {
@@ -60,7 +57,18 @@ return packer.startup(function(use)
     }
 
     use {
-        'voldikss/vim-floaterm',
-        config = require('plugins.floaterm'),
+        'kyazdani42/nvim-tree.lua',
+        config = require('plugins.tree'),
+        requires = 'kyazdani42/nvim-web-devicons',
+    }
+
+    use {
+        'nvim-telescope/telescope.nvim',
+        config = require('plugins.telescope'),
+
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'kyazdani42/nvim-web-devicons',
+        },
     }
 end)

@@ -1,8 +1,24 @@
+local has_devicons, devicons = pcall(require, 'nvim-web-devicons')
+
 local tabline = {
     segments = {},
+
+    highlights = {
+        active = '%#TabLineActive#',
+        active_icon_modified = '%#TabLineActiveIconModified#',
+        active_icon_readonly = '%#TabLineActiveIconReadOnly#',
+        active_icon_terminal = '%#TabLineActiveIconTerminal#',
+        active_icon_unmodified = '%#TabLineActiveIconUnmodified#',
+        inactive = '%#TabLineInactive#',
+        inactive_icon_modified = '%#TabLineInactiveIconModified#',
+        inactive_icon_readonly = '%#TabLineTerminalActiveIconReadOnly#',
+        inactive_icon_terminal = '%#TabLineTerminalActiveIconTerminal#',
+        inactive_icon_unmodified = '%#TabLineTerminalActiveIconUnmodified#',
+        normal = '%#TabLine#',
+    },
 }
 
-function tabline:append(segment)
+function tabline:add(segment)
     table.insert(self.segments, segment)
 end
 
@@ -14,26 +30,58 @@ function tabline:clear()
     self.segments = {}
 end
 
-function tabline:add(tab)
+function tabline:add_space()
+    self:add(' ')
+end
+
+function tabline:add_tab(tab, is_active)
     local window = vim.api.nvim_tabpage_get_win(tab)
     local buffer = vim.api.nvim_win_get_buf(window)
-    local name =  vim.api.nvim_buf_get_name(buffer)
+    local filename =  vim.api.nvim_buf_get_name(buffer)
+    local is_terminal = string.find(filename, 'term://') ~= nil
+    local name = vim.fn.fnamemodify(filename, ':p:t')
+    local ext = vim.fn.fnamemodify(filename, ':e')
+    local icon = is_terminal and '' or ''
 
-    if string.find(name, 'term://') ~= nil then
-        local command = api.fn.fnamemodify(name, ':p:t')
-
-        self:append(' ' .. command:gsub('[^a-zA-Z]', ''))
-    else
-        name = api.fn.fnamemodify(name, ':p:t')
-
-        if name == '' then
-            self:append('No Name')
-        else
-            self:append(' ' .. name)
-        end
+    if has_devicons and not is_terminal then
+        icon = devicons.get_icon(name, ext) or icon
     end
 
-    self:append(' %#TabLine# ')
+    if is_active then
+        if is_terminal then
+            self:add(self.highlights.active_icon_terminal)
+        elseif vim.bo[buffer].readonly then
+            self:add(self.highlights.active_icon_readonly)
+        elseif vim.bo[buffer].modified then
+            self:add(self.highlights.active_icon_modified)
+        else
+            self:add(self.highlights.active_icon_unmodified)
+        end
+
+        self:add_space()
+        self:add(icon)
+        self:add(self.highlights.active)
+        self:add_space()
+        self:add(name)
+        self:add_space()
+    else
+        if is_terminal then
+            self:add(self.highlights.inactive_icon_terminal)
+        elseif vim.bo[buffer].readonly then
+            self:add(self.highlights.inactive_icon_readonly)
+        elseif vim.bo[buffer].modified then
+            self:add(self.highlights.inactive_icon_modified)
+        else
+            self:add(self.highlights.inactive_icon_unmodified)
+        end
+
+        self:add_space()
+        self:add(icon)
+        self:add(self.highlights.inactive)
+        self:add_space()
+        self:add(name)
+        self:add_space()
+    end
 end
 
 function tabline:get()
@@ -43,14 +91,10 @@ function tabline:get()
     self:clear()
 
     for _, tab in ipairs(tabs) do
-        if tab == current then
-            self:append('%#TabLineSel# ')
-        else
-            self:append('%#TabLineUnsel# ')
-        end
-
-        self:add(tab)
+        self:add_tab(tab, tab == current)
     end
+
+    self:add(self.highlights.normal)
 
     return self:build()
 end

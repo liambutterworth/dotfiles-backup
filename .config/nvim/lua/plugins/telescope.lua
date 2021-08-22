@@ -82,7 +82,8 @@ return function()
 
     vim.cmd([[
         highlight TelescopeMatching cterm=bold ctermfg=green
-        highlight TelescopeMultiSelection cterm=bold ctermfg=magenta
+        highlight TelescopeMultiSelection ctermfg=magenta
+        highlight TelescopeNormal cterm=none ctermfg=white
         highlight TelescopePromptPrefix cterm=bold ctermfg=magenta
         highlight TelescopeResultsDiffChange ctermbg=none ctermfg=yellow
         highlight TelescopeResultsDiffAdd ctermbg=none ctermfg=green
@@ -97,7 +98,7 @@ return function()
         highlight TelescopeResultsOperator ctermfg=blue
         highlight TelescopeResultsStruct ctermfg=yellow
         highlight TelescopeResultsVariable ctermfg=blue
-        highlight TelescopeSelection cterm=bold ctermbg=none
+        highlight TelescopeSelection cterm=bold ctermbg=none ctermfg=white
         highlight TelescopeSelectionCaret cterm=bold ctermbg=none ctermfg=magenta
     ]])
 end
