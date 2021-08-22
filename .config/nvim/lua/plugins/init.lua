@@ -4,9 +4,9 @@ return packer.startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use {
+        'tpope/vim-abolish',
         'tpope/vim-commentary',
         'tpope/vim-eunuch',
-        'tpope/vim-fugitive',
         'tpope/vim-repeat',
         'tpope/vim-speeddating',
         'tpope/vim-surround',
@@ -14,15 +14,15 @@ return packer.startup(function(use)
     }
 
     use {
-        'nvim-telescope/telescope.nvim',
-        config = require('plugins.telescope'),
-        requires = 'nvim-lua/plenary.nvim',
-    }
+        'nvim-treesitter/nvim-treesitter',
+        config = require('plugins.treesitter'),
+        run = ':TSUpdate',
 
-    use {
-        'lewis6991/gitsigns.nvim',
-        config = require('plugins.gitsigns'),
-        requires = 'nvim-lua/plenary.nvim',
+        requires = {
+            'joosepalviste/nvim-ts-context-commentstring',
+            'nvim-treesitter/nvim-treesitter-textobjects',
+            'nvim-treesitter/playground',
+        },
     }
 
     use {
@@ -41,25 +41,24 @@ return packer.startup(function(use)
     }
 
     use {
-        'voldikss/vim-floaterm',
-        config = require('plugins.floaterm'),
-    }
-
-    use {
         'kyazdani42/nvim-tree.lua',
         config = require('plugins.tree'),
-        require = 'kyazdani42/nvim-web-devicons',
     }
 
     use {
-        'nvim-treesitter/nvim-treesitter',
-        config = require('plugins.treesitter'),
-        run = ':TSUpdate',
+        'nvim-telescope/telescope.nvim',
+        config = require('plugins.telescope'),
+        requires = 'nvim-lua/plenary.nvim',
+    }
 
-        requires = {
-            'joosepalviste/nvim-ts-context-commentstring',
-            'nvim-treesitter/nvim-treesitter-textobjects',
-            'nvim-treesitter/playground',
-        },
+    use {
+        'lewis6991/gitsigns.nvim',
+        config = require('plugins.gitsigns'),
+        requires = 'nvim-lua/plenary.nvim',
+    }
+
+    use {
+        'voldikss/vim-floaterm',
+        config = require('plugins.floaterm'),
     }
 end)

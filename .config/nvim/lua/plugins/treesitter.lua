@@ -1,7 +1,7 @@
 return function()
     local treesitter = require('nvim-treesitter.configs')
 
-    api.nmap('<f10>', ':TSHighlightCapturesUnderCursor<cr>')
+    vim.api.nvim_set_keymap('n', '<f10>', ':TSHighlightCapturesUnderCursor<cr>', { noremap = true })
 
     treesitter.setup {
         context_commentstring = {

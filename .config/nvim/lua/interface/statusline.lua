@@ -18,59 +18,54 @@ function statusline:append(segment)
 end
 
 function statusline:add_separator()
-    self:append('%#StatusLineSep# %#StatusLine#')
+    self:append('%#StatusLineSep# %#StatusLineNormal#')
 end
 
 function statusline:add_file()
+    local icon = '  '
+
     if not self.active then
-        self:append('%#StatusLineInactive#  ')
-        self:append('%#StatusLineInactiveSep#')
-    elseif api.buf.opt.get('modifiable') then
-        if api.buf.opt.get('modified') then
-            self:append('%#StatusLineModified#  ')
-            self:append('%#StatusLineModifiedSep#')
+        self:append('%#StatusLineInactive#' .. icon)
+    elseif vim.bo.modifiable then
+        if vim.bo.modified then
+            self:append('%#StatusLineModified#' .. icon)
         else
-            self:append('%#StatusLineUnmodified#  ')
-            self:append('%#StatusLineUnmodifiedSep#')
+            self:append('%#StatusLineUnmodified#' .. icon)
         end
     else
-        self:append('%#StatusLineReadOnly#  ')
-        self:append('%#StatusLineReadOnlySep#')
+        self:append('%#StatusLineReadOnly#' .. icon)
     end
 
-    self:append('%#StatusLine# %f%<%=')
+    self:append('%#StatusLineNormal# %f%<%=')
 end
 
 function statusline:add_line_number()
     self:add_separator()
-    self:append(' %#StatusLineIcon#%#StatusLine# %l/%L:%c ')
+    self:append(' %#StatusLineIcon#並%#StatusLineNormal#%l/%L:%c ')
     self:add_separator()
 end
 
 function statusline:add_branch()
-    local branch = api.buf.get(self.buffer, 'gitsigns_head', '')
-    local changes = api.buf.get(self.buffer, 'gitsigns_status', '')
+    if vim.b.gitsigns_head then
+        self:append('%#StatusLineIcon# %#StatusLineNormal# ')
 
-    if #branch > 0 then
-        self:append('%#StatusLineIcon# %#StatusLine# ')
-
-        if #changes > 0 then
+        if #vim.b.gitsigns_status > 0 then
             self:append('%#StatusLineBranchDirty#')
         else
             self:append('%#StatusLineBranchClean#')
         end
 
-        self:append(branch .. ' %#StatusLine#')
+        self:append(vim.b.gitsigns_head .. ' %#StatusLineNormal#')
         self:add_separator()
     end
 end
 
 function statusline:add_diagnostics()
-    if api.lsp.get_error_count(buffer) > 0 then
+    if vim.lsp.diagnostic.get_count(self.buffer, 'Error') > 0 then
         self:append('%#StatusLineHasErrors#')
-    elseif api.lsp.get_warning_count(buffer) > 0 then
+    elseif vim.lsp.diagnostic.get_count(self.buffer, 'Warnings') > 0 then
         self:append('%#StatusLineHasWarnings#')
-    elseif api.lsp.get_info_count(buffer) > 0 then
+    elseif vim.lsp.diagnostic.get_count(self.buffer, 'Information') > 0 then
         self:append('%#StatusLineHasInfo#')
     else
         self:append('%#StatusLineClean#')
@@ -80,9 +75,9 @@ function statusline:add_diagnostics()
 end
 
 function statusline:get()
-    self.active = api.win.get('is_active')
-    self.window = api.win.get_current();
-    self.buffer = api.win.get_buffer(self.window);
+    self.active = vim.w.is_active
+    self.window = vim.fn.winnr()
+    self.buffer = vim.fn.winbufnr(self.window)
 
     self:clear()
     self:add_file()

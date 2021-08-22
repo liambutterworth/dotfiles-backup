@@ -1,37 +1,33 @@
-api.set({
-    mapleader = ' ',
-    loaded_netrw = 0,
-})
+vim.g.loaded_netrw = 0
+vim.g.mapleader = ' '
 
-api.opt.set({
-    completeopt = { 'menuone', 'noselect' },
-    dictionary = '/usr/share/dict/words',
-    expandtab = true,
-    fillchars = { vert = ' ' },
-    hidden = true,
-    hlsearch = false,
-    ignorecase = true,
-    joinspaces = false,
-    lazyredraw = true,
-    list = true,
-    laststatus = 2,
-    listchars = { trail = '·', tab = '│ ' },
-    mouse = 'n',
-    number = true,
-    relativenumber = true,
-    scrolloff = 5,
-    shiftwidth = 4,
-    shortmess = api.opt.get('shortmess') + { c = true },
-    showmode = false,
-    signcolumn = 'yes:1',
-    smartcase = true,
-    smartindent = true,
-    splitbelow = true,
-    splitright = true,
-    swapfile = false,
-    tabstop = 4,
-    tags = '.git/tags',
-    undofile = true,
-    wildignorecase = true,
-    wrap = false,
-})
+vim.opt.completeopt = { 'menuone', 'noselect' }
+vim.opt.dictionary = '/usr/share/dict/words'
+vim.opt.expandtab = true
+vim.opt.fillchars = { vert = '│' }
+vim.opt.hidden = true
+vim.opt.hlsearch = false
+vim.opt.ignorecase = true
+vim.opt.joinspaces = false
+vim.opt.lazyredraw = true
+vim.opt.list = true
+vim.opt.laststatus = 2
+vim.opt.listchars = { trail = '·', tab = '│ ' }
+vim.opt.mouse = 'n'
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.scrolloff = 5
+vim.opt.shiftwidth = 4
+vim.opt.shortmess = vim.opt.shortmess + { c = true }
+vim.opt.showmode = false
+vim.opt.signcolumn = 'yes:1'
+vim.opt.smartcase = true
+vim.opt.smartindent = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.swapfile = false
+vim.opt.tabstop = 4
+vim.opt.tags = '.git/tags'
+vim.opt.undofile = true
+vim.opt.wildignorecase = true
+vim.opt.wrap = false

@@ -1,17 +1,15 @@
 return function()
     local config = require('lspconfig')
-    local capabilities = api.lsp.make_capabilities()
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
 
     local function on_attach(client, buffer)
-        api.buf.opt.set('omnifunc', 'v:lua.vim.lsp.omnifunc')
+        vim.bo.omnifunc = 'v:lua.vim.lsp.omnifunc'
 
-        api.buf.nmap(buffer, {
-            { 'K', '<cmd>lua vim.lsp.buf.hover({ border = "single" })<cr>', { silent = true } },
-            { '<c-]>', '<cmd>lua vim.lsp.buf.definition()<cr>', { silent = true } },
-            { '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>', { silent = true } },
-            { ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<cr>', { silent = true } },
-            { 'gi', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>', { silent = true } },
-        })
+        vim.api.nvim_buf_set_keymap(buffer, 'n', 'K', '<cmd>lua vim.lsp.buf.hover({ border = "single" })<cr>', { silent = true })
+        vim.api.nvim_buf_set_keymap(buffer, 'n', '<c-]>', '<cmd>lua vim.lsp.buf.definition()<cr>', { silent = true })
+        vim.api.nvim_buf_set_keymap(buffer, 'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>', { silent = true })
+        vim.api.nvim_buf_set_keymap(buffer, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<cr>', { silent = true })
+        vim.api.nvim_buf_set_keymap(buffer, 'n', 'gi', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>', { silent = true })
     end
 
     local signs = {

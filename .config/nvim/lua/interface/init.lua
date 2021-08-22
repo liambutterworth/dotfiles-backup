@@ -1,19 +1,21 @@
 local statusline = require('interface.statusline')
 local tabline = require('interface.tabline')
 
-function GetTabLine()
-    return tabline:get()
+vim.o.statusline = '%!v:lua.BuildStatusLine(winnr())'
+vim.o.tabline = '%!v:lua.GetTabLine()'
+
+function BuildStatusLine(number)
+    return '%{%v:lua.GetStatusLine(' .. vim.fn.winnr() .. ')%}'
 end
 
 function GetStatusLine(window)
-    api.win.set('is_active', window == api.win.get_current())
+    vim.w.is_active = window == vim.fn.winnr()
 
     return statusline:get()
 end
 
-function BuildStatusLine(number)
-    return '%{%v:lua.GetStatusLine(' .. api.fn.winnr() .. ')%}'
+function GetTabLine()
+    return tabline:get()
 end
 
-api.opt.set('tabline',  '%!v:lua.GetTabLine()')
-api.opt.set('statusline', '%!v:lua.BuildStatusLine(winnr())')
+vim.cmd('colorscheme custom')

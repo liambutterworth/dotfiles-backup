@@ -8,7 +8,6 @@
 " :: Pmenu
 " :: Float
 " :: Syntax
-" :: Plugins
 
 set background=dark
 
@@ -43,7 +42,7 @@ highlight Title cterm=bold ctermfg=cyan
 highlight Todo ctermbg=none ctermfg=yellow
 highlight Type ctermfg=blue
 highlight Underlined ctermfg=cyan
-highlight VertSplit cterm=bold ctermbg=black
+highlight VertSplit cterm=none ctermbg=none ctermfg=black
 highlight Visual cterm=bold ctermbg=black
 highlight Warning cterm=bold ctermfg=yellow
 highlight WarningMsg ctermfg=yellow
@@ -90,19 +89,20 @@ highlight TabLineUnselSep cterm=none ctermbg=none ctermfg=black
 " Statusline
 "
 
-highlight StatusLine cterm=none ctermbg=black ctermfg=white
-highlight StatusLineNc cterm=none ctermbg=black ctermfg=white
+highlight StatusLine cterm=none ctermbg=none ctermfg=none
+highlight StatusLineNC cterm=none ctermbg=none ctermfg=none
+highlight StatusLineNormal cterm=none ctermbg=black ctermfg=white
 highlight StatusLineSep cterm=bold ctermbg=none ctermfg=none
 highlight StatusLineIcon cterm=bold ctermbg=black ctermfg=white
 highlight StatusLineBranchDirty cterm=none ctermbg=black ctermfg=yellow
 highlight StatusLineBranchClean cterm=none ctermbg=black ctermfg=green
-highlight StatusLineInactive cterm=none ctermbg=white ctermfg=black
+highlight StatusLineInactive cterm=bold ctermbg=white ctermfg=black
 highlight StatusLineInactiveSep cterm=bold ctermbg=black ctermfg=white
-highlight StatusLineModified cterm=none ctermbg=yellow ctermfg=black
+highlight StatusLineModified cterm=bold ctermbg=yellow ctermfg=black
 highlight StatusLineModifiedSep cterm=bold ctermbg=black ctermfg=yellow
-highlight StatusLineUnmodified cterm=none ctermbg=green ctermfg=black
+highlight StatusLineUnmodified cterm=bold ctermbg=green ctermfg=black
 highlight StatusLineUnmodifiedSep cterm=bold ctermbg=black ctermfg=green
-highlight StatusLineReadOnly cterm=none ctermbg=red ctermfg=black
+highlight StatusLineReadOnly cterm=bold ctermbg=red ctermfg=black
 highlight StatusLineReadOnlySep cterm=bold ctermbg=black ctermfg=red
 highlight StatusLineHasErrors cterm=bold ctermbg=black ctermfg=red
 highlight StatusLineHasWarnings cterm=bold ctermbg=black ctermfg=yellow
@@ -156,24 +156,6 @@ highlight link yamlFloat TSBoolean
 highlight link scssTSVariable TSKeyword
 highlight link scssTSProperty TSKeyword
 highlight link scssTSType TSMethod
-
-"
-" Plugins
-"
-
-" Git Gutter
-
-" highlight GitGutterAdd ctermfg=green
-" highlight GitGutterChange ctermfg=yellow
-" highlight GitGutterDelete ctermfg=red
-
-highlight GitSignsAdd ctermfg=green
-highlight GitSignsChange ctermfg=yellow
-highlight GitSignsDelete ctermfg=red
-
-" Floaterm
-
-highlight FloatermBorder ctermbg=none guibg=none
 
 " LSP
 

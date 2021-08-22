@@ -2,26 +2,22 @@ local tabline = {
     segments = {},
 }
 
-function tabline:clear()
-    self.segments = {}
-end
-
-function tabline:concat()
-    return table.concat(self.segments)
-end
-
 function tabline:append(segment)
     table.insert(self.segments, segment)
 end
 
-function tabline:add(tab)
-    local name = api.tab.get_name(tab)
+function tabline:build()
+    return table.concat(self.segments)
+end
 
-    if tab == api.tab.get_current() then
-        self:append('%#TabLineSel# ')
-    else
-        self:append('%#TabLineUnsel# ')
-    end
+function tabline:clear()
+    self.segments = {}
+end
+
+function tabline:add(tab)
+    local window = vim.api.nvim_tabpage_get_win(tab)
+    local buffer = vim.api.nvim_win_get_buf(window)
+    local name =  vim.api.nvim_buf_get_name(buffer)
 
     if string.find(name, 'term://') ~= nil then
         local command = api.fn.fnamemodify(name, ':p:t')
@@ -41,15 +37,22 @@ function tabline:add(tab)
 end
 
 function tabline:get()
-    local tabs = api.tab.get_list()
+    local tabs = vim.api.nvim_list_tabpages()
+    local current = vim.api.nvim_get_current_tabpage()
 
     self:clear()
 
     for _, tab in ipairs(tabs) do
+        if tab == current then
+            self:append('%#TabLineSel# ')
+        else
+            self:append('%#TabLineUnsel# ')
+        end
+
         self:add(tab)
     end
 
-    return self:concat()
+    return self:build()
 end
 
 return tabline
