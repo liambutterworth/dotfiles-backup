@@ -4,8 +4,7 @@ return function()
     vim.g.nvim_tree_git_hl = 1
 
     vim.g.nvim_tree_bindings = {
-        { key = '<cr>', cb = '<cmd>NvimTreeToggle<cr>' },
-        { key = '\\', cb = '<cmd>NvimTreeToggle<cr>' },
+        { key = { '<cr>', '\\' }, cb = '<cmd>NvimTreeToggle<cr>' },
         { key = '<c-s>', cb = config.nvim_tree_callback('split') },
         { key = '<c-x>', cb = '' },
     }

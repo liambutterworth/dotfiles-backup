@@ -1,5 +1,7 @@
 local packer = require('packer')
 
+vim.api.nvim_set_keymap('n', '<f5>', '<cmd>PackerCompile<cr>', { noremap = true })
+
 return packer.startup(function(use)
     use 'wbthomason/packer.nvim'
 

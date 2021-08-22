@@ -1,5 +1,4 @@
 vim.g.loaded_netrw = 0
-vim.g.mapleader = ' '
 
 vim.opt.completeopt = { 'menuone', 'noselect' }
 vim.opt.dictionary = '/usr/share/dict/words'
@@ -16,7 +15,7 @@ vim.opt.listchars = { trail = '·', tab = '│ ' }
 vim.opt.mouse = 'n'
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.scrolloff = 5
+vim.opt.scrolloff = 3
 vim.opt.shiftwidth = 4
 vim.opt.shortmess = vim.opt.shortmess + { c = true }
 vim.opt.showmode = false
@@ -27,7 +26,6 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.swapfile = false
 vim.opt.tabstop = 4
-vim.opt.tags = '.git/tags'
 vim.opt.undofile = true
 vim.opt.wildignorecase = true
 vim.opt.wrap = false
