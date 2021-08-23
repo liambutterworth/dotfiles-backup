@@ -28,13 +28,13 @@ function tabline:add_tab(tab, is_active)
     local window = vim.api.nvim_tabpage_get_win(tab)
     local buffer = vim.api.nvim_win_get_buf(window)
     local filename =  vim.api.nvim_buf_get_name(buffer)
-    local is_terminal = string.find(filename, 'term://') ~= nil
     local name = vim.fn.fnamemodify(filename, ':p:t')
-    local ext = vim.fn.fnamemodify(filename, ':e')
+    local extension = vim.fn.fnamemodify(filename, ':e')
+    local is_terminal = string.find(filename, 'term://') ~= nil
     local icon = is_terminal and '' or ''
 
     if has_devicons and not is_terminal then
-        icon = devicons.get_icon(name, ext) or icon
+        icon = devicons.get_icon(name, extension) or icon
     end
 
     local function highlight(name)
@@ -51,6 +51,10 @@ function tabline:add_tab(tab, is_active)
         self:add(highlight('IconModified'))
     else
         self:add(highlight('IconUnmodified'))
+    end
+
+    if name == '' then
+        name = 'No Name'
     end
 
     self:add_space()

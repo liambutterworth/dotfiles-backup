@@ -79,7 +79,7 @@ highlight TSVariableBuiltin ctermfg=white
 "
 
 highlight TabLine cterm=none ctermbg=black
-highlight TabLineActive cterm=bold ctermbg=none ctermfg=white
+highlight TabLineActive cterm=none ctermbg=none ctermfg=white
 highlight TabLineActiveClean cterm=bold ctermbg=none ctermfg=green
 highlight TabLineActiveHasErrors cterm=bold ctermbg=none ctermfg=red
 highlight TabLineActiveHasInformation cterm=bold ctermbg=none ctermfg=blue
@@ -88,7 +88,7 @@ highlight TabLineActiveIconModified cterm=bold ctermbg=none ctermfg=yellow
 highlight TabLineActiveIconReadOnly cterm=bold ctermbg=none ctermfg=red
 highlight TabLineActiveIconTerminal cterm=bold ctermbg=none ctermfg=magenta
 highlight TabLineActiveIconUnmodified cterm=bold ctermbg=none ctermfg=green
-highlight TabLineInactive cterm=bold ctermbg=black ctermfg=white
+highlight TabLineInactive cterm=none ctermbg=black ctermfg=white
 highlight TabLineInactiveClean cterm=bold ctermbg=black ctermfg=green
 highlight TabLineInactiveHasErrors cterm=bold ctermbg=black ctermfg=red
 highlight TabLineInactiveHasInformation cterm=bold ctermbg=black ctermfg=blue
@@ -112,6 +112,7 @@ highlight StatusLineHasInformation cterm=bold ctermbg=black ctermfg=blue
 highlight StatusLineIcon cterm=bold ctermbg=black ctermfg=white
 highlight StatusLineInactive cterm=bold ctermbg=white ctermfg=black
 highlight StatusLineNC cterm=none ctermbg=none ctermfg=none
+highlight StatusLineNormal cterm=none ctermbg=black ctermfg=none
 highlight StatusLineModified cterm=bold ctermbg=yellow ctermfg=black
 highlight StatusLineUnmodified cterm=bold ctermbg=green ctermfg=black
 highlight StatusLineReadOnly cterm=bold ctermbg=red ctermfg=black

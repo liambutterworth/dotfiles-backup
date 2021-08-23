@@ -1,10 +1,10 @@
 local has_devicons, devicons = pcall(require, 'nvim-web-devicons')
 
 local statusline = {
-    is_active = false,
     buffer = nil,
-    window = nil,
+    is_active = false,
     segments = {},
+    window = nil,
 }
 
 function statusline:clear()
