@@ -94,9 +94,10 @@ highlight TabLineInactiveHasErrors cterm=bold ctermbg=black ctermfg=red
 highlight TabLineInactiveHasInformation cterm=bold ctermbg=black ctermfg=blue
 highlight TabLineInactiveHasWarnings cterm=bold ctermbg=black ctermfg=yellow
 highlight TabLineInactiveIconModified cterm=bold ctermbg=black ctermfg=yellow
-highlight TabLineTerminalActiveIconReadOnly cterm=bold ctermbg=black ctermfg=red
-highlight TabLineTerminalActiveIconTerminal cterm=bold ctermbg=black ctermfg=magenta
-highlight TabLineTerminalActiveIconUnmodified cterm=bold ctermbg=black ctermfg=green
+highlight TabLineInactiveIconReadOnly cterm=bold ctermbg=black ctermfg=red
+highlight TabLineInactiveIconTerminal cterm=bold ctermbg=black ctermfg=magenta
+highlight TabLineInactiveIconUnmodified cterm=bold ctermbg=black ctermfg=green
+highlight TabLineInactiveIconModified cterm=bold ctermbg=black ctermfg=yellow
 
 "
 " Statusline
