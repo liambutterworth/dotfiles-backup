@@ -1,4 +1,4 @@
-local has_devicons, devicons = pcall(require, 'nvim-web-devicons')
+-- local has_devicons, devicons = pcall(require, 'nvim-web-devicons')
 
 local statusline = {
     buffer = nil,
@@ -36,12 +36,12 @@ end
 function statusline:add_file()
     local icon = ''
 
-    if has_devicons then
-        local name = vim.fn.expand('%:p:h:t')
-        local ext = vim.fn.expand('%:e')
+    -- if has_devicons then
+    --     local name = vim.fn.expand('%:p:h:t')
+    --     local ext = vim.fn.expand('%:e')
 
-        icon = devicons.get_icon(name, ext) or icon
-    end
+    --     icon = devicons.get_icon(name, ext) or icon
+    -- end
 
     if not self.is_active then
         self:highlight('Inactive')

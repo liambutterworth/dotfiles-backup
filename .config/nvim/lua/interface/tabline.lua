@@ -1,4 +1,4 @@
-local has_devicons, devicons = pcall(require, 'nvim-web-devicons')
+-- local has_devicons, devicons = pcall(require, 'nvim-web-devicons')
 
 local tabline = {
     segments = {},
@@ -33,9 +33,9 @@ function tabline:add_tab(tab, is_active)
     local is_terminal = string.find(filename, 'term://') ~= nil
     local icon = is_terminal and '' or ''
 
-    if has_devicons and not is_terminal then
-        icon = devicons.get_icon(name, extension) or icon
-    end
+    -- if has_devicons and not is_terminal then
+    --     icon = devicons.get_icon(name, extension) or icon
+    -- end
 
     local function highlight(name)
         local state = is_active and 'Active' or 'Inactive'
