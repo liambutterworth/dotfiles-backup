@@ -11,6 +11,7 @@ return packer.startup(function(use)
         'tpope/vim-speeddating',
         'tpope/vim-surround',
         'tpope/vim-unimpaired',
+        -- 'tpope/vim-vinegar',
     }
 
     use {
@@ -61,11 +62,11 @@ return packer.startup(function(use)
         requires = 'nvim-lua/plenary.nvim',
     }
 
-    -- use {
-    --     'kyazdani42/nvim-tree.lua',
-    --     config = require('plugins.tree'),
-    --     requires = 'kyazdani42/nvim-web-devicons',
-    -- }
+    use {
+        'kyazdani42/nvim-tree.lua',
+        config = require('plugins.tree'),
+        requires = 'kyazdani42/nvim-web-devicons',
+    }
 
     use {
         'nvim-telescope/telescope.nvim',

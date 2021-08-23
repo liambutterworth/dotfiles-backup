@@ -3,7 +3,7 @@ vim.g.loaded_netrw = 0
 vim.opt.completeopt = { 'menuone', 'noselect' }
 vim.opt.dictionary = '/usr/share/dict/words'
 vim.opt.expandtab = true
-vim.opt.fillchars = { vert = '│' }
+vim.opt.fillchars = { vert = '│', eob = ' ' }
 vim.opt.hidden = true
 vim.opt.hlsearch = false
 vim.opt.ignorecase = true
