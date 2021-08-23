@@ -5,11 +5,19 @@ local tabline = {
 
     highlights = {
         active = '%#TabLineActive#',
+        active_clean = '%#TabLineActiveClean#',
+        active_has_errors = '%#TabLineActiveHasErrors#',
+        active_has_information = '%#TabLineActiveHasInformation#',
+        active_has_warnings = '%#TabLineActiveHasWarnings#',
         active_icon_modified = '%#TabLineActiveIconModified#',
         active_icon_readonly = '%#TabLineActiveIconReadOnly#',
         active_icon_terminal = '%#TabLineActiveIconTerminal#',
         active_icon_unmodified = '%#TabLineActiveIconUnmodified#',
         inactive = '%#TabLineInactive#',
+        inactive_clean = '%#TabLineInactiveClean#',
+        inactive_has_errors = '%#TabLineInactiveHasErrors#',
+        inactive_has_information = '%#TabLineInactiveHasInformation#',
+        inactive_has_warnings = '%#TabLineInactiveHasWarnings#',
         inactive_icon_modified = '%#TabLineInactiveIconModified#',
         inactive_icon_readonly = '%#TabLineTerminalActiveIconReadOnly#',
         inactive_icon_terminal = '%#TabLineTerminalActiveIconTerminal#',
@@ -64,6 +72,20 @@ function tabline:add_tab(tab, is_active)
         self:add_space()
         self:add(name)
         self:add_space()
+
+        if vim.lsp.diagnostic.get_count(buffer, 'Error') > 0 then
+            self:add(self.highlights.active_has_errors)
+        elseif vim.lsp.diagnostic.get_count(buffer, 'Warnings') > 0 then
+            self:add(self.highlights.active_has_errors)
+        elseif vim.lsp.diagnostic.get_count(buffer, 'Information') > 0 then
+            self:add(self.highlights.active_has_errors)
+        else
+            self:add(self.highlights.active_clean)
+        end
+
+        self:add('●')
+        self:add(self.highlights.active)
+        self:add_space()
     else
         if is_terminal then
             self:add(self.highlights.inactive_icon_terminal)
@@ -80,6 +102,20 @@ function tabline:add_tab(tab, is_active)
         self:add(self.highlights.inactive)
         self:add_space()
         self:add(name)
+        self:add_space()
+
+        if vim.lsp.diagnostic.get_count(buffer, 'Error') > 0 then
+            self:add(self.highlights.inactive_has_errors)
+        elseif vim.lsp.diagnostic.get_count(buffer, 'Warnings') > 0 then
+            self:add(self.highlights.inactive_has_errors)
+        elseif vim.lsp.diagnostic.get_count(buffer, 'Information') > 0 then
+            self:add(self.highlights.inactive_has_errors)
+        else
+            self:add(self.highlights.inactive_clean)
+        end
+
+        self:add('●')
+        self:add(self.highlights.inactive)
         self:add_space()
     end
 end

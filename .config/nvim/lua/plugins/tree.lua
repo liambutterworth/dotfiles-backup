@@ -16,6 +16,10 @@ return function()
         folder_arrows = 1,
     }
 
+    vim.g.nvim_tree_icons = {
+        default = '',
+    }
+
     vim.api.nvim_set_keymap('n', '<cr>', '<cmd>NvimTreeToggle<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '\\', '<cmd>NvimTreeFindFile<cr>', { noremap = true })
 

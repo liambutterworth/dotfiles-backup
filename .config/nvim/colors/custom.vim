@@ -80,11 +80,19 @@ highlight TSVariableBuiltin ctermfg=white
 
 highlight TabLine cterm=none ctermbg=black
 highlight TabLineActive cterm=bold ctermbg=none ctermfg=white
+highlight TabLineActiveClean cterm=bold ctermbg=none ctermfg=green
+highlight TabLineActiveHasErrors cterm=bold ctermbg=none ctermfg=red
+highlight TabLineActiveHasInformation cterm=bold ctermbg=none ctermfg=blue
+highlight TabLineActiveHasWarnings cterm=bold ctermbg=none ctermfg=yellow
 highlight TabLineActiveIconModified cterm=bold ctermbg=none ctermfg=yellow
 highlight TabLineActiveIconReadOnly cterm=bold ctermbg=none ctermfg=red
 highlight TabLineActiveIconTerminal cterm=bold ctermbg=none ctermfg=magenta
 highlight TabLineActiveIconUnmodified cterm=bold ctermbg=none ctermfg=green
 highlight TabLineInactive cterm=bold ctermbg=black ctermfg=white
+highlight TabLineInactiveClean cterm=bold ctermbg=black ctermfg=green
+highlight TabLineInactiveHasErrors cterm=bold ctermbg=black ctermfg=red
+highlight TabLineInactiveHasInformation cterm=bold ctermbg=black ctermfg=blue
+highlight TabLineInactiveHasWarnings cterm=bold ctermbg=black ctermfg=yellow
 highlight TabLineInactiveIconModified cterm=bold ctermbg=black ctermfg=yellow
 highlight TabLineTerminalActiveIconReadOnly cterm=bold ctermbg=black ctermfg=red
 highlight TabLineTerminalActiveIconTerminal cterm=bold ctermbg=black ctermfg=magenta
