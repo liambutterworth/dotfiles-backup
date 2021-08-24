@@ -1,5 +1,3 @@
--- local has_devicons, devicons = pcall(require, 'nvim-web-devicons')
-
 local tabline = {
     segments = {},
 }
@@ -31,11 +29,7 @@ function tabline:add_tab(tab, is_active)
     local name = vim.fn.fnamemodify(filename, ':p:t')
     local extension = vim.fn.fnamemodify(filename, ':e')
     local is_terminal = string.find(filename, 'term://') ~= nil
-    local icon = is_terminal and '' or ''
-
-    -- if has_devicons and not is_terminal then
-    --     icon = devicons.get_icon(name, extension) or icon
-    -- end
+    local is_empty = name == ''
 
     local function highlight(name)
         local state = is_active and 'Active' or 'Inactive'
@@ -53,15 +47,11 @@ function tabline:add_tab(tab, is_active)
         self:add(highlight('IconUnmodified'))
     end
 
-    if name == '' then
-        name = 'No Name'
-    end
-
     self:add_space()
-    self:add(icon)
+    self:add(is_terminal and 'ﲵ' or '')
     self:add(highlight())
     self:add_space()
-    self:add(name)
+    self:add(is_empty and 'No Name' or name)
     self:add_space()
 
     if vim.lsp.diagnostic.get_count(buffer, 'Error') > 0 then

@@ -1,4 +1,4 @@
-vim.g.loaded_netrw = 0
+-- vim.g.loaded_netrw = 0
 
 vim.opt.completeopt = { 'menuone', 'noselect' }
 vim.opt.dictionary = '/usr/share/dict/words'

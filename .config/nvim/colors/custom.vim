@@ -110,12 +110,14 @@ highlight StatusLineHasErrors cterm=bold ctermbg=black ctermfg=red
 highlight StatusLineHasWarnings cterm=bold ctermbg=black ctermfg=yellow
 highlight StatusLineHasInformation cterm=bold ctermbg=black ctermfg=blue
 highlight StatusLineIcon cterm=bold ctermbg=black ctermfg=white
+highlight StatusLineOperator cterm=bold ctermbg=black ctermfg=blue
+highlight StatusLineNumber cterm=bold ctermbg=black ctermfg=magenta
 highlight StatusLineInactive cterm=bold ctermbg=white ctermfg=black
 highlight StatusLineNC cterm=none ctermbg=none ctermfg=none
 highlight StatusLineNormal cterm=none ctermbg=black ctermfg=none
-highlight StatusLineModified cterm=bold ctermbg=yellow ctermfg=black
-highlight StatusLineUnmodified cterm=bold ctermbg=green ctermfg=black
-highlight StatusLineReadOnly cterm=bold ctermbg=red ctermfg=black
+highlight StatusLineModified cterm=none ctermbg=yellow ctermfg=black
+highlight StatusLineUnmodified cterm=none ctermbg=green ctermfg=black
+highlight StatusLineReadOnly cterm=none ctermbg=red ctermfg=black
 highlight StatusLineSeparator cterm=bold ctermbg=none ctermfg=none
 
 "

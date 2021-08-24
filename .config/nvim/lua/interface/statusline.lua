@@ -1,5 +1,3 @@
--- local has_devicons, devicons = pcall(require, 'nvim-web-devicons')
-
 local statusline = {
     buffer = nil,
     is_active = false,
@@ -34,15 +32,6 @@ function statusline:add_space()
 end
 
 function statusline:add_file()
-    local icon = ''
-
-    -- if has_devicons then
-    --     local name = vim.fn.expand('%:p:h:t')
-    --     local ext = vim.fn.expand('%:e')
-
-    --     icon = devicons.get_icon(name, ext) or icon
-    -- end
-
     if not self.is_active then
         self:highlight('Inactive')
     elseif vim.bo[self.buffer].readonly then
@@ -54,7 +43,7 @@ function statusline:add_file()
     end
 
     self:add_space()
-    self:add(icon)
+    self:add('')
     self:add_space()
     self:highlight()
     self:add_space()
@@ -64,10 +53,17 @@ end
 function statusline:add_line_number()
     self:add_separator()
     self:add_space()
-    self:highlight('Icon')
-    self:add('並')
+    self:highlight('Number')
+    self:add('%l')
+    self:highlight('Operator')
+    self:add('/')
+    self:highlight('Number')
+    self:add('%L')
+    self:highlight('Operator')
+    self:add(':')
+    self:highlight('Number')
+    self:add('%c')
     self:highlight()
-    self:add('%l/%L:%c')
     self:add_space()
     self:add_separator()
 end
