@@ -7,14 +7,15 @@ return packer.startup(function(use)
         'tpope/vim-abolish',
         'tpope/vim-commentary',
         'tpope/vim-eunuch',
+        'tpope/vim-fugitive',
         'tpope/vim-repeat',
-        'tpope/vim-speeddating',
         'tpope/vim-surround',
         'tpope/vim-unimpaired',
     }
 
     use {
         'nvim-treesitter/nvim-treesitter',
+
         config = require('plugins.treesitter'),
         run = ':TSUpdate',
 
@@ -27,6 +28,7 @@ return packer.startup(function(use)
 
     use {
         'neovim/nvim-lspconfig',
+
         config = require('plugins.lspconfig'),
     }
 

@@ -6,15 +6,21 @@
     editor = nvim
 [diff]
     tool = nvim -d
-[web]
-    browser = firefox
-[user]
-    name = Liam Butterworth
-    email = liambutterworth@randallreilly.com
 [init]
     defaultBranch = master
-[pull]
-    ff = only
 [credential]
     helper = manager-core
     credentialStore = gpg
+[merge]
+    tool = nvim
+[mergetool]
+    keepBackup = false
+[mergetool "nvim"]
+    cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[pull]
+    ff = only
+[user]
+    name = Liam Butterworth
+    email = liambutterworth@randallreilly.com
+[web]
+    browser = firefox
