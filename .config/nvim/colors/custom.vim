@@ -18,31 +18,49 @@ highlight clear
 "
 
 highlight Constant ctermfg=green
+highlight ColorColumn ctermbg=red ctermfg=black
 highlight Comment cterm=bold ctermfg=black
+highlight CursorLine cterm=none
+highlight DiffAdd ctermbg=green ctermfg=black
+highlight DiffChange ctermbg=yellow ctermfg=black
+highlight DiffDelete ctermbg=red ctermfg=black
+highlight DiffText ctermbg=blue ctermfg=black
+highlight Directory ctermfg=cyan
 highlight Error cterm=bold ctermbg=none ctermfg=red
+highlight ErrorMsg cterm=bold ctermbg=none ctermfg=red
 highlight Folded ctermbg=black ctermfg=white
 highlight FoldColumn ctermbg=black ctermfg=white
 highlight Identifier cterm=none ctermfg=white
 highlight Info cterm=bold ctermfg=blue
 highlight LineNr cterm=bold ctermfg=black
 highlight MatchParen cterm=bold ctermbg=none ctermfg=yellow
+highlight MoreMsg ctermfg=green
+highlight ModeMsg cterm=none ctermfg=white
 highlight NonText cterm=bold ctermbg=none ctermfg=black
 highlight Normal ctermbg=none ctermfg=white
 highlight NormalFloat ctermbg=black
 highlight Number ctermfg=magenta
 highlight Operator ctermfg=blue
 highlight Pmenu ctermbg=black ctermfg=white
+highlight PmenuSbar ctermbg=black
+highlight PmenuSel cterm=bold ctermbg=black ctermfg=white
+highlight PmenuThumb cterm=bold ctermbg=white ctermfg=black
 highlight PreProc cterm=none ctermfg=blue
 highlight Question ctermfg=yellow
 highlight SignColumn ctermbg=none ctermfg=white
 highlight Special ctermfg=white
+highlight SpecialKey ctermfg=cyan
 highlight SpecialChar ctermfg=magenta
+highlight SpellBad cterm=none ctermbg=red ctermfg=black
+highlight SpellCap cterm=none ctermbg=blue ctermfg=black
+highlight SpellRare cterm=none ctermbg=magenta ctermfg=black
+highlight SpellLocal cterm=none ctermbg=cyan ctermfg=black
 highlight Statement ctermfg=blue
 highlight Title cterm=bold ctermfg=cyan
 highlight Todo ctermbg=none ctermfg=yellow
 highlight Type ctermfg=blue
 highlight Underlined ctermfg=cyan
-highlight VertSplit cterm=none ctermbg=none ctermfg=black
+highlight VertSplit cterm=bold ctermbg=none ctermfg=black
 highlight Visual cterm=bold ctermbg=black
 highlight Warning cterm=bold ctermfg=yellow
 highlight WarningMsg ctermfg=yellow
@@ -123,10 +141,6 @@ highlight StatusLineSeparator cterm=bold ctermbg=none ctermfg=none
 "
 " Pmenu
 "
-
-highlight PmenuSel cterm=bold ctermbg=black ctermfg=white
-highlight PmenuSbar ctermbg=black
-highlight PmenuThumb cterm=bold ctermbg=white ctermfg=black
 
 "
 " Float
