@@ -104,16 +104,16 @@ debug:
 font:
   size: 16
   normal:
-    family: Source Code Pro
+    family: SauceCodePro Nerd Font
     style: Light
   bold:
-    family: Source Code Pro
+    family: SauceCodePro Nerd Font
     style: Regular
   italic:
-    family: Source Code Pro
+    family: SauceCodePro Nerd Font
     style: Light Italic
   bold_italic:
-    family: Source Code Pro
+    family: SauceCodePro Nerd Font
     style: Italic
   offset:
     x: 0

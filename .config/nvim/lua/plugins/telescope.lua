@@ -20,13 +20,15 @@ return function()
 
             mappings = {
                 i = {
-                    ['<c-x>'] = false,
+                    ['<c-o>'] = actions.toggle_selection,
                     ['<c-s>'] = actions.file_split,
+                    ['<c-x>'] = false,
                 },
 
                 n = {
-                    ['<c-x>'] = false,
+                    ['<c-o>'] = actions.toggle_selection,
                     ['<c-s>'] = actions.file_split,
+                    ['<c-x>'] = false,
                 },
             },
         },
@@ -56,6 +58,7 @@ return function()
     vim.api.nvim_set_keymap('n', '<space>:', '<cmd>Telescope command_history<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', "<space>'", '<cmd>Telescope marks<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>"', '<cmd>Telescope registers<cr>', { noremap = true })
+    vim.api.nvim_set_keymap('n', '<space>.', '<cmd>Telescope file_browser<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>/', '<cmd>Telescope search_history<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>?', '<cmd>Telescope help_tags<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>c', '<cmd>Telescope commands<cr>', { noremap = true })
@@ -65,7 +68,6 @@ return function()
     vim.api.nvim_set_keymap('n', '<space>gc', '<cmd>Telescope git_bcommits<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>gb', '<cmd>Telescope git_branches<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>gt', '<cmd>Telescope git_stash<cr>', { noremap = true })
-    vim.api.nvim_set_keymap('n', '<space>f', '<cmd>Telescope file_browser<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>h', '<cmd>Telescope highlights<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>j', '<cmd>Telescope jumplist<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>n', '<cmd>Telescope keymaps<cr>', { noremap = true })

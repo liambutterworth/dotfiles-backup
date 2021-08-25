@@ -27,7 +27,6 @@ bind -M insert \cx accept-autosuggestion execute
 bind -M insert \cp history-search-backward
 bind -M insert \cn history-search-forward
 bind -M insert \cg fzf-cd-widget
-bind -M insert \co fzf-open-widget
 
 #
 # Colors
@@ -76,23 +75,16 @@ set -x FZF_COLORS (string join ',' \
     'spinner:cyan' \
 )
 
-set -x FZF_PREVIEW (string join ',' \
-    'top' \
-    '10' \
-    'border-sharp' \
-)
-
 set -x EDITOR 'nvim'
 set -x TERM 'alacritty'
 set -x XDG_CONFIG_HOME "$HOME/.config"
 set -x XDG_CACHE_HOME "$HOME/.cache"
 set -x XDG_DATA_HOME "$HOME/.local/share"
 set -x XDG_STATE_HOME "$HOME/.local/state"
-set -x PASSWORD_STORE_DIR "$XDG_DATA_HOME/pass"
-set -x FZF_DEFAULT_COMMAND "fd --type file --follow"
-set -x FZF_DEFAULT_OPTS "--color=$FZF_COLORS --preview-window=$FZF_PREVIEW"
 set -x FZF_ALT_C_COMMAND "fd --type directory"
-set -x FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
+set -x FZF_DEFAULT_COMMAND "fd --type file --follow"
+set -x FZF_DEFAULT_OPTS "--color=$FZF_COLORS"
+set -x PASSWORD_STORE_DIR "$XDG_DATA_HOME/pass"
 
 #
 # Startup
