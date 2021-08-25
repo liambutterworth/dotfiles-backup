@@ -54,6 +54,10 @@ return packer.startup(function(use)
         'nvim-telescope/telescope.nvim',
 
         config = require('plugins.telescope'),
-        requires = 'nvim-lua/plenary.nvim',
+
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'kyazdani42/nvim-web-devicons',
+        },
     }
 end)
