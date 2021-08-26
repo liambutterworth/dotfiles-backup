@@ -48,17 +48,27 @@ return function()
                     },
                 },
             },
+
+            live_grep = {
+                path_display = {
+                    shorten = 1,
+                },
+            },
         },
     })
 
-    vim.api.nvim_set_keymap('n', '<space><space>', '<cmd>Telescope live_grep<cr>', { noremap = true })
-    vim.api.nvim_set_keymap('n', '<space><cr>', '<cmd>Telescope find_files<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space><bs>', '<cmd>Telescope buffers<cr>', { noremap = true })
-    vim.api.nvim_set_keymap('n', '<space>]', '<cmd>Telescope tagstack<cr>', { noremap = true })
+    vim.api.nvim_set_keymap('n', '<space><space>', '<cmd>Telescope file_browser<cr>', { noremap = true })
+    vim.api.nvim_set_keymap('n', '<space><tab>', '<cmd>Telescope jumplist<cr>', { noremap = true })
+    vim.api.nvim_set_keymap('n', '<space>[', '<cmd>Telescope tagstack<cr>', { noremap = true })
+    vim.api.nvim_set_keymap('n', '<space>]', '<cmd>Telescope tags<cr>', { noremap = true })
+    vim.api.nvim_set_keymap('n', '<space>}', '<cmd>Telescope buffer_tags<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>:', '<cmd>Telescope command_history<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', "<space>'", '<cmd>Telescope marks<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>"', '<cmd>Telescope registers<cr>', { noremap = true })
-    vim.api.nvim_set_keymap('n', '<space>\\', '<cmd>Telescope file_browser<cr>', { noremap = true })
+    vim.api.nvim_set_keymap('n', '<space><', '<cmd>Telescope live_grep<cr>', { noremap = true })
+    vim.api.nvim_set_keymap('n', '<space>>', '<cmd>Telescope live_grep search_dirs=%:h<cr>', { noremap = true })
+    vim.api.nvim_set_keymap('n', '<space>,', '<cmd>Telescope live_grep grep_open_files=true<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>.', '<cmd>Telescope file_browser cwd=%:h<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>/', '<cmd>Telescope search_history<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>?', '<cmd>Telescope help_tags<cr>', { noremap = true })
@@ -69,8 +79,9 @@ return function()
     vim.api.nvim_set_keymap('n', '<space>gc', '<cmd>Telescope git_bcommits<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>gb', '<cmd>Telescope git_branches<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>gt', '<cmd>Telescope git_stash<cr>', { noremap = true })
+    vim.api.nvim_set_keymap('n', '<space>f', '<cmd>Telescope find_files<cr>', { noremap = true })
+    vim.api.nvim_set_keymap('n', '<space>F', '<cmd>Telescope find_files search_dirs=%:h<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>h', '<cmd>Telescope highlights<cr>', { noremap = true })
-    vim.api.nvim_set_keymap('n', '<space>j', '<cmd>Telescope jumplist<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>k', '<cmd>Telescope keymaps<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>la', '<cmd>Telescope lsp_code_actions<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>ld', '<cmd>Telescope lsp_document_diagnostics<cr>', { noremap = true })
@@ -83,6 +94,7 @@ return function()
     vim.api.nvim_set_keymap('n', '<space>o', '<cmd>Telescope vim_options<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>q', '<cmd>Telescope quickfix<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>s', '<cmd>Telescope spell_suggest<cr>', { noremap = true })
+    vim.api.nvim_set_keymap('n', '<space>t', '<cmd>Telescope filetypes<cr>', { noremap = true })
 
     vim.cmd([[
         highlight TelescopeMatching cterm=bold ctermfg=green
