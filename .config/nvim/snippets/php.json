@@ -56,7 +56,7 @@
         "description": "Trait",
 
         "body": [
-            "trait ${1:Name}",
+            "trait ${1:$TM_FILENAME_BASE}",
             "{",
             "\t$4",
             "}"
