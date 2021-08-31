@@ -33,9 +33,18 @@ return packer.startup(function(use)
     }
 
     use {
-        'hrsh7th/nvim-compe',
+        'hrsh7th/nvim-cmp',
 
-        config = require('plugins.compe'),
+        config = require('plugins.cmp'),
+
+        requires = {
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-calc',
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-nvim-lua',
+            'hrsh7th/cmp-path',
+            'hrsh7th/cmp-vsnip',
+        },
     }
 
     use {

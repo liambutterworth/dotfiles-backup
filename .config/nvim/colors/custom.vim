@@ -51,10 +51,10 @@ highlight SignColumn ctermbg=none ctermfg=white
 highlight Special ctermfg=white
 highlight SpecialKey ctermfg=cyan
 highlight SpecialChar ctermfg=magenta
-highlight SpellBad cterm=none ctermbg=red ctermfg=black
-highlight SpellCap cterm=none ctermbg=blue ctermfg=black
-highlight SpellRare cterm=none ctermbg=magenta ctermfg=black
-highlight SpellLocal cterm=none ctermbg=cyan ctermfg=black
+highlight SpellBad cterm=underline ctermbg=none ctermfg=red
+highlight SpellCap cterm=underline ctermbg=none ctermfg=blue
+highlight SpellRare cterm=underline ctermbg=none ctermfg=magenta
+highlight SpellLocal cterm=underline ctermbg=none ctermfg=cyan
 highlight Statement ctermfg=blue
 highlight Title cterm=bold ctermfg=cyan
 highlight Todo ctermbg=none ctermfg=yellow
