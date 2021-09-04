@@ -74,6 +74,7 @@ highlight TSConstructor ctermfg=cyan
 highlight TSConstant ctermfg=cyan
 highlight TSError ctermfg=red
 highlight TSField ctermfg=white
+highlight TSFloat ctermfg=magenta
 highlight TSFunction ctermfg=cyan
 highlight TSFuncBuiltin ctermfg=cyan
 highlight TSMethod ctermfg=cyan
@@ -90,7 +91,7 @@ highlight TSTagDelimiter ctermfg=blue
 highlight TSType ctermfg=blue
 highlight TSTypeBuiltin ctermfg=blue
 highlight TSVariable cterm=none ctermfg=white
-highlight TSVariableBuiltin ctermfg=white
+highlight TSVariableBuiltin ctermfg=blue
 
 "
 " Tabline

@@ -17,7 +17,7 @@
         "body": [
             "{",
             "\t$TM_SELECTED_TEXT$1",
-            "}"
+            "};"
         ]
     },
 
