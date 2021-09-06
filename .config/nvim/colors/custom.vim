@@ -72,6 +72,7 @@ highlight WarningMsg ctermfg=yellow
 highlight TSBoolean ctermfg=magenta
 highlight TSConstructor ctermfg=cyan
 highlight TSConstant ctermfg=cyan
+highlight TSConstBuiltin ctermfg=blue
 highlight TSError ctermfg=red
 highlight TSField ctermfg=white
 highlight TSFloat ctermfg=magenta
