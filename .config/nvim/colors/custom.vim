@@ -197,3 +197,7 @@ highlight link LspDiagnosticsDefaultInformation Info
 highlight link LspVirtualFloatingInformation Info
 highlight link LspVirtualSignInformation Info
 highlight link LspVirtualTextInformation Info
+
+" PHP
+
+highlight phpTSVariableBuiltin ctermfg=white
