@@ -168,8 +168,8 @@
         ]
     },
 
-    "each": {
-        "prefix": "each",
+    "fore": {
+        "prefix": ["each", "fore"],
         "description": "Foreach loop",
 
         "body": [
