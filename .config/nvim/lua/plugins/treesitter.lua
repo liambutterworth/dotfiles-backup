@@ -16,6 +16,10 @@ return function()
             enable = true,
         },
 
+        autopairs = {
+            enable = true,
+        },
+
         textobjects = {
             select = {
                 enable = true,

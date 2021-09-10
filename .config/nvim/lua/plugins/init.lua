@@ -69,4 +69,11 @@ return packer.startup(function(use)
             'kyazdani42/nvim-web-devicons',
         },
     }
+
+    use {
+        'windwp/nvim-autopairs',
+
+        config = require('plugins.autopairs'),
+        requires = 'windwp/nvim-ts-autotag',
+    }
 end)
