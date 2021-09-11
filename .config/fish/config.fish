@@ -14,8 +14,8 @@
 alias dot="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 alias fuck="sudo !!"
 alias ls="ls -F --color=always --group-directories-first"
-alias la="ls -A"
-alias ll="ls -Ahl"
+alias la="ls -Av"
+alias ll="ls -Ahlv"
 alias tree="tree --dirsfirst -I 'node_modules|plugged|vendor'"
 alias xclip='xclip -selection clipboard'
 
@@ -94,6 +94,8 @@ set -x PASSWORD_STORE_DIR "$XDG_DATA_HOME/pass"
 fish_ssh_agent
 
 fish_add_path $HOME/.local/bin
+
+eval (dircolors -c $HOME/.config/dircolors/dircolors)
 
 if test -e $XDG_CONFIG_HOME/fish/profile.fish
     source $XDG_CONFIG_HOME/fish/profile.fish
