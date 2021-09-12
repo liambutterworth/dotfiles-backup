@@ -76,4 +76,10 @@ return packer.startup(function(use)
         config = require('plugins.autopairs'),
         requires = 'windwp/nvim-ts-autotag',
     }
+
+    use {
+        'junegunn/vim-easy-align',
+
+        config = require('plugins.easy-align'),
+    }
 end)
