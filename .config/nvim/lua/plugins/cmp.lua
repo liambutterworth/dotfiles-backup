@@ -10,6 +10,12 @@ return function()
             { name = 'vsnip' },
         },
 
+        snippet = {
+            expand = function(args)
+                vim.fn["vsnip#anonymous"](args.body)
+            end,
+        },
+
         mapping = {
             ['<tab>'] = function(fallback)
                 if vim.fn.pumvisible() == 1 then
