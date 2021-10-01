@@ -71,6 +71,13 @@ return packer.startup(function(use)
     }
 
     use {
+        'lewis6991/gitsigns.nvim',
+
+        config = require('plugins.gitsigns'),
+        requres = 'nvim-lua/plenary.nvim',
+    }
+
+    use {
         'windwp/nvim-autopairs',
 
         config = require('plugins.autopairs'),

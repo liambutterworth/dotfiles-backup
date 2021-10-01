@@ -7,6 +7,7 @@
 " :: Statusline
 " :: Pmenu
 " :: Float
+" :: Plugins
 " :: Syntax
 
 set background=dark
@@ -139,6 +140,17 @@ highlight StatusLineModified cterm=none ctermbg=yellow ctermfg=black
 highlight StatusLineUnmodified cterm=none ctermbg=green ctermfg=black
 highlight StatusLineReadOnly cterm=none ctermbg=red ctermfg=black
 highlight StatusLineSeparator cterm=bold ctermbg=none ctermfg=none
+
+"
+" Plugins
+"
+
+" Gitsigns
+
+highlight GitSignsAdd ctermbg=none ctermfg=green
+highlight GitSignsChange ctermbg=none ctermfg=yellow
+highlight GitSignsDelete ctermbg=none ctermfg=red
+highlight GitSignsChangeDelete ctermbg=none ctermfg=magenta
 
 "
 " Pmenu
