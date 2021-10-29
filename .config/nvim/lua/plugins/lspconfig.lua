@@ -29,7 +29,6 @@ return function()
         })
     end
 
-
     capabilities.textDocument.completion.completionItem.snippetSupport = true
 
     capabilities.textDocument.completion.completionItem.resolveSupport = {

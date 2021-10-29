@@ -17,26 +17,11 @@ return function()
         },
 
         mapping = {
-            ['<tab>'] = function(fallback)
-                if vim.fn.pumvisible() == 1 then
-                    vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<c-n>', true, true, true), 'n')
-                else
-                    fallback()
-                end
-            end,
-
-            ['<s-tab>'] = function(fallback)
-                if vim.fn.pumvisible() == 1 then
-                    vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<c-p>', true, true, true), 'n')
-                else
-                    fallback()
-                end
-            end,
-
-            ['<c-n>'] = cmp.mapping.select_next_item(),
-            ['<c-p>'] = cmp.mapping.select_prev_item(),
-            ['<c-d>'] = cmp.mapping.scroll_docs(-4),
-            ['<c-f>'] = cmp.mapping.scroll_docs(4),
+            ['<cr>'] = cmp.mapping.confirm({ select = true }),
+            ['<tab>'] = cmp.mapping.select_next_item(),
+            ['<s-tab>'] = cmp.mapping.select_prev_item(),
+            ['<c-n>'] = cmp.mapping.scroll_docs(-4),
+            ['<c-p>'] = cmp.mapping.scroll_docs(4),
             ['<c-h>'] = cmp.mapping.close(),
         },
     })
