@@ -17,12 +17,12 @@ return function()
         },
 
         mapping = {
-            ['<cr>'] = cmp.mapping.confirm({ select = true }),
-            ['<tab>'] = cmp.mapping.select_next_item(),
-            ['<s-tab>'] = cmp.mapping.select_prev_item(),
-            ['<c-n>'] = cmp.mapping.scroll_docs(-4),
-            ['<c-p>'] = cmp.mapping.scroll_docs(4),
-            ['<c-h>'] = cmp.mapping.close(),
+            ['<CR>'] = cmp.mapping.confirm({ select = true }),
+            ['<C-n>'] = cmp.mapping.scroll_docs(-4),
+            ['<C-p>'] = cmp.mapping.scroll_docs(4),
+            ['<C-h>'] = cmp.mapping.close(),
+            ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
+            ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
         },
     })
 end
