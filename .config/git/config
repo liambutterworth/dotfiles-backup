@@ -9,8 +9,7 @@
 [init]
     defaultBranch = master
 [credential]
-    helper = manager-core
-    credentialStore = gpg
+    helper = git-credential-manager-core
 [merge]
     tool = nvim
 [mergetool]
@@ -24,3 +23,5 @@
     email = liambutterworth@randallreilly.com
 [web]
     browser = firefox
+[credential "https://dev.azure.com"]
+    useHttpPath = true
