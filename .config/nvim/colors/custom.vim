@@ -152,9 +152,18 @@ highlight GitSignsChange ctermbg=none ctermfg=yellow
 highlight GitSignsDelete ctermbg=none ctermfg=red
 highlight GitSignsChangeDelete ctermbg=none ctermfg=magenta
 
-"
-" Pmenu
-"
+" Nvim Tree
+
+highlight NvimTreeFolderIcon cterm=bold ctermfg=blue
+highlight NvimTreeGitDeleted ctermfg=red
+highlight NvimTreeGitDirty ctermfg=yellow
+highlight NvimTreeGitMerge ctermfg=magenta
+highlight NvimTreeGitNew ctermfg=yellow
+highlight NvimTreeGitStaged ctermfg=green
+highlight NvimTreeIndentMarker ctermfg=magenta
+highlight NvimTreeStatusLineNC ctermbg=black
+highlight NvimTreeSymlink cterm=bold ctermfg=cyan
+
 
 "
 " Float

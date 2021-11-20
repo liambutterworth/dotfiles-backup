@@ -14,13 +14,13 @@ return function()
 
     local signs = {
         Error = '●',
-        Warning = '●',
+        Warn = '●',
         Hint = '●',
-        Information = '●',
+        Info = '●',
     }
 
     for type, icon in pairs(signs) do
-        local highlight = "LspDiagnosticsSign" .. type
+        local highlight = "DiagnosticSign" .. type
 
         vim.fn.sign_define(highlight, {
             text = icon,

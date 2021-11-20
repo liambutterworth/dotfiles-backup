@@ -11,7 +11,11 @@ end
 function GetStatusLine(window)
     vim.w.is_active = window == vim.fn.winnr()
 
-    return statusline:get()
+    if (vim.fn.bufname(vim.fn.winbufnr(vim.fn.winnr())) == 'NvimTree') then
+        return ''
+    else
+        return statusline:get()
+    end
 end
 
 function GetTabLine()

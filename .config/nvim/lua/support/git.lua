@@ -1,3 +1,0 @@
-local git = {}
-
-return git

@@ -1,3 +1,0 @@
-local async = {}
-
-return async
