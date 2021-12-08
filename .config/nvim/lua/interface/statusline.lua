@@ -90,14 +90,12 @@ function statusline:add_branch()
 end
 
 function statusline:add_diagnostics()
-    if vim.lsp.diagnostic.get_count(self.buffer, 'Error') > 0 then
+    if next(vim.diagnostic.get(self.buffer, { severity = vim.diagnostic.severity.ERROR })) then
         self:highlight('HasErrors')
-    elseif vim.lsp.diagnostic.get_count(self.buffer, 'Information') > 0 then
+    elseif next(vim.diagnostic.get(self.buffer, { severity = vim.diagnostic.severity.INFO })) then
         self:highlight('HasInformation')
-    elseif vim.lsp.diagnostic.get_count(self.buffer, 'Warnings') > 0 then
+    elseif next(vim.diagnostic.get(self.buffer, { severity = vim.diagnostic.severity.WARN })) then
         self:highlight('HasWarnings')
-    else
-        self:highlight('Clean')
     end
 
     self:add_space()

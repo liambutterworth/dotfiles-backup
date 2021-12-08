@@ -7,9 +7,11 @@ return function()
 
         vim.api.nvim_buf_set_keymap(buffer, 'n', 'K', '<cmd>lua vim.lsp.buf.hover({ border = "single" })<cr>', { silent = true })
         vim.api.nvim_buf_set_keymap(buffer, 'n', '<c-]>', '<cmd>lua vim.lsp.buf.definition()<cr>', { silent = true })
-        vim.api.nvim_buf_set_keymap(buffer, 'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>', { silent = true })
-        vim.api.nvim_buf_set_keymap(buffer, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<cr>', { silent = true })
-        vim.api.nvim_buf_set_keymap(buffer, 'n', 'gi', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>', { silent = true })
+        vim.api.nvim_buf_set_keymap(buffer, 'n', '<c-}>', '<cmd>lua vim.lsp.buf.declaration()<cr>', { silent = true })
+        vim.api.nvim_buf_set_keymap(buffer, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', { silent = true })
+        vim.api.nvim_buf_set_keymap(buffer, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', { silent = true })
+        vim.api.nvim_buf_set_keymap(buffer, 'n', 'gi', '<cmd>lua vim.diagnostic.open_float()<cr>', { silent = true })
+        vim.api.nvim_buf_set_keymap(buffer, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', { silent = true })
     end
 
     local signs = {

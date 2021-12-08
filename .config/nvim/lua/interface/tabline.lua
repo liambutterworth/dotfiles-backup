@@ -54,14 +54,12 @@ function tabline:add_tab(tab, is_active)
     self:add(is_empty and 'No Name' or name)
     self:add_space()
 
-    if vim.lsp.diagnostic.get_count(buffer, 'Error') > 0 then
-        self:add(highlight('HasErrors'))
-    elseif vim.lsp.diagnostic.get_count(buffer, 'Information') > 0 then
-        self:add(highlight('HasInformation'))
-    elseif vim.lsp.diagnostic.get_count(buffer, 'Warnings') > 0 then
-        self:add(highlight('HasWarnings'))
-    else
-        self:add(highlight('Clean'))
+    if next(vim.diagnostic.get(self.buffer, { severity = vim.diagnostic.severity.ERROR })) then
+        self:highlight('HasErrors')
+    elseif next(vim.diagnostic.get(self.buffer, { severity = vim.diagnostic.severity.INFO })) then
+        self:highlight('HasInformation')
+    elseif next(vim.diagnostic.get(self.buffer, { severity = vim.diagnostic.severity.WARN })) then
+        self:highlight('HasWarnings')
     end
 
     self:add('●')
