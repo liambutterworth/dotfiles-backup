@@ -3,6 +3,12 @@ return function()
     local actions = require('telescope.actions')
 
     telescope.setup({
+        extensions = {
+            file_browser = {
+                theme = 'ivy',
+            },
+        },
+
         defaults = {
             prompt_prefix = '❯ ',
             selection_caret = '❯ ',
@@ -63,8 +69,10 @@ return function()
         },
     })
 
+    telescope.load_extension('file_browser')
+
     vim.api.nvim_set_keymap('n', '<space><bs>', '<cmd>Telescope buffers<cr>', { noremap = true })
-    vim.api.nvim_set_keymap('n', '<space><space>', '<cmd>Telescope file_browser<cr>', { noremap = true })
+    vim.api.nvim_set_keymap('n', '<space><space>', "<cmd>lua require 'telescope'.extensions.file_browser.file_browser()<cr>", { noremap = true })
     vim.api.nvim_set_keymap('n', '<space><tab>', '<cmd>Telescope jumplist<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>[', '<cmd>Telescope tagstack<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>]', '<cmd>Telescope tags<cr>', { noremap = true })
@@ -75,7 +83,6 @@ return function()
     vim.api.nvim_set_keymap('n', '<space>j', '<cmd>Telescope live_grep<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>k', '<cmd>Telescope live_grep search_dirs=%:h<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>l', '<cmd>Telescope live_grep grep_open_files=true<cr>', { noremap = true })
-    vim.api.nvim_set_keymap('n', '<space>.', '<cmd>Telescope file_browser cwd=%:h<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>/', '<cmd>Telescope search_history<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>?', '<cmd>Telescope help_tags<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>c', '<cmd>Telescope commands<cr>', { noremap = true })

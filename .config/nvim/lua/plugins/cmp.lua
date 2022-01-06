@@ -17,7 +17,7 @@ return function()
         },
 
         mapping = {
-            ['<CR>'] = cmp.mapping.confirm({ select = true }),
+            -- ['<CR>'] = cmp.mapping.confirm({ select = true }),
             ['<C-n>'] = cmp.mapping.scroll_docs(-4),
             ['<C-p>'] = cmp.mapping.scroll_docs(4),
             ['<C-h>'] = cmp.mapping.close(),
