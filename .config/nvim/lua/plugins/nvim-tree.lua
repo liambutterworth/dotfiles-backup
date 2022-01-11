@@ -58,5 +58,6 @@ return function()
         },
     })
 
-    vim.api.nvim_set_keymap('n', '<cr>', '<cmd>NvimTreeToggle<cr>', { noremap = true })
+    vim.api.nvim_set_keymap('n', '<cr><cr>', '<cmd>NvimTreeToggle<cr>', { noremap = true })
+    vim.api.nvim_set_keymap('n', '<cr>f', '<cmd>NvimTreeFindFile<cr>', { noremap = true })
 end
