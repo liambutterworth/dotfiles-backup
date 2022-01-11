@@ -3,12 +3,6 @@ return function()
     local actions = require('telescope.actions')
 
     telescope.setup({
-        extensions = {
-            file_browser = {
-                theme = 'ivy',
-            },
-        },
-
         defaults = {
             prompt_prefix = '❯ ',
             selection_caret = '❯ ',
@@ -69,11 +63,10 @@ return function()
         },
     })
 
-    telescope.load_extension('file_browser')
-
+    vim.api.nvim_set_keymap('n', '<space><space>', '<cmd>Telescope find_files<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space><bs>', '<cmd>Telescope buffers<cr>', { noremap = true })
-    vim.api.nvim_set_keymap('n', '<space><space>', "<cmd>lua require 'telescope'.extensions.file_browser.file_browser()<cr>", { noremap = true })
     vim.api.nvim_set_keymap('n', '<space><tab>', '<cmd>Telescope jumplist<cr>', { noremap = true })
+    vim.api.nvim_set_keymap('n', '<space>.', '<cmd>Telescope find_files cwd=%:h<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>[', '<cmd>Telescope tagstack<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>]', '<cmd>Telescope tags<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>}', '<cmd>Telescope buffer_tags<cr>', { noremap = true })
@@ -92,8 +85,6 @@ return function()
     vim.api.nvim_set_keymap('n', '<space>gc', '<cmd>Telescope git_bcommits<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>gb', '<cmd>Telescope git_branches<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>gt', '<cmd>Telescope git_stash<cr>', { noremap = true })
-    vim.api.nvim_set_keymap('n', '<space>f', '<cmd>Telescope find_files<cr>', { noremap = true })
-    vim.api.nvim_set_keymap('n', '<space>F', '<cmd>Telescope find_files cwd=%:h<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>la', '<cmd>Telescope lsp_code_actions<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>ld', '<cmd>Telescope lsp_document_diagnostics<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', '<space>li', '<cmd>Telescope lsp_implementations<cr>', { noremap = true })
