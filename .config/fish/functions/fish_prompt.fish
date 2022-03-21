@@ -6,13 +6,15 @@ function fish_prompt
     set -l directory (dirs)
     set -l branch (git branch --show-current 2>/dev/null)
 
-    set -l character (switch $fish_bind_mode
-        case default
-            echo '❮'
+    set -l character (
+        switch $fish_bind_mode
+            case default
+                echo '❮'
 
-        case insert
-            echo '❯'
-    end)
+            case insert
+                echo '❯'
+        end
+    )
 
     printf '%s %s\n%s ' \
         (set_color -o blue)"$directory" \
