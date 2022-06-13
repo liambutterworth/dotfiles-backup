@@ -165,6 +165,7 @@ highlight NvimTreeGitStaged ctermfg=green
 highlight NvimTreeIndentMarker ctermfg=magenta
 highlight NvimTreeStatusLineNC ctermbg=black
 highlight NvimTreeSymlink cterm=bold ctermfg=cyan
+highlight NvimTreeStatusLineNC ctermbg=black ctermfg=black
 
 
 "

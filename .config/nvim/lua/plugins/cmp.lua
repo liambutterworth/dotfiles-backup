@@ -1,6 +1,9 @@
 return function()
     local cmp = require('cmp')
 
+    vim.api.nvim_set_keymap('n', '[k', '<cmd>lua require("cmp").setup { enabled = false }<cr>', {})
+    vim.api.nvim_set_keymap('n', ']k', '<cmd>lua require("cmp").setup { enabled = true }<cr>', {})
+
     cmp.setup({
         sources = {
             { name = 'buffer' },

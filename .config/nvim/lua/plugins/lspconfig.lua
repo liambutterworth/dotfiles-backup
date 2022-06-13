@@ -60,7 +60,7 @@ return function()
         on_attach = on_attach,
     }
 
-    config.vuels.setup {
+    config.volar.setup {
         capabilities = capabilities,
         on_attach = on_attach,
     }

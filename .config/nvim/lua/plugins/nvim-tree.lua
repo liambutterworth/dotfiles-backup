@@ -2,12 +2,6 @@ return function()
     local tree = require('nvim-tree')
     local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 
-    vim.g.nvim_tree_git_hl = 0
-
-    vim.g.nvim_tree_icons = {
-        default = ''
-    }
-
     tree.setup({
         disable_netrw = true,
         hijack_netrw = true,
@@ -17,7 +11,14 @@ return function()
             ignore = false
         },
 
+        renderer = {
+            highlight_git = false,
+        },
+
         view = {
+            -- adaptive_size = true,
+            width = 50,
+
             mappings = {
                 custom_only = true,
 
