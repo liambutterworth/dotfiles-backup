@@ -2,6 +2,7 @@ return function()
     vim.g.vsnip_snippet_dir = vim.fn.expand('~/.config/nvim/snippets')
 
     vim.g.vsnip_filetypes = {
+        typescript = { 'javascript' },
         vue = { 'html', 'css', 'javascript' },
     }
 

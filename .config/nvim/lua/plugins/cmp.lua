@@ -1,5 +1,6 @@
 return function()
     local cmp = require('cmp')
+    local context = require('cmp.config.context')
 
     vim.api.nvim_set_keymap('n', '[k', '<cmd>lua require("cmp").setup { enabled = false }<cr>', {})
     vim.api.nvim_set_keymap('n', ']k', '<cmd>lua require("cmp").setup { enabled = true }<cr>', {})
@@ -27,5 +28,13 @@ return function()
             ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
             ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
         },
+
+        enabled = function()
+            if context.in_treesitter_capture('comment')==true or context.in_syntax_group('Comment') then
+                return false
+            else
+                return true
+            end
+        end
     })
 end
