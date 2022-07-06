@@ -16,7 +16,7 @@ return packer.startup(function(use)
     use {
         'nvim-treesitter/nvim-treesitter',
 
-        config = require('plugins.treesitter'),
+        config = require('plugins.nvim-treesitter'),
         run = ':TSUpdate',
 
         requires = {
@@ -29,13 +29,13 @@ return packer.startup(function(use)
     use {
         'neovim/nvim-lspconfig',
 
-        config = require('plugins.lspconfig'),
+        config = require('plugins.nvim-lspconfig'),
     }
 
     use {
         'hrsh7th/nvim-cmp',
 
-        config = require('plugins.cmp'),
+        config = require('plugins.nvim-cmp'),
 
         requires = {
             'hrsh7th/cmp-buffer',
@@ -50,13 +50,13 @@ return packer.startup(function(use)
     use {
         'hrsh7th/vim-vsnip',
 
-        config = require('plugins.vsnip'),
+        config = require('plugins.vim-vsnip'),
     }
 
     use {
         'voldikss/vim-floaterm',
 
-        config = require('plugins.floaterm'),
+        config = require('plugins.vim-floaterm'),
     }
 
     use {
@@ -80,14 +80,18 @@ return packer.startup(function(use)
     use {
         'windwp/nvim-autopairs',
 
-        config = require('plugins.autopairs'),
+        config = require('plugins.nvim-autopairs'),
         requires = 'windwp/nvim-ts-autotag',
     }
 
     use {
         'junegunn/vim-easy-align',
 
-        config = require('plugins.easy-align'),
+        config = require('plugins.vim-easy-align'),
+    }
+
+    use {
+        'christoomey/vim-tmux-navigator',
     }
 
     use {

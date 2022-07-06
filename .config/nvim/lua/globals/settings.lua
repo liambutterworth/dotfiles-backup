@@ -1,6 +1,6 @@
 vim.g.loaded_netrw = 0
 
--- vim.opt.cmdheight = 0
+vim.opt.cmdheight = 0
 vim.opt.completeopt = { 'menuone', 'noselect' }
 vim.opt.expandtab = true
 vim.opt.fillchars = { vert = '│', eob = ' ' }

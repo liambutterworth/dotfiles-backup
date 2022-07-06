@@ -83,7 +83,7 @@ highlight TSMethod ctermfg=cyan
 highlight TSKeyword ctermfg=blue
 highlight TSNamespace ctermfg=white
 highlight TSNumber ctermfg=magenta
-highlight TSParameter ctermfg=blue
+highlight TSParameter ctermfg=white
 highlight TSPunctDelimiter ctermfg=white
 highlight TSPunctBracket ctermfg=white
 highlight TSProperty ctermfg=white
@@ -126,15 +126,15 @@ highlight TabLineInactiveIconModified cterm=bold ctermbg=black ctermfg=yellow
 " Statusline
 "
 
-highlight StatusLine cterm=none ctermbg=black ctermfg=none
+highlight StatusLine cterm=none ctermbg=none ctermfg=none
 highlight StatusLineClean cterm=bold ctermbg=black ctermfg=green
 highlight StatusLineDirty cterm=none ctermbg=black ctermfg=yellow
 highlight StatusLineHasErrors cterm=bold ctermbg=black ctermfg=red
 highlight StatusLineHasWarnings cterm=bold ctermbg=black ctermfg=yellow
 highlight StatusLineHasInformation cterm=bold ctermbg=black ctermfg=blue
 highlight StatusLineIcon cterm=bold ctermbg=black ctermfg=white
-highlight StatusLineOperator cterm=bold ctermbg=black ctermfg=blue
-highlight StatusLineNumber cterm=bold ctermbg=black ctermfg=magenta
+highlight StatusLineOperator cterm=bold ctermbg=none ctermfg=blue
+highlight StatusLineNumber cterm=bold ctermbg=none ctermfg=magenta
 highlight StatusLineInactive cterm=bold ctermbg=white ctermfg=black
 highlight StatusLineNC cterm=none ctermbg=none ctermfg=none
 highlight StatusLineNormal cterm=none ctermbg=black ctermfg=none

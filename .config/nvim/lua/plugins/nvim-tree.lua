@@ -16,8 +16,7 @@ return function()
         },
 
         view = {
-            -- adaptive_size = true,
-            width = 50,
+            width = 40,
 
             mappings = {
                 custom_only = true,
