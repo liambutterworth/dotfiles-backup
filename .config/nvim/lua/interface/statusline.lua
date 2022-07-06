@@ -31,6 +31,12 @@ function statusline:add_space()
     self:add(' ')
 end
 
+function statusline:add_bar()
+    self:highlight('Operator')
+    self:add(' │')
+    self:highlight()
+end
+
 function statusline:add_file()
     if not self.is_active then
         self:highlight('Inactive')
@@ -63,15 +69,13 @@ function statusline:add_line_number()
     self:add(':')
     self:highlight('Number')
     self:add('%c')
-    self:highlight()
-    self:add_space()
+    self:add_bar()
     self:add_separator()
 end
 
 function statusline:add_branch()
     if vim.b.gitsigns_head then
         self:highlight('Icon')
-        self:add_space()
         self:add('')
         self:highlight()
         self:add_space()
@@ -83,8 +87,7 @@ function statusline:add_branch()
         end
 
         self:add(vim.b.gitsigns_head)
-        self:add_space()
-        self:highlight()
+        self:add_bar()
         self:add_separator()
     end
 end
@@ -98,7 +101,6 @@ function statusline:add_diagnostics()
         self:highlight('HasWarnings')
     end
 
-    self:add_space()
     self:add('●')
     self:add_space()
 end

@@ -39,7 +39,7 @@ highlight MoreMsg ctermfg=green
 highlight ModeMsg cterm=none ctermfg=white
 highlight NonText cterm=bold ctermbg=none ctermfg=black
 highlight Normal ctermbg=none ctermfg=white
-highlight NormalFloat ctermbg=black
+highlight NormalFloat ctermbg=none
 highlight Number ctermfg=magenta
 highlight Operator ctermfg=blue
 highlight Pmenu ctermbg=black ctermfg=white
@@ -127,12 +127,12 @@ highlight TabLineInactiveIconModified cterm=bold ctermbg=black ctermfg=yellow
 "
 
 highlight StatusLine cterm=none ctermbg=none ctermfg=none
-highlight StatusLineClean cterm=bold ctermbg=black ctermfg=green
-highlight StatusLineDirty cterm=none ctermbg=black ctermfg=yellow
-highlight StatusLineHasErrors cterm=bold ctermbg=black ctermfg=red
-highlight StatusLineHasWarnings cterm=bold ctermbg=black ctermfg=yellow
-highlight StatusLineHasInformation cterm=bold ctermbg=black ctermfg=blue
-highlight StatusLineIcon cterm=bold ctermbg=black ctermfg=white
+highlight StatusLineClean cterm=bold ctermbg=none ctermfg=green
+highlight StatusLineDirty cterm=none ctermbg=none ctermfg=yellow
+highlight StatusLineHasErrors cterm=bold ctermbg=none ctermfg=red
+highlight StatusLineHasWarnings cterm=bold ctermbg=none ctermfg=yellow
+highlight StatusLineHasInformation cterm=bold ctermbg=none ctermfg=blue
+highlight StatusLineIcon cterm=bold ctermbg=none ctermfg=white
 highlight StatusLineOperator cterm=bold ctermbg=none ctermfg=blue
 highlight StatusLineNumber cterm=bold ctermbg=none ctermfg=magenta
 highlight StatusLineInactive cterm=bold ctermbg=white ctermfg=black
@@ -172,9 +172,9 @@ highlight NvimTreeStatusLineNC ctermbg=black ctermfg=black
 " Float
 "
 
-highlight Float ctermbg=black
-highlight FloatBorder ctermbg=black ctermfg=none
-highlight FloatShadow ctermbg=black
+highlight Float ctermbg=none
+highlight FloatBorder ctermbg=none ctermfg=none
+highlight FloatShadow ctermbg=none
 highlight FloatShadowThrough cterm=bold ctermbg=yellow
 
 "
