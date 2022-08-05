@@ -19,6 +19,7 @@ vim.api.nvim_set_keymap('n', '-', '<cmd>vertical resize -10<cr>', { noremap = tr
 vim.api.nvim_set_keymap('n', '+', '<cmd>vertical resize +10<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<c-n>', 'gt', { noremap = true })
 vim.api.nvim_set_keymap('n', '<c-p>', 'gT', { noremap = true })
+vim.api.nvim_set_keymap('n', '<c-w>t', '<cmd>tabnew<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<c-w>N', '"<cmd>tabmove +" . v:count1 . "<cr>"', { expr = true, noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<c-w>P', '"<cmd>tabmove -" . v:count1 . "<cr>"', { expr = true, noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<c-w><bs>', '<cmd>bwipe<cr>', { noremap = true, silent = true })
