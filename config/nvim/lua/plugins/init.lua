@@ -1,6 +1,4 @@
-local packer = require('packer')
-
-return packer.startup(function(use)
+return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use {
@@ -23,7 +21,7 @@ return packer.startup(function(use)
             'joosepalviste/nvim-ts-context-commentstring',
             'nvim-treesitter/nvim-treesitter-textobjects',
             'nvim-treesitter/playground',
-        },
+        }
     }
 
     use {

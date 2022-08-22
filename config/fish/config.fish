@@ -27,7 +27,8 @@ bind -M insert \cf accept-autosuggestion
 bind -M insert \cx accept-autosuggestion execute
 bind -M insert \cp history-search-backward
 bind -M insert \cn history-search-forward
-bind -M insert \cg fzf-cd-widget
+
+fzf_configure_bindings --directory=\ct
 
 #
 # Colors
@@ -55,6 +56,12 @@ set -g fish_pager_color_description yellow
 set -g fish_pager_color_prefix green
 set -g fish_pager_color_progress yellow
 set -g fish_pager_color_secondary magenta
+
+#
+# Path
+#
+
+set -x PATH /usr/local/opt/coreutils/libexec/gnubin $PATH
 
 #
 # Exports

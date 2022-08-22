@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# install packer.nvim
+git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+# install gnu tools on mac (overwrite bsd tools)
+brew install --with-default-names coreutils findutils gnu-tar gnu-sed gawk gnutls gnu-indent gnu-getopt grep
+
+# install language servers for neovim
+npm install -g vscode-langservers-extracted intelephense typescript @volar/vue-language-server
+
+# TODO
+#
+# - find an easier install for vue lsp that doesn't require typescript?
