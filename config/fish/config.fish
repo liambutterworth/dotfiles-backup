@@ -58,12 +58,6 @@ set -g fish_pager_color_progress yellow
 set -g fish_pager_color_secondary magenta
 
 #
-# Path
-#
-
-set -x PATH /usr/local/opt/coreutils/libexec/gnubin $PATH
-
-#
 # Exports
 #
 
@@ -100,8 +94,7 @@ set -x PASSWORD_STORE_DIR "$XDG_DATA_HOME/pass"
 fish_ssh_agent
 
 fish_add_path $HOME/.local/bin
-
-eval (dircolors -c $HOME/.config/dircolors/dircolors)
+fish_add_path /usr/local/sbin
 
 if test -e $XDG_CONFIG_HOME/fish/profile.fish
     source $XDG_CONFIG_HOME/fish/profile.fish

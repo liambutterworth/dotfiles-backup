@@ -50,7 +50,12 @@ return function()
         on_attach = on_attach,
     }
 
-    config.cssls.setup {
+    -- config.cssls.setup {
+    --     capabilities = capabilities,
+    --     on_attach = on_attach,
+    -- }
+
+    config.tailwindcss.setup {
         capabilities = capabilities,
         on_attach = on_attach,
     }
@@ -70,6 +75,11 @@ return function()
             }
         }
     }
+
+    -- config.phpactor.setup {
+    --     capabilities = capabilities,
+    --     on_attach = on_attach,
+    -- }
 
     config.intelephense.setup {
         capabilities = capabilities,

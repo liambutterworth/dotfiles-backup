@@ -70,32 +70,25 @@ highlight WarningMsg ctermfg=yellow
 " Treesitter
 "
 
-highlight TSBoolean ctermfg=magenta
-highlight TSConstructor ctermfg=cyan
-highlight TSConstant ctermfg=cyan
-highlight TSConstBuiltin ctermfg=blue
-highlight TSError ctermfg=red
-highlight TSField ctermfg=white
-highlight TSFloat ctermfg=magenta
-highlight TSFunction ctermfg=cyan
-highlight TSFuncBuiltin ctermfg=cyan
-highlight TSMethod ctermfg=cyan
-highlight TSKeyword ctermfg=blue
-highlight TSNamespace ctermfg=white
-highlight TSNumber ctermfg=magenta
-highlight TSParameter ctermfg=white
-highlight TSPunctDelimiter ctermfg=white
-highlight TSPunctBracket ctermfg=white
-highlight TSProperty ctermfg=white
-highlight TSString ctermfg=green
-highlight TSStringEscape ctermfg=yellow
-highlight TSTag ctermfg=blue
-highlight TSTagAttribute ctermfg=cyan
-highlight TSTagDelimiter ctermfg=blue
-highlight TSType ctermfg=cyan
-highlight TSTypeBuiltin ctermfg=blue
-highlight TSVariable cterm=none ctermfg=white
-highlight TSVariableBuiltin ctermfg=blue
+highlight @boolean ctermfg=magenta
+highlight @constant ctermfg=cyan
+highlight @constant.builtin ctermfg=blue
+highlight @constructor ctermfg=cyan
+highlight @float ctermfg=magenta
+highlight @function ctermfg=cyan
+highlight @function.builtin ctermfg=cyan
+highlight @function.call ctermfg=cyan
+highlight @method ctermfg=cyan
+highlight @method.call ctermfg=cyan
+highlight @punctuation.bracket ctermfg=white
+highlight @punctuation.delimiter ctermfg=white
+highlight @tag ctermfg=blue
+highlight @tag.attribute ctermfg=cyan
+highlight @type ctermfg=cyan
+highlight @type.builtin ctermfg=blue
+highlight @type.definition ctermfg=cyan
+highlight @type.qualifier ctermfg=blue
+highlight @variable.builtin ctermfg=blue
 
 "
 " Tabline
@@ -166,7 +159,6 @@ highlight NvimTreeIndentMarker ctermfg=magenta
 highlight NvimTreeStatusLineNC ctermbg=black
 highlight NvimTreeSymlink cterm=bold ctermfg=cyan
 highlight NvimTreeStatusLineNC ctermbg=black ctermfg=black
-
 
 "
 " Float
