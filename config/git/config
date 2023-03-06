@@ -9,8 +9,6 @@
     tool = nvim -d
 [init]
     defaultBranch = master
-[credential]
-    helper = git-credential-manager-core
 [merge]
     tool = nvim
 [mergetool]
