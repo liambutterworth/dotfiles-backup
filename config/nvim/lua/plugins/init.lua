@@ -51,11 +51,10 @@ return require('packer').startup(function(use)
         config = require('plugins.vim-vsnip'),
     }
 
-    use {
-        'voldikss/vim-floaterm',
-
-        config = require('plugins.vim-floaterm'),
-    }
+    -- use {
+    --     'voldikss/vim-floaterm',
+    --     config = require('plugins.vim-floaterm'),
+    -- }
 
     use {
         'nvim-telescope/telescope.nvim',
@@ -68,12 +67,11 @@ return require('packer').startup(function(use)
         },
     }
 
-    use {
-        'lewis6991/gitsigns.nvim',
-
-        config = require('plugins.gitsigns'),
-        requres = 'nvim-lua/plenary.nvim',
-    }
+    -- use {
+    --     'lewis6991/gitsigns.nvim',
+    --     config = require('plugins.gitsigns'),
+    --     requres = 'nvim-lua/plenary.nvim',
+    -- }
 
     use {
         'windwp/nvim-autopairs',
