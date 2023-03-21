@@ -16,7 +16,7 @@ return function()
 
         snippet = {
             expand = function(args)
-                vim.fn["vsnip#anonymous"](args.body)
+                vim.fn['vsnip#anonymous'](args.body)
             end,
         },
 
@@ -30,7 +30,7 @@ return function()
         },
 
         enabled = function()
-            if context.in_treesitter_capture('comment')==true or context.in_syntax_group('Comment') then
+            if context.in_treesitter_capture('comment') == true or context.in_syntax_group('Comment') then
                 return false
             else
                 return true
