@@ -24,6 +24,7 @@ key_bindings:
   - { key: L, mods: Control, chars: "\x0c" }
   - { key: L, mods: Control|Shift, action: ClearHistory }
   - { key: F, mods: Command|Control, action: ToggleSimpleFullscreen }
+  - { key: Space, mods: Control, chars: "\x00" }
 
 #
 # Colors
