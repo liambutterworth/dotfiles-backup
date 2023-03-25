@@ -59,7 +59,6 @@ return require('packer').startup(function(use)
         requires = {
             'nvim-lua/plenary.nvim',
             'kyazdani42/nvim-web-devicons',
-            'nvim-telescope/telescope-file-browser.nvim',
         },
     }
 
@@ -68,5 +67,12 @@ return require('packer').startup(function(use)
 
         config = require('plugins.nvim-autopairs'),
         requires = 'windwp/nvim-ts-autotag',
+    }
+
+    use {
+        'kyazdani42/nvim-tree.lua',
+
+        requires = 'kyazdani42/nvim-web-devicons',
+        config = require('plugins.nvim-tree'),
     }
 end)

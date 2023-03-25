@@ -1,6 +1,3 @@
-vim.g.loaded_netrw = 0
-vim.g.mapleader = ' '
-
 vim.opt.cmdheight = 0
 vim.opt.completeopt = { 'menuone', 'noselect' }
 vim.opt.expandtab = true
