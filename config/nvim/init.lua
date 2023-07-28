@@ -1,3 +1,4 @@
-require('globals')
-require('plugins')
-require('interface')
+require('config.plugins')
+require('config.settings')
+require('config.mappings')
+require('config.interface')
